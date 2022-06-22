@@ -22,7 +22,8 @@ export const CardContainer = styled.div<Props>`
     background-image: linear-gradient(
       152deg,
       #fff,
-      ${({ primaryColor = '#fff' }) => chroma(primaryColor).brighten(0.8).hex()}
+      ${({ primaryColor = '#fff' }) =>
+        chroma(primaryColor).brighten(0.8).hex()}
     );
   }
 
@@ -150,7 +151,8 @@ export const CardContainer = styled.div<Props>`
       background-image: linear-gradient(
         to right bottom,
         #000,
-        ${({ primaryColor = '#fff' }) => chroma(primaryColor).darken(0.5).hex()}
+        ${({ primaryColor = '#fff' }) =>
+          chroma(primaryColor).darken(0.5).hex()}
       );
 
       a {
