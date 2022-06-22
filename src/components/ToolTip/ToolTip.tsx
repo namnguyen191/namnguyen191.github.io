@@ -1,4 +1,5 @@
 import React, { memo, PropsWithChildren } from 'react';
+
 import { ToolTipContainer, ToolTipText } from './ToolTipStyles';
 
 export type ToolTipProps = {

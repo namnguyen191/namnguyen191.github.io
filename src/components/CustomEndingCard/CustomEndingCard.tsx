@@ -1,4 +1,5 @@
 import React, { memo } from 'react';
+
 import { CustomEndingCardContainer } from './CustomEndingCardStyles';
 
 export type CustomEndingCardProps = {};

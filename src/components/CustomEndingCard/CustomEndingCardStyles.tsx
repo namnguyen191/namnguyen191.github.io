@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import chroma from 'chroma-js';
 
 type Props = {
   imgUrl: string;

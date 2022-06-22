@@ -16,7 +16,7 @@ const BubbleDisplay: React.FC<BubbleDisplayProps> = (props) => {
     <BubbleDisplayContainer>
       <img src={imgUr} alt={`${title} image`} />
       <div className="text-container">
-        <a href={url} target="_blank">
+        <a href={url} target="_blank" rel="noreferrer">
           <span className="title">{title}</span>
         </a>
         <span className="description">{description}</span>

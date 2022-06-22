@@ -1,4 +1,5 @@
 import React, { memo } from 'react';
+
 import { FloatingCardContainer } from './FloatingCardStyles';
 
 export type FloatingCardProps = {

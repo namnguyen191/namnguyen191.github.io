@@ -4,4 +4,4 @@ dist
 dist-ssr
 *.local
 node_modules/*
-**/**.d.ts
+src/vite-env.d.ts

@@ -1,7 +1,7 @@
+import chroma from 'chroma-js';
 import styled from 'styled-components';
 
 import { NavbarProps } from './Navbar';
-import chroma from 'chroma-js';
 
 const dynamicFontColor = (props: NavbarProps) => {
   return chroma(props.bgColor).luminance() >= 0.7 ? '#41418a' : '#edece8';

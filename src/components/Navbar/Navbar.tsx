@@ -1,4 +1,5 @@
 import React, { memo, PropsWithChildren } from 'react';
+
 import { NavbarContainer } from './NavbarStyles';
 
 export type NavbarProps = {

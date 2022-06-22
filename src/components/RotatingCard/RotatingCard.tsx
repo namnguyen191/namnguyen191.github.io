@@ -1,8 +1,8 @@
-import React, { memo } from 'react';
 import GitHubIcon from '@material-ui/icons/GitHub';
+import React, { memo } from 'react';
 
-import { CardContainer } from './RotatingCardStyles';
 import ToolTip from '../ToolTip/ToolTip';
+import { CardContainer } from './RotatingCardStyles';
 
 export type RotatingCardProps = {
   title: string;
@@ -44,13 +44,18 @@ const RotatingCard: React.FC<RotatingCardProps> = (props) => {
       <div className="card__side card__side--back">
         {description && <span className="description">{description}</span>}
         {siteUrl && (
-          <a href={siteUrl} className="siteUrl" target="_blank">
+          <a
+            href={siteUrl}
+            className="siteUrl"
+            target="_blank"
+            rel="noreferrer"
+          >
             View Site
           </a>
         )}
         {githubUrl && (
           <ToolTip text="Github Source">
-            <a href={githubUrl} target="_blank">
+            <a href={githubUrl} target="_blank" rel="noreferrer">
               <GitHubIcon
                 className="githubUrl"
                 style={{ fontSize: '3.5rem', color: '#101d2c' }}
