@@ -1,6 +1,6 @@
-import React, { memo } from 'react';
+import React from 'react';
 
-import { FloatingCardContainer } from './FloatingCardStyles';
+import styles from './FloatingCard.module.scss';
 
 export type FloatingCardProps = {
   title: string;
@@ -8,18 +8,16 @@ export type FloatingCardProps = {
   imgSrc: string;
 };
 
-const FloatingCard: React.FC<FloatingCardProps> = (props) => {
+export const FloatingCard: React.FC<FloatingCardProps> = (props) => {
   const { title, items, imgSrc } = props;
 
   return (
-    <FloatingCardContainer>
+    <div className={styles['floating-card-container']}>
       <img src={imgSrc} alt={`${title} icon`} />
       <h5>{title}</h5>
       {items.map((item) => (
         <span key={item}>{item}</span>
       ))}
-    </FloatingCardContainer>
+    </div>
   );
 };
-
-export default memo(FloatingCard);

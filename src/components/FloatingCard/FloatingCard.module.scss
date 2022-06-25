@@ -1,6 +1,4 @@
-import styled from 'styled-components';
-
-export const FloatingCardContainer = styled.div`
+.floating-card-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -30,4 +28,4 @@ export const FloatingCardContainer = styled.div`
     margin: 0.5rem 0;
     font-size: 1.5rem;
   }
-`;
+}

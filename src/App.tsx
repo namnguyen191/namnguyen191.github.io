@@ -1,13 +1,17 @@
-import { BubbleDisplay } from './components/BubbleDisplay/BubbleDisplay';
+import { FloatingCard } from './components/FloatingCard/FloatingCard';
 
 export const App: React.FC = () => {
   return (
     <div style={{ height: '200vh' }}>
-      <BubbleDisplay
-        title="Natours"
-        description="Sass | Advanced CSS"
-        imgUr="/natour.webp"
-        url="https://namnguyen191.github.io/Natours/"
+      <FloatingCard
+        imgSrc="/front-end.svg"
+        items={[
+          'HTML | CSS | JAVASCRIPT',
+          'SASS | BOOTSTRAP | MATERIALIZE',
+          'FIGMA | ADOBEXD',
+          'REACT & REDUX | ANGULAR'
+        ]}
+        title="FRONT-END"
       />
     </div>
   );
