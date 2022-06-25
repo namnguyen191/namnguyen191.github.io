@@ -1,6 +1,4 @@
-import styled from 'styled-components';
-
-export const AnimatedLinkContainer = styled.span`
+.animated-link-container {
   position: relative;
   width: max-content;
   color: #2f56b0;
@@ -28,4 +26,4 @@ export const AnimatedLinkContainer = styled.span`
       right: 0;
     }
   }
-`;
+}

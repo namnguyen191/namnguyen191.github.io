@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { AnimatedLinkContainer } from './AnimatedLinkStyles';
+import styles from './AnimatedLink.module.scss';
 
 export type AnimatedLinkProps = {
   linkName: string;
@@ -11,11 +11,11 @@ const AnimatedLink: React.FC<AnimatedLinkProps> = (props) => {
   const { linkName, url } = props;
 
   return (
-    <AnimatedLinkContainer>
+    <span className={styles['animated-link-container']}>
       <a href={url} target="_blank" rel="noreferrer">
         {linkName}
       </a>
-    </AnimatedLinkContainer>
+    </span>
   );
 };
 
