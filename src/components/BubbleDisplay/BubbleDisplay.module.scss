@@ -1,6 +1,4 @@
-import styled from 'styled-components';
-
-export const BubbleDisplayContainer = styled.div`
+.bubble-display-container {
   width: 20rem;
   padding: 1rem 0;
 
@@ -40,4 +38,4 @@ export const BubbleDisplayContainer = styled.div`
     height: 4.5rem;
     border-radius: 100rem;
   }
-`;
+}

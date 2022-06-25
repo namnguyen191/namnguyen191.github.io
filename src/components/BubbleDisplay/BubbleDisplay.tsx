@@ -1,6 +1,6 @@
-import React, { memo } from 'react';
+import React from 'react';
 
-import { BubbleDisplayContainer } from './BubbleDisplayStyles';
+import styles from './BubbleDisplay.module.scss';
 
 export type BubbleDisplayProps = {
   imgUr: string;
@@ -9,20 +9,18 @@ export type BubbleDisplayProps = {
   url: string;
 };
 
-const BubbleDisplay: React.FC<BubbleDisplayProps> = (props) => {
+export const BubbleDisplay: React.FC<BubbleDisplayProps> = (props) => {
   const { imgUr, title, description, url } = props;
 
   return (
-    <BubbleDisplayContainer>
+    <div className={styles['bubble-display-container']}>
       <img src={imgUr} alt={`${title} image`} />
-      <div className="text-container">
+      <div className={styles['text-container']}>
         <a href={url} target="_blank" rel="noreferrer">
-          <span className="title">{title}</span>
+          <span className={styles['title']}>{title}</span>
         </a>
-        <span className="description">{description}</span>
+        <span className={styles['description']}>{description}</span>
       </div>
-    </BubbleDisplayContainer>
+    </div>
   );
 };
-
-export default memo(BubbleDisplay);

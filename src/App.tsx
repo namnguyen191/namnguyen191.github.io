@@ -1,11 +1,13 @@
-import { AnimatedLink } from './components/AnimatedLink/AnimatedLink';
+import { BubbleDisplay } from './components/BubbleDisplay/BubbleDisplay';
 
 export const App: React.FC = () => {
   return (
     <div style={{ height: '200vh' }}>
-      <AnimatedLink
-        linkName="@LinkedIn: Nam Nguyen"
-        url="https://www.linkedin.com/in/nam-nguyen-865226132"
+      <BubbleDisplay
+        title="Natours"
+        description="Sass | Advanced CSS"
+        imgUr="/natour.webp"
+        url="https://namnguyen191.github.io/Natours/"
       />
     </div>
   );
