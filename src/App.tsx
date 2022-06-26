@@ -1,4 +1,4 @@
-import { TypeWriter } from './components/TypeWriter/TypeWriter';
+import { ProjectCard } from './components/ProjectCard/ProjectCard';
 
 export const App: React.FC = () => {
   return (
@@ -10,15 +10,15 @@ export const App: React.FC = () => {
         justifyContent: 'center'
       }}
     >
-      <h1>
-        Nam Nguyen The{' '}
-        <div className="type-writer-container">
-          <TypeWriter
-            writerTexts={['Developer', 'Designer', 'Learner']}
-            pauseTime={1500}
-          />
-        </div>
-      </h1>
+      <ProjectCard
+        description="A SIMPLE TRAVEL WEBSITE BUILT USING ADVANCE CSS TECHNIQUES"
+        imgUrl="/natour.webp"
+        stacks={['html', 'css', 'sass', 'bootstrap']}
+        title="Natour Travel Website"
+        githubUrl="https://github.com/namnguyen191/Natours"
+        siteUrl="https://namnguyen191.github.io/Natours/"
+        primaryColor="#28b485"
+      />
     </div>
   );
 };
