@@ -1,13 +1,14 @@
-import React, { memo, PropsWithChildren } from 'react';
+import React from 'react';
 
-import { FooterContainer } from './FooterStyles';
+import styles from './Footer.module.scss';
 
-export type FooterProps = {};
-
-const Footer: React.FC<PropsWithChildren<FooterProps>> = (props) => {
-  const { children } = props;
-
-  return <FooterContainer>{children}</FooterContainer>;
+export const Footer: React.FC = () => {
+  return (
+    <footer className={styles['footer-container']}>
+      &copy; 2021 by Nam Nguyen. All rights reserved. &nbsp;
+      <a href="https://github.com/namnguyen191/nextjs-portfolio">
+        Free to use for learning purposes.
+      </a>
+    </footer>
+  );
 };
-
-export default memo(Footer);

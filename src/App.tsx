@@ -1,4 +1,4 @@
-import { ToBeContinuedCard } from './components/CustomEndingCard/ToBeContinuedCard';
+import { Footer } from './components/Footer/Footer';
 
 export const App: React.FC = () => {
   return (
@@ -10,7 +10,7 @@ export const App: React.FC = () => {
         justifyContent: 'center'
       }}
     >
-      <ToBeContinuedCard />
+      <Footer />
     </div>
   );
 };
