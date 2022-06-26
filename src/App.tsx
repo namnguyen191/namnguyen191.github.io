@@ -1,17 +1,23 @@
-import { FloatingCard } from './components/FloatingCard/FloatingCard';
+import { RotatingCard } from './components/RotatingCard/RotatingCard';
 
 export const App: React.FC = () => {
   return (
-    <div style={{ height: '200vh' }}>
-      <FloatingCard
-        imgSrc="/front-end.svg"
-        items={[
-          'HTML | CSS | JAVASCRIPT',
-          'SASS | BOOTSTRAP | MATERIALIZE',
-          'FIGMA | ADOBEXD',
-          'REACT & REDUX | ANGULAR'
-        ]}
-        title="FRONT-END"
+    <div
+      style={{
+        height: '100vh',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center'
+      }}
+    >
+      <RotatingCard
+        description="A SIMPLE TRAVEL WEBSITE BUILT USING ADVANCE CSS TECHNIQUES"
+        imgUrl="/natour.webp"
+        stacks={['html', 'css', 'sass', 'bootstrap']}
+        title="Natour Travel Website"
+        githubUrl="https://github.com/namnguyen191/Natours"
+        siteUrl="https://namnguyen191.github.io/Natours/"
+        primaryColor="#28b485"
       />
     </div>
   );

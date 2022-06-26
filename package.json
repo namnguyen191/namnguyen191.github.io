@@ -11,6 +11,7 @@
     "lint": "npm run lint:format && npm run lint:fix "
   },
   "dependencies": {
+    "autoprefixer": "^10.4.7",
     "chroma-js": "^2.4.2",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
@@ -35,5 +36,11 @@
     "typescript": "^4.6.3",
     "vite": "^2.9.9"
   },
-  "pre-commit": "lint"
+  "pre-commit": "lint",
+  "browserslist": [
+    ">1%",
+    "not ie 11",
+    "not dead",
+    "not op_mini all"
+  ]
 }

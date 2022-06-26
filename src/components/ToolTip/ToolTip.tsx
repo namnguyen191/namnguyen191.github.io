@@ -1,20 +1,18 @@
-import React, { memo, PropsWithChildren } from 'react';
+import React, { PropsWithChildren } from 'react';
 
-import { ToolTipContainer, ToolTipText } from './ToolTipStyles';
+import styles from './ToolTip.module.scss';
 
-export type ToolTipProps = {
-  text: string;
-};
+export type ToolTipProps = { text: string };
 
-const ToolTip: React.FC<PropsWithChildren<ToolTipProps>> = (props) => {
-  const { children, text } = props;
+export const ToolTip: React.FC<PropsWithChildren<ToolTipProps>> = (
+  props
+) => {
+  const { text, children } = props;
 
   return (
-    <ToolTipContainer>
+    <div className={styles['tool-tip-container']}>
       {children}
-      <ToolTipText>{text}</ToolTipText>
-    </ToolTipContainer>
+      <div className={styles['tool-tip-text']}>{text}</div>
+    </div>
   );
 };
-
-export default memo(ToolTip);
