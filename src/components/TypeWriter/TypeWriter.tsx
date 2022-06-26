@@ -1,6 +1,6 @@
-import React, { memo, useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
-import { TypeWriterContainer } from './TypeWriterStyles';
+import styles from './TypeWriter.module.scss';
 
 export type TypeWriterProps = {
   writerTexts: string[];
@@ -8,8 +8,9 @@ export type TypeWriterProps = {
   pauseTime?: number;
 };
 
-const TypeWriter: React.FC<TypeWriterProps> = (props) => {
+export const TypeWriter: React.FC<TypeWriterProps> = (props) => {
   const { writerTexts, typeSpeed = 180, pauseTime = 2000 } = props;
+
   const [display, setDisplay] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
   const wordIndex = useRef(0);
@@ -56,14 +57,5 @@ const TypeWriter: React.FC<TypeWriterProps> = (props) => {
     }, typeDelay.current);
   });
 
-  return (
-    <TypeWriterContainer
-      currentDisplay={display}
-      blink={typeDelay.current === pauseTime}
-    >
-      {display}
-    </TypeWriterContainer>
-  );
+  return <div className={styles['type-writer-container']}>{display}</div>;
 };
-
-export default memo(TypeWriter);
