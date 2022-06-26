@@ -1,4 +1,4 @@
-import { ProjectCard } from './components/ProjectCard/ProjectCard';
+import { ToBeContinuedCard } from './components/CustomEndingCard/ToBeContinuedCard';
 
 export const App: React.FC = () => {
   return (
@@ -10,15 +10,7 @@ export const App: React.FC = () => {
         justifyContent: 'center'
       }}
     >
-      <ProjectCard
-        description="A SIMPLE TRAVEL WEBSITE BUILT USING ADVANCE CSS TECHNIQUES"
-        imgUrl="/natour.webp"
-        stacks={['html', 'css', 'sass', 'bootstrap']}
-        title="Natour Travel Website"
-        githubUrl="https://github.com/namnguyen191/Natours"
-        siteUrl="https://namnguyen191.github.io/Natours/"
-        primaryColor="#28b485"
-      />
+      <ToBeContinuedCard />
     </div>
   );
 };

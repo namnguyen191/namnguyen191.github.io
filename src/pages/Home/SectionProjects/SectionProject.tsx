@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 
-import CustomEndingCard from '../../../Components/CustomEndingCard/CustomEndingCard';
+import CustomEndingCard from '../../../components/CustomEndingCard/ToBeContinuedCard';
 import RotatingCard from '../../../Components/RotatingCard/RotatingCard';
 import { SectionProjectContainer } from './SectionProjectStyles';
 
