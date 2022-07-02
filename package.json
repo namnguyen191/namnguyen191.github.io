@@ -11,6 +11,10 @@
     "lint": "npm run lint:format && npm run lint:fix "
   },
   "dependencies": {
+    "@emotion/react": "^11.9.3",
+    "@emotion/styled": "^11.9.3",
+    "@mui/icons-material": "^5.8.4",
+    "@mui/material": "^5.8.6",
     "autoprefixer": "^10.4.7",
     "chroma-js": "^2.4.2",
     "react": "^18.0.0",
