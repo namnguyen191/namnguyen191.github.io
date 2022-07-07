@@ -1,16 +1,16 @@
-import React, { memo } from 'react';
+import React from 'react';
 
-import BubbleDisplay from '../../../Components/BubbleDisplay/BubbleDisplay';
-import TypeWriter from '../../../Components/TypeWriter/TypeWriter';
-import { SectionIntroContainer } from './SectionIntroStyles';
+import { BubbleDisplay } from '../../../components/BubbleDisplay/BubbleDisplay';
+import { TypeWriter } from '../../../components/TypeWriter/TypeWriter';
+import styles from './SectionIntro.module.scss';
 
-const SectionIntro: React.FC = () => {
+export const SectionIntro: React.FC = () => {
   return (
-    <SectionIntroContainer id="home">
-      <div className="head-lines">
+    <div className={styles['section-intro-container']}>
+      <div className={styles['head-lines']}>
         <h1>
           Nam Nguyen The{' '}
-          <div className="type-writer-container">
+          <div className={styles['type-writer-container']}>
             <TypeWriter
               writerTexts={['Developer', 'Designer', 'Learner']}
               pauseTime={1500}
@@ -20,7 +20,7 @@ const SectionIntro: React.FC = () => {
         <span>Welcome to my page!</span>
       </div>
 
-      <div className="top-3-projects">
+      <div className={styles['top-3-projects']}>
         <h2>Top 3 Projects</h2>
         <BubbleDisplay
           title="Natours"
@@ -41,8 +41,6 @@ const SectionIntro: React.FC = () => {
           url="https://dotnet5-datingapp.herokuapp.com/"
         />
       </div>
-    </SectionIntroContainer>
+    </div>
   );
 };
-
-export default memo(SectionIntro);

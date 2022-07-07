@@ -1,0 +1,12 @@
+$navbar-large-screen-width: 4.5rem;
+
+.app-container {
+  margin-left: $navbar-large-screen-width;
+  display: flex;
+  flex-direction: column;
+  gap: 10rem;
+
+  @media only screen and (max-width: 1200px) {
+    margin-left: 0;
+  }
+}

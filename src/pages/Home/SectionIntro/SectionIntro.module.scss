@@ -1,6 +1,4 @@
-import styled from 'styled-components';
-
-export const SectionIntroContainer = styled.section`
+.section-intro-container {
   height: 80vh;
 
   display: grid;
@@ -84,9 +82,6 @@ export const SectionIntroContainer = styled.section`
     grid-template-columns: 1fr;
     grid-template-rows: 5fr 3fr;
 
-    .head-lines {
-    }
-
     .top-3-projects {
       padding: 3rem;
     }
@@ -101,4 +96,4 @@ export const SectionIntroContainer = styled.section`
       padding: 3rem 0;
     }
   }
-`;
+}
