@@ -1,16 +1,12 @@
-import React, { memo } from 'react';
+import React from 'react';
 
-import AnimatedLink from '../../../Components/AnimatedLink/AnimatedLink';
-import { SectionInfoContainer } from './SectionInfoStyles';
+import { AnimatedLink } from '../../../components/AnimatedLink/AnimatedLink';
+import styles from './SectionInfo.module.scss';
 
-export type SectionInfoProps = {};
-
-const SectionInfo: React.FC<SectionInfoProps> = (props) => {
-  const {} = props;
-
+export const SectionInfo: React.FC = () => {
   return (
-    <SectionInfoContainer id="about">
-      <div className="container">
+    <section className={styles['section-info-container']} id="about">
+      <div className={styles['container']}>
         <h3>About Me</h3>
         <p>
           Hi there! I&apos;m Nam Nguyen from Toronto, Canada. I&apos;m
@@ -20,14 +16,14 @@ const SectionInfo: React.FC<SectionInfoProps> = (props) => {
           technologies. I especially open to criticism and always ready to
           learn from others.
         </p>
-        <span className="quote">
+        <span className={styles['quote']}>
           “ Your mind is programmable – if you&apos;re not programming your
           mind, someone else will program it for you ” ‐ Jeremy Hammond
         </span>
       </div>
-      <div className="container">
+      <div className={styles['container']}>
         <h3>Contact Me At:</h3>
-        <span className="contact-link-container">
+        <span className={styles['contact-link-container']}>
           <img
             src="/linkedin.svg"
             alt="Linked Icon"
@@ -39,14 +35,14 @@ const SectionInfo: React.FC<SectionInfoProps> = (props) => {
             url="https://www.linkedin.com/in/nam-nguyen-865226132"
           />
         </span>
-        <span className="contact-link-container">
+        <span className={styles['contact-link-container']}>
           <img src="/gmail.svg" alt="Gmail Icon" width={35} height={35} />
           <AnimatedLink
             linkName="@GMail: hoangnamnguyen191"
             url="mailto:hoangnamnguyen191@gmail.com"
           />
         </span>
-        <span className="contact-link-container">
+        <span className={styles['contact-link-container']}>
           <img
             src="/github.svg"
             alt="Github Icon"
@@ -59,8 +55,6 @@ const SectionInfo: React.FC<SectionInfoProps> = (props) => {
           />
         </span>
       </div>
-    </SectionInfoContainer>
+    </section>
   );
 };
-
-export default memo(SectionInfo);

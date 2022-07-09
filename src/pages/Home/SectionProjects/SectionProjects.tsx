@@ -1,19 +1,22 @@
-import React, { memo } from 'react';
+import React from 'react';
 
-import CustomEndingCard from '../../../components/CustomEndingCard/ToBeContinuedCard';
-import RotatingCard from '../../../Components/RotatingCard/RotatingCard';
-import { SectionProjectContainer } from './SectionProjectStyles';
+import { ToBeContinuedCard } from '../../../components/CustomEndingCard/ToBeContinuedCard';
+import { ProjectCard } from '../../../components/ProjectCard/ProjectCard';
+import styles from './SectionProjects.module.scss';
 
-export type SectionProjectProps = {};
+export type SectionProjectsProps = {};
 
-const SectionProject: React.FC<SectionProjectProps> = (props) => {
+export const SectionProjects: React.FC<SectionProjectsProps> = (props) => {
   const {} = props;
 
   return (
-    <SectionProjectContainer id="projects">
+    <section
+      className={styles['section-projects-container']}
+      id="projects"
+    >
       <h3>PROJECTS PORTFOLIO</h3>
-      <div className="cards-container">
-        <RotatingCard
+      <div className={styles['cards-container']}>
+        <ProjectCard
           description="A SIMPLE TRAVEL WEBSITE BUILT USING ADVANCE CSS TECHNIQUES"
           imgUrl="/natour.webp"
           stacks={['html', 'css', 'sass', 'bootstrap']}
@@ -22,7 +25,7 @@ const SectionProject: React.FC<SectionProjectProps> = (props) => {
           siteUrl="https://namnguyen191.github.io/Natours/"
           primaryColor="#28b485"
         />
-        <RotatingCard
+        <ProjectCard
           description="A SIMPLE REAL ESTATE WEBSITE BUILT USING THE POWER OF CSS GRID"
           imgUrl="/nexter-min.webp"
           stacks={['html', 'css', 'sass', 'grid']}
@@ -31,7 +34,7 @@ const SectionProject: React.FC<SectionProjectProps> = (props) => {
           siteUrl="https://namnguyen191.github.io/nexter/"
           primaryColor="#775835"
         />
-        <RotatingCard
+        <ProjectCard
           description="A SIMPLE TRAVEL SERVICE WEBSITE BUILT USING FLEXBOX"
           imgUrl="/trillio-min.webp"
           stacks={['html', 'css', 'sass', 'flexbox']}
@@ -40,7 +43,7 @@ const SectionProject: React.FC<SectionProjectProps> = (props) => {
           siteUrl="https://namnguyen191.github.io/Trillo/"
           primaryColor="#ba265d"
         />
-        <RotatingCard
+        <ProjectCard
           description="A SINGLE PAGE APPLICATION THAT PROVIDES SURVEYS SENDING SERVICE"
           imgUrl="/survey.webp"
           stacks={[
@@ -55,7 +58,7 @@ const SectionProject: React.FC<SectionProjectProps> = (props) => {
           siteUrl="https://reactsirvey.herokuapp.com/"
           primaryColor="#14a0c4"
         />
-        <RotatingCard
+        <ProjectCard
           description="AN ONLINE DATING SPA THAT SUPPORT ONLINE CHAT AND IMAGE UPLOAD"
           imgUrl="/dating-app-crop.webp"
           stacks={[
@@ -70,7 +73,7 @@ const SectionProject: React.FC<SectionProjectProps> = (props) => {
           siteUrl="https://dotnet5-datingapp.herokuapp.com/"
           primaryColor="#c34113"
         />
-        <RotatingCard
+        <ProjectCard
           description="A TRAVEL WEBSITE WITH COMPLETE BACK-END API"
           imgUrl="/natour.webp"
           stacks={['nodejs', 'express', 'mongodb', 'jwt', 'stripe']}
@@ -79,7 +82,7 @@ const SectionProject: React.FC<SectionProjectProps> = (props) => {
           siteUrl="https://udemynatours.herokuapp.com/"
           primaryColor="#28b485"
         />
-        <RotatingCard
+        <ProjectCard
           description="A COLOR PICKER SPA BUILT WITH REACTJS AND MATERIAL-UI!"
           imgUrl="/gradient_8.png"
           stacks={['reactjs', 'material-ui', 'typescript', 'chromajs']}
@@ -88,7 +91,7 @@ const SectionProject: React.FC<SectionProjectProps> = (props) => {
           siteUrl="https://rainbow-wave.herokuapp.com/"
           primaryColor="#cdda21"
         />
-        <RotatingCard
+        <ProjectCard
           description="A RECIPE MANAGER WEBSITE BUILT WITH ANGULAR"
           imgUrl="/recipe-app.webp"
           stacks={['Angular', 'Bootstrap', 'typescript', 'firebase']}
@@ -96,7 +99,7 @@ const SectionProject: React.FC<SectionProjectProps> = (props) => {
           githubUrl="https://github.com/namnguyen191/angular-recipe-app"
           siteUrl="https://angular-recipe-project-fa966.web.app/"
         />
-        <RotatingCard
+        <ProjectCard
           description="A SIMPLE RECIPE FINDER APP BUILT USING THE LATEST ES6 FEATURES"
           imgUrl="/forkify.png"
           stacks={['html', 'css', 'ES6', 'webpack']}
@@ -105,7 +108,7 @@ const SectionProject: React.FC<SectionProjectProps> = (props) => {
           siteUrl="https://namnguyen191.github.io/forkify/"
           primaryColor="#FBDB89"
         />
-        <RotatingCard
+        <ProjectCard
           description="A SIMPLE WEBSITE TO PROMOTE THE YUHACK HACKATHON EVENT"
           imgUrl="/yuHacks-Logo.png"
           stacks={['html', 'css', 'js', 'gulp']}
@@ -113,7 +116,7 @@ const SectionProject: React.FC<SectionProjectProps> = (props) => {
           siteUrl="https://yuhacks.info/"
           primaryColor="#2d698a"
         />
-        <RotatingCard
+        <ProjectCard
           description="A COOL PROJECT TO SHARPEN MY ANGULAR, CSS AND JS SKILLS"
           imgUrl="/angular-50-bg.webp"
           stacks={['angular', 'scss', 'js', 'html']}
@@ -122,7 +125,7 @@ const SectionProject: React.FC<SectionProjectProps> = (props) => {
           githubUrl="https://github.com/namnguyen191/fifty-projects"
           primaryColor="#4087e4"
         />
-        <RotatingCard
+        <ProjectCard
           description="AN ONLINE CODE EDITOR AND COMPILER. BUILT WITH CODES MAINTAINABILITY IN MIND BY USING TYPESCRIPT"
           imgUrl="/online-compiler-bg.webp"
           stacks={['react', 'typescript', 'redux', 'axios']}
@@ -130,10 +133,8 @@ const SectionProject: React.FC<SectionProjectProps> = (props) => {
           githubUrl="https://github.com/namnguyen191/OnlineCompiler"
           primaryColor="#200a5a"
         />
-        <CustomEndingCard />
+        <ToBeContinuedCard />
       </div>
-    </SectionProjectContainer>
+    </section>
   );
 };
-
-export default memo(SectionProject);

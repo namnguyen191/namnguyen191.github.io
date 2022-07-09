@@ -1,11 +1,9 @@
-import styled from 'styled-components';
-
-export const SectionInfoContainer = styled.section`
+.section-info-container {
   display: flex;
   justify-content: center;
   gap: 4vw;
 
-  padding: 4vw;
+  padding: 0 4vw;
 
   h3 {
     font-size: 3rem;
@@ -51,4 +49,4 @@ export const SectionInfoContainer = styled.section`
       display: none !important;
     }
   }
-`;
+}

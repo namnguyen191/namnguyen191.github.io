@@ -1,15 +1,11 @@
-import React, { memo } from 'react';
+import React from 'react';
 
-import FloatingCard from '../../../Components/FloatingCard/FloatingCard';
-import { SectionSkillsContainer } from './SectionSkillsStyles';
+import { FloatingCard } from '../../../components/FloatingCard/FloatingCard';
+import styles from './SectionSkills.module.scss';
 
-export type SectionSkillsProps = {};
-
-const SectionSkills: React.FC<SectionSkillsProps> = (props) => {
-  const {} = props;
-
+export const SectionSkills: React.FC = () => {
   return (
-    <SectionSkillsContainer id="stacks">
+    <section className={styles['section-skills-container']} id="stacks">
       <FloatingCard
         imgSrc="/front-end.svg"
         items={[
@@ -45,8 +41,6 @@ const SectionSkills: React.FC<SectionSkillsProps> = (props) => {
         ]}
         title="DEVOPS"
       />
-    </SectionSkillsContainer>
+    </section>
   );
 };
-
-export default memo(SectionSkills);

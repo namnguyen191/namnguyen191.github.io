@@ -1,6 +1,4 @@
-import styled from 'styled-components';
-
-export const SectionProjectContainer = styled.section`
+.section-projects-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -20,4 +18,4 @@ export const SectionProjectContainer = styled.section`
     justify-items: center;
     gap: 3rem;
   }
-`;
+}
