@@ -6,7 +6,11 @@ import {
   ProjectCard,
   ProjectCardProps
 } from '../../../components/ProjectCard/ProjectCard';
-import { getFile, getUserRepos } from '../../../utils/api/github.api';
+import {
+  getFile,
+  getUserRepos,
+  Repo
+} from '../../../utils/api/github.api';
 import styles from './SectionProjects.module.scss';
 
 type RepoMetaData = {
@@ -17,16 +21,28 @@ type RepoMetaData = {
 };
 
 const getProjects = async (): Promise<ProjectCardProps[]> => {
-  const repos = await getUserRepos({
-    user: 'namnguyen191',
-    pageLength: 100
-  });
+  const pageLength = 100;
+  let page = 1;
 
-  if (!repos) return [];
+  const accumulatedRepo: Repo[] = [];
+  while (true) {
+    const repos = await getUserRepos({
+      user: 'namnguyen191',
+      pageLength,
+      pageNumber: page
+    });
+
+    if (!repos) break;
+    accumulatedRepo.push(...repos);
+
+    if (repos?.length < pageLength) break;
+
+    page++;
+  }
 
   const projectCardsProps: ProjectCardProps[] = [];
 
-  for (const repo of repos) {
+  for (const repo of accumulatedRepo) {
     if (repo.topics.indexOf('featured') === -1) continue;
 
     const readme = await getFile(

@@ -1,9 +1,10 @@
 import axios, { AxiosResponse } from 'axios';
 
 const GITHUB_RAW_FILE_BASE_URL = 'https://raw.githubusercontent.com';
-const GITHUB_API_BASE_URL = 'https://api.github.com';
+const GITHUB_API_BASE_URL =
+  'https://github-api-server.vercel.app/api/repos';
 
-type Repo = {
+export type Repo = {
   id: number;
   name: string;
   full_name: string;
@@ -56,7 +57,7 @@ export const getUserRepos = async (params: {
   let res: AxiosResponse<Repo[], any>;
   try {
     res = await axios.get<Repo[]>(
-      `${GITHUB_API_BASE_URL}/users/${user}/repos?type=owner&sort=${sortBy}&direction=${sortDirection}&per_page=${pageLength}&page=${pageNumber}`
+      `${GITHUB_API_BASE_URL}?user=${user}&sort=${sortBy}&direction=${sortDirection}&pageLength=${pageLength}&page=${pageNumber}`
     );
 
     return res.data;
