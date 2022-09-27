@@ -1,8 +1,11 @@
 import axios, { AxiosResponse } from 'axios';
 
 const GITHUB_RAW_FILE_BASE_URL = 'https://raw.githubusercontent.com';
-const GITHUB_API_BASE_URL =
-  'https://github-api-server.vercel.app/api/repos';
+
+let GITHUB_API_BASE_URL = 'https://github-api-server.vercel.app/api/repos';
+if (process.env.NODE_ENV === 'development') {
+  GITHUB_API_BASE_URL = 'http://localhost:8000';
+}
 
 export type Repo = {
   id: number;

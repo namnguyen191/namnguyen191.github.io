@@ -104,7 +104,12 @@ export const SectionProjects: React.FC = () => {
       return <div>There&rsquo;s no project to display</div>;
 
     return projects.map((project) => (
-      <ProjectCard key={project.githubUrl} {...project} />
+      <div
+        key={project.githubUrl}
+        className={styles['card-animation-container']}
+      >
+        <ProjectCard {...project} />
+      </div>
     ));
   };
 
