@@ -60,7 +60,7 @@ export const getUserRepos = async (params: {
   let res: AxiosResponse<Repo[], any>;
   try {
     res = await axios.get<Repo[]>(
-      `${GITHUB_API_BASE_URL}?user=${user}&sort=${sortBy}&direction=${sortDirection}&pageLength=${pageLength}&page=${pageNumber}`
+      `${GITHUB_API_BASE_URL}?user=${user}&sort=${sortBy}&direction=${sortDirection}&pageLength=${pageLength}&pageNumber=${pageNumber}`
     );
 
     return res.data;
