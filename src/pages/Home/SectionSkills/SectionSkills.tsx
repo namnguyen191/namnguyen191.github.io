@@ -10,9 +10,9 @@ export const SectionSkills: React.FC = () => {
         imgSrc="/front-end.svg"
         items={[
           'HTML | CSS | JAVASCRIPT',
-          'SASS | BOOTSTRAP | MATERIALIZE',
-          'FIGMA | ADOBEXD',
-          'REACT & REDUX | ANGULAR'
+          'ANGULAR | REACT | REDUX',
+          'Webpack | WASM',
+          'FIGMA | ADOBEXD'
         ]}
         title="FRONT-END"
       />
@@ -37,7 +37,7 @@ export const SectionSkills: React.FC = () => {
           'TRAVIS CI | JENKINS',
           'DOCKER | KUBERNETES',
           'AWS | GOOGLE CLOUD | HEROKU',
-          'GIT & GITHUB'
+          'GIT & GITHUB | NX Monorepo'
         ]}
         title="DEVOPS"
       />

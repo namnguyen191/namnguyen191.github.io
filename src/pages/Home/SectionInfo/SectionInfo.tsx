@@ -10,11 +10,10 @@ export const SectionInfo: React.FC = () => {
         <h3>About Me</h3>
         <p>
           Hi there! I&apos;m Nam Nguyen from Toronto, Canada. I&apos;m
-          currently pursuing my B.Sc. in Computer Science at York
-          University as a full-time student. Being developer, I enjoy doing
-          research on my own, solving new challenges and learning new
-          technologies. I especially open to criticism and always ready to
-          learn from others.
+          currently a Full-time Front-end Developer at IBM. I recently
+          graduated from York University and got my Bsc in Computer
+          Science. I&apos;m a huge fan of web development and love spending
+          my time learning more about web-based technologies.
         </p>
         <span className={styles['quote']}>
           “ Your mind is programmable – if you&apos;re not programming your

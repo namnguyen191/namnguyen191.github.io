@@ -29,16 +29,16 @@ export const SectionIntro: React.FC = () => {
           url="https://namnguyen191.github.io/Natours/"
         />
         <BubbleDisplay
-          title="Sirvey"
-          description="MERN stack"
-          imgUr="/survey.webp"
-          url="https://reactsirvey.herokuapp.com/"
+          title="Snake game"
+          description="WASM with Rust"
+          imgUr="https://i0.wp.com/tilcode.blog/wp-content/uploads/2019/04/Screen-Shot-2019-04-28-at-17.51.16.png?fit=998%2C574&ssl=1"
+          url="https://fullstacknam.dev/js-rust-snake-game/"
         />
         <BubbleDisplay
-          title="DatingApp"
-          description="Angular | .net core"
-          imgUr="/dating-app-crop.webp"
-          url="https://dotnet5-datingapp.herokuapp.com/"
+          title="Clipit!"
+          description="Angular"
+          imgUr="https://github.com/namnguyen191/clipit/blob/master/src/assets/img/1.jpg?raw=true"
+          url="https://clipit-drab.vercel.app/"
         />
       </div>
     </div>
