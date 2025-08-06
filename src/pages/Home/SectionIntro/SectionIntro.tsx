@@ -21,7 +21,13 @@ export const SectionIntro: React.FC = () => {
       </div>
 
       <div className={styles['top-3-projects']}>
-        <h2>Top 3 Projects</h2>
+        <h2>Top Projects</h2>
+        <BubbleDisplay
+          title="DJ UI"
+          description="Angular | NX"
+          imgUr="/dj-ui.webp"
+          url="https://fullstacknam.dev/dj-ui"
+        />
         <BubbleDisplay
           title="Natours"
           description="Sass | Advanced CSS"
