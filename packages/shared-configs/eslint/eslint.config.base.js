@@ -7,6 +7,7 @@ import eslintPluginPrettier from 'eslint-plugin-prettier';
 import eslintPluginImportX from 'eslint-plugin-import-x';
 import { createTypeScriptImportResolver } from 'eslint-import-resolver-typescript';
 import tsParser from '@typescript-eslint/parser';
+import globals from 'globals';
 
 /**
  * A shared ESLint configuration for the repository.
@@ -77,6 +78,9 @@ export const config = [
       parser: tsParser,
       ecmaVersion: 'latest',
       sourceType: 'module',
+      globals: {
+        ...globals.node,
+      },
     },
     rules: {
       'import-x/no-cycle': [2, { maxDepth: 100 }],

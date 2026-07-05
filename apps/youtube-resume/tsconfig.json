@@ -1,0 +1,8 @@
+{
+  "extends": "@repo/shared-configs/typescript/base",
+  "compilerOptions": {
+    "noEmit": true,
+    "rootDir": "./src",
+    "types": ["chrome"]
+  }
+}

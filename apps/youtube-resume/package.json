@@ -1,0 +1,29 @@
+{
+  "name": "youtube-resume",
+  "version": "1.0.0",
+  "description": "An extension to resume Youtube video play",
+  "main": "content.js",
+  "scripts": {
+    "build": "node build.mjs",
+    "typecheck": "tsc",
+    "lint": "eslint . --max-warnings 0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "lodash-es": "catalog:"
+  },
+  "devDependencies": {
+    "@repo/shared-configs": "workspace:*",
+    "@types/chrome": "catalog:",
+    "@eslint/js": "catalog:eslint-latest",
+    "eslint": "catalog:eslint-latest",
+    "typescript": "catalog:typescript-latest",
+    "typescript-eslint": "catalog:eslint-latest",
+    "@types/lodash-es": "catalog:",
+    "esbuild": "catalog:",
+    "globals": "catalog:"
+  }
+}
