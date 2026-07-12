@@ -8,7 +8,7 @@ interface VideoProgress {
   time: number;
 }
 
-const debounceSaveVideoProgress = throttle((videoId: string, time: number) => {
+const throttleSaveVideoProgress = throttle((videoId: string, time: number) => {
   chrome.storage.local.set({
     [videoId]: { time } as VideoProgress,
   });
@@ -48,16 +48,19 @@ const setup = (): void => {
   video.addEventListener(
     'timeupdate',
     () => {
-      debounceSaveVideoProgress(videoId, video.currentTime);
+      throttleSaveVideoProgress(videoId, video.currentTime);
     },
     { signal }
   );
 };
 
-// Initial load
-setup();
-
 // YouTube SPA navigation
+document.addEventListener('yt-navigate-start', () => {
+  if (currentAbortController) {
+    currentAbortController.abort();
+  }
+  setup();
+});
 document.addEventListener('yt-navigate-finish', () => {
   setup();
 });
