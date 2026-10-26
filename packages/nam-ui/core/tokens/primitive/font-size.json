@@ -1,0 +1,68 @@
+{
+  "font-size": {
+    "$type": "dimension",
+    "xs": {
+      "$value": {
+        "value": 0.75,
+        "unit": "rem"
+      },
+      "$description": "12px"
+    },
+    "sm": {
+      "$value": {
+        "value": 0.875,
+        "unit": "rem"
+      },
+      "$description": "14px"
+    },
+    "md": {
+      "$value": {
+        "value": 1,
+        "unit": "rem"
+      },
+      "$description": "16px"
+    },
+    "lg": {
+      "$value": {
+        "value": 1.25,
+        "unit": "rem"
+      },
+      "$description": "20px"
+    },
+    "xl": {
+      "$value": {
+        "value": 1.5,
+        "unit": "rem"
+      },
+      "$description": "24px"
+    },
+    "2xl": {
+      "$value": {
+        "value": 2,
+        "unit": "rem"
+      },
+      "$description": "32px"
+    },
+    "3xl": {
+      "$value": {
+        "value": 2.5,
+        "unit": "rem"
+      },
+      "$description": "40px"
+    },
+    "4xl": {
+      "$value": {
+        "value": 3,
+        "unit": "rem"
+      },
+      "$description": "48px"
+    },
+    "5xl": {
+      "$value": {
+        "value": 3.75,
+        "unit": "rem"
+      },
+      "$description": "60px"
+    }
+  }
+}

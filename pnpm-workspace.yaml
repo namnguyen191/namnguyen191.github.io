@@ -1,7 +1,39 @@
 packages:
   - apps/*
   - packages/*
+  - packages/nam-ui/*
   - angular-workspace
+
+overrides:
+  vite: npm:rolldown-vite@7.1.14
+
+allowBuilds:
+  '@carbon/colors': true
+  '@carbon/feature-flags': true
+  '@carbon/grid': true
+  '@carbon/icon-helpers': true
+  '@carbon/icons-react': true
+  '@carbon/layout': true
+  '@carbon/motion': true
+  '@carbon/react': true
+  '@carbon/styles': true
+  '@carbon/themes': true
+  '@carbon/type': true
+  '@carbon/utilities': true
+  '@ibm/plex-mono': true
+  '@ibm/plex-sans': true
+  '@ibm/plex-sans-arabic': true
+  '@ibm/plex-sans-devanagari': true
+  '@ibm/plex-sans-hebrew': true
+  '@ibm/plex-sans-thai': true
+  '@ibm/plex-sans-thai-looped': true
+  '@ibm/plex-serif': true
+  '@parcel/watcher': true
+  '@swc/core': true
+  esbuild: true
+  lmdb: true
+  msgpackr-extract: true
+  unrs-resolver: true
 
 catalog:
   '@changesets/cli': ^2.29.7
@@ -15,6 +47,7 @@ catalog:
   prettier: ^3.6.2
   rxjs: ~7.8.0
   sass: ^1.93.3
+  style-dictionary: ^5.6.1
   tslib: ^2.8.1
   type-fest: ^5.2.0
   verdaccio: ^6.2.1
@@ -65,8 +98,8 @@ catalogs:
   carbon-latest:
     '@carbon/react': ^1.95.0
   turbo-latest:
-    '@turbo/gen': ^2.6.0
-    turbo: ^2.6.0
+    '@turbo/gen': ^2.11.10
+    turbo: ^2.11.10
   typescript-latest:
     '@types/node': ^24.10.0
     typescript: ^5.9.3

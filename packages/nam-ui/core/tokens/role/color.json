@@ -1,0 +1,193 @@
+{
+  "color": {
+    "$type": "color",
+    "primary": {
+      "100": {
+        "$value": "{palette.lilac.100}"
+      },
+      "200": {
+        "$value": "{palette.lilac.200}"
+      },
+      "300": {
+        "$value": "{palette.lilac.300}"
+      },
+      "400": {
+        "$value": "{palette.lilac.400}"
+      },
+      "default": {
+        "$value": "{palette.lilac.500}"
+      },
+      "600": {
+        "$value": "{palette.lilac.600}"
+      },
+      "700": {
+        "$value": "{palette.lilac.700}"
+      },
+      "800": {
+        "$value": "{palette.lilac.800}"
+      }
+    },
+    "secondary": {
+      "100": {
+        "$value": "{palette.mazarine-blue.100}"
+      },
+      "200": {
+        "$value": "{palette.mazarine-blue.200}"
+      },
+      "300": {
+        "$value": "{palette.mazarine-blue.300}"
+      },
+      "400": {
+        "$value": "{palette.mazarine-blue.400}"
+      },
+      "default": {
+        "$value": "{palette.mazarine-blue.500}"
+      },
+      "600": {
+        "$value": "{palette.mazarine-blue.600}"
+      },
+      "700": {
+        "$value": "{palette.mazarine-blue.700}"
+      },
+      "800": {
+        "$value": "{palette.mazarine-blue.800}"
+      }
+    },
+    "error": {
+      "100": {
+        "$value": "{palette.mandarin-red.100}"
+      },
+      "200": {
+        "$value": "{palette.mandarin-red.200}"
+      },
+      "300": {
+        "$value": "{palette.mandarin-red.300}"
+      },
+      "400": {
+        "$value": "{palette.mandarin-red.400}"
+      },
+      "default": {
+        "$value": "{palette.mandarin-red.500}"
+      },
+      "600": {
+        "$value": "{palette.mandarin-red.600}"
+      },
+      "700": {
+        "$value": "{palette.mandarin-red.700}"
+      },
+      "800": {
+        "$value": "{palette.mandarin-red.800}"
+      }
+    },
+    "success": {
+      "100": {
+        "$value": "{palette.skirret-green.100}"
+      },
+      "200": {
+        "$value": "{palette.skirret-green.200}"
+      },
+      "300": {
+        "$value": "{palette.skirret-green.300}"
+      },
+      "400": {
+        "$value": "{palette.skirret-green.400}"
+      },
+      "default": {
+        "$value": "{palette.skirret-green.500}"
+      },
+      "600": {
+        "$value": "{palette.skirret-green.600}"
+      },
+      "700": {
+        "$value": "{palette.skirret-green.700}"
+      },
+      "800": {
+        "$value": "{palette.skirret-green.800}"
+      }
+    },
+    "warning": {
+      "100": {
+        "$value": "{palette.amber.100}"
+      },
+      "200": {
+        "$value": "{palette.amber.200}"
+      },
+      "300": {
+        "$value": "{palette.amber.300}"
+      },
+      "400": {
+        "$value": "{palette.amber.400}"
+      },
+      "default": {
+        "$value": "{palette.amber.500}"
+      },
+      "600": {
+        "$value": "{palette.amber.600}"
+      },
+      "700": {
+        "$value": "{palette.amber.700}"
+      },
+      "800": {
+        "$value": "{palette.amber.800}"
+      }
+    },
+    "info": {
+      "100": {
+        "$value": "{palette.middle-blue.100}"
+      },
+      "200": {
+        "$value": "{palette.middle-blue.200}"
+      },
+      "300": {
+        "$value": "{palette.middle-blue.300}"
+      },
+      "400": {
+        "$value": "{palette.middle-blue.400}"
+      },
+      "default": {
+        "$value": "{palette.middle-blue.500}"
+      },
+      "600": {
+        "$value": "{palette.middle-blue.600}"
+      },
+      "700": {
+        "$value": "{palette.middle-blue.700}"
+      },
+      "800": {
+        "$value": "{palette.middle-blue.800}"
+      }
+    },
+    "neutral": {
+      "100": {
+        "$value": "{palette.wizard-grey.100}"
+      },
+      "200": {
+        "$value": "{palette.wizard-grey.200}"
+      },
+      "300": {
+        "$value": "{palette.wizard-grey.300}"
+      },
+      "400": {
+        "$value": "{palette.wizard-grey.400}"
+      },
+      "default": {
+        "$value": "{palette.wizard-grey.500}"
+      },
+      "600": {
+        "$value": "{palette.wizard-grey.600}"
+      },
+      "700": {
+        "$value": "{palette.wizard-grey.700}"
+      },
+      "800": {
+        "$value": "{palette.wizard-grey.800}"
+      },
+      "black": {
+        "$value": "{palette.black}"
+      },
+      "white": {
+        "$value": "{palette.white}"
+      }
+    }
+  }
+}

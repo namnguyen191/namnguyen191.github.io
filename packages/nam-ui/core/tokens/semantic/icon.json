@@ -1,0 +1,20 @@
+{
+  "icon": {
+    "$type": "color",
+    "default": {
+      "$value": "{color.neutral.default}"
+    },
+    "info": {
+      "$value": "{color.info.default}"
+    },
+    "success": {
+      "$value": "{color.success.default}"
+    },
+    "warning": {
+      "$value": "{color.warning.default}"
+    },
+    "error": {
+      "$value": "{color.error.default}"
+    }
+  }
+}

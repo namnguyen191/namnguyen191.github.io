@@ -1,0 +1,37 @@
+{
+  "border": {
+    "$type": "color",
+    "default": {
+      "$value": "{color.neutral.200}"
+    },
+    "secondary": {
+      "$value": "{color.primary.default}"
+    },
+    "info": {
+      "$value": "{color.info.default}"
+    },
+    "success": {
+      "$value": "{color.success.default}"
+    },
+    "warning": {
+      "$value": "{color.warning.default}"
+    },
+    "error": {
+      "$value": "{color.error.default}"
+    },
+    "disabled": {
+      "$value": "{color.neutral.300}"
+    },
+    "action": {
+      "default": {
+        "$value": "{color.primary.default}"
+      },
+      "hover": {
+        "$value": "{color.primary.600}"
+      }
+    },
+    "focus": {
+      "$value": "{color.primary.default}"
+    }
+  }
+}

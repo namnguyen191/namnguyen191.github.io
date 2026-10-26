@@ -1,0 +1,34 @@
+{
+  "surface": {
+    "$type": "color",
+    "page": {
+      "$value": "{color.neutral.white}"
+    },
+    "default": {
+      "$value": "{color.neutral.white}"
+    },
+    "success": {
+      "$value": "{color.success.100}"
+    },
+    "disabled": {
+      "$value": "{color.neutral.100}"
+    },
+    "error": {
+      "$value": "{color.error.100}"
+    },
+    "warning": {
+      "$value": "{color.warning.100}"
+    },
+    "info": {
+      "$value": "{color.info.100}"
+    },
+    "action": {
+      "default": {
+        "$value": "{color.primary.default}"
+      },
+      "hover": {
+        "$value": "{color.primary.600}"
+      }
+    }
+  }
+}

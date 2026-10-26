@@ -1,0 +1,40 @@
+{
+  "text": {
+    "$type": "color",
+    "heading": {
+      "$value": "{color.neutral.700}"
+    },
+    "body": {
+      "$value": "{color.neutral.600}"
+    },
+    "action": {
+      "default": {
+        "$value": "{color.primary.default}"
+      },
+      "hover": {
+        "$value": "{color.primary.600}"
+      }
+    },
+    "disabled": {
+      "$value": "{color.neutral.400}"
+    },
+    "info": {
+      "$value": "{color.info.default}"
+    },
+    "success": {
+      "$value": "{color.success.default}"
+    },
+    "warning": {
+      "$value": "{color.warning.default}"
+    },
+    "error": {
+      "$value": "{color.error.default}"
+    },
+    "on-action": {
+      "$value": "{color.neutral.white}"
+    },
+    "on-disabled": {
+      "$value": "{color.neutral.700}"
+    }
+  }
+}

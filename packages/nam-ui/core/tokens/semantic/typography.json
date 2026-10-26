@@ -1,0 +1,45 @@
+{
+  "font-size": {
+    "$type": "dimension",
+    "body": {
+      "sm": {
+        "$value": "{font-size.xs}"
+      },
+      "md": {
+        "$value": "{font-size.md}"
+      },
+      "lg": {
+        "$value": "{font-size.lg}"
+      }
+    },
+    "heading": {
+      "h6": {
+        "$value": "{font-size.lg}"
+      },
+      "h5": {
+        "$value": "{font-size.xl}"
+      },
+      "h4": {
+        "$value": "{font-size.2xl}"
+      },
+      "h3": {
+        "$value": "{font-size.3xl}"
+      },
+      "h2": {
+        "$value": "{font-size.4xl}"
+      },
+      "h1": {
+        "$value": "{font-size.5xl}"
+      }
+    }
+  },
+  "line-height": {
+    "$type": "number",
+    "body": {
+      "$value": "{line-height.normal}"
+    },
+    "heading": {
+      "$value": "{line-height.snug}"
+    }
+  }
+}

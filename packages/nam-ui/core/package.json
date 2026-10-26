@@ -1,0 +1,57 @@
+{
+  "name": "@nam-ui/core",
+  "publishConfig": {
+    "access": "public"
+  },
+  "version": "0.0.0",
+  "type": "module",
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "files": [
+    "dist"
+  ],
+  "sass": "./dist/scss/_index.scss",
+  "scripts": {
+    "tokens": "style-dictionary build --config style-dictionary.config.ts",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint . --max-warnings 0"
+  },
+  "devDependencies": {
+    "@repo/shared-configs": "workspace:*",
+    "@types/node": "catalog:typescript-latest",
+    "@vitest/coverage-v8": "catalog:vite-latest",
+    "sass": "catalog:",
+    "style-dictionary": "catalog:",
+    "typescript": "catalog:typescript-latest",
+    "vite": "catalog:vite-latest",
+    "vite-plugin-dts": "catalog:vite-latest",
+    "vitest": "catalog:vite-latest",
+    "@eslint/js": "catalog:eslint-latest",
+    "eslint": "catalog:eslint-latest",
+    "typescript-eslint": "catalog:eslint-latest"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./js/*": {
+      "types": "./dist/types/generated/js/*.d.ts",
+      "import": "./dist/generated/js/*.js"
+    },
+    "./css": "./dist/generated/css/index.css",
+    "./css/*": "./dist/generated/css/*.css",
+    "./scss": {
+      "sass": "./dist/scss/_index.scss",
+      "default": "./dist/scss/_index.scss"
+    },
+    "./scss/*": {
+      "sass": "./dist/generated/scss/*",
+      "default": "./dist/generated/scss/*"
+    },
+    "./package.json": "./package.json"
+  }
+}
