@@ -90,10 +90,14 @@ export const SectionProjects = (): ReactElement => {
 
   useEffect(() => {
     if (loading) {
-      getProjects().then((projectsMetaData) => {
-        setLoading(false);
-        setProjects(projectsMetaData);
-      });
+      getProjects()
+        .then((projectsMetaData) => {
+          setLoading(false);
+          setProjects(projectsMetaData);
+        })
+        .catch((err) => {
+          console.error('Something went wrong: ' + err);
+        });
     }
   }, [loading]);
 

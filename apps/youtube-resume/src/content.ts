@@ -9,7 +9,7 @@ interface VideoProgress {
 }
 
 const throttleSaveVideoProgress = throttle((videoId: string, time: number) => {
-  chrome.storage.local.set({
+  void chrome.storage.local.set({
     [videoId]: { time } as VideoProgress,
   });
 }, 2000);

@@ -17,7 +17,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "lint": "eslint . --max-warnings 0"
+    "lint": "eslint . --max-warnings 0",
+    "generate-palette": "node src/scripts/palette_generator/generate_palette_script.ts"
   },
   "devDependencies": {
     "@repo/shared-configs": "workspace:*",
@@ -31,7 +32,9 @@
     "vitest": "catalog:vite-latest",
     "@eslint/js": "catalog:eslint-latest",
     "eslint": "catalog:eslint-latest",
-    "typescript-eslint": "catalog:eslint-latest"
+    "typescript-eslint": "catalog:eslint-latest",
+    "type-fest": "catalog:",
+    "prettier": "catalog:"
   },
   "exports": {
     ".": {

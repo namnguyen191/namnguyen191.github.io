@@ -87,6 +87,21 @@ export const config = [
     },
   },
   {
+    // Rules that need type information. typescript-eslint asks TypeScript's project service for
+    // each file's types, using the nearest tsconfig.json (and the configs it references). With no
+    // tsconfigRootDir set, paths resolve from where ESLint runs: each package's folder under Turbo.
+    files: ['**/*.ts', '**/*.tsx'],
+    languageOptions: {
+      parserOptions: {
+        projectService: true,
+      },
+    },
+    rules: {
+      // A promise nobody awaits or handles: its errors go unhandled and later code runs too early.
+      '@typescript-eslint/no-floating-promises': 'error',
+    },
+  },
+  {
     settings: {
       'import/resolver-next': [
         createTypeScriptImportResolver({

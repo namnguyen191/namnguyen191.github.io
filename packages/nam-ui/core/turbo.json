@@ -6,6 +6,10 @@
       "inputs": ["tokens/**", "style-dictionary.config.ts"],
       "outputs": ["src/generated/**"]
     },
+    "generate-palette": {
+      "inputs": ["src/scripts/palette_generator/**", "$TURBO_ROOT$/prettier.config.js"],
+      "outputs": ["tokens/primitive/palette.json"]
+    },
     "build": { "dependsOn": ["^build", "tokens"] },
     "test": { "dependsOn": ["tokens"] },
     "lint": { "dependsOn": ["^lint", "tokens"] }

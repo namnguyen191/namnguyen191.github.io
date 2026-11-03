@@ -11,7 +11,7 @@ Tokens live in `tokens/**/*.json` (source of truth) and are built by Style Dicti
 - [ ] Delete `.npmignore`: `"files": ["dist"]` in `package.json` already controls what gets published.
 - [ ] Add a changeset for the first release (`pnpm changeset`).
 - [ ] When a second package is added, set `"fixed": [["@nam-ui/*"]]` in `.changeset/config.json` so versions move in lockstep.
-- [ ] Write a README: install, the entry points (`@nam-ui/core`, `/css`, `/scss`, plus per-file `/js/*`, `/css/*`, `/scss/*`), how to add or change a token. Note that a single CSS file only works when the files it references are loaded too (import `/css` unless you know what you need).
+- [x] Write a README: install, the entry points (`@nam-ui/core`, `/css`, `/scss`, plus per-file `/js/*`, `/css/*`, `/scss/*`), how to add or change a token. Note that a single CSS file only works when the files it references are loaded too (import `/css` unless you know what you need).
 - [ ] Add tests back (removed for now): the SCSS entry compiles, CSS keeps its `var()` references, JS exports resolve. Until then `vitest run` fails with "No test files found" (or add `--passWithNoTests`).
 
 ## 1. Color palettes (`tokens/primitive/color.json`)

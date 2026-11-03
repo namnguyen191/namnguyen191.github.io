@@ -1,111 +1,123 @@
 {
   "color": {
     "$type": "color",
+    "white": {
+      "$value": "{palette.white}",
+      "$description": "Pure white, a separate primitive rather than a ramp step."
+    },
     "primary": {
+      "$description": "The brand ramp. Lilac, the signature shade, is step 300.",
+      "50": {
+        "$value": "{palette.purple.50}"
+      },
       "100": {
-        "$value": "{palette.lilac.100}"
+        "$value": "{palette.purple.100}"
       },
       "200": {
-        "$value": "{palette.lilac.200}"
+        "$value": "{palette.purple.200}"
       },
       "300": {
-        "$value": "{palette.lilac.300}"
+        "$value": "{palette.purple.300}"
       },
       "400": {
-        "$value": "{palette.lilac.400}"
+        "$value": "{palette.purple.400}"
       },
-      "default": {
-        "$value": "{palette.lilac.500}"
+      "500": {
+        "$value": "{palette.purple.500}"
       },
       "600": {
-        "$value": "{palette.lilac.600}"
+        "$value": "{palette.purple.600}"
       },
       "700": {
-        "$value": "{palette.lilac.700}"
+        "$value": "{palette.purple.700}"
       },
       "800": {
-        "$value": "{palette.lilac.800}"
+        "$value": "{palette.purple.800}"
+      },
+      "900": {
+        "$value": "{palette.purple.900}"
+      },
+      "950": {
+        "$value": "{palette.purple.950}"
       }
     },
-    "secondary": {
+    "neutral": {
+      "$description": "Neutral greys, tinted slate.",
+      "50": {
+        "$value": "{palette.slate.50}"
+      },
       "100": {
-        "$value": "{palette.mazarine-blue.100}"
+        "$value": "{palette.slate.100}"
       },
       "200": {
-        "$value": "{palette.mazarine-blue.200}"
+        "$value": "{palette.slate.200}"
       },
       "300": {
-        "$value": "{palette.mazarine-blue.300}"
+        "$value": "{palette.slate.300}"
       },
       "400": {
-        "$value": "{palette.mazarine-blue.400}"
+        "$value": "{palette.slate.400}"
       },
-      "default": {
-        "$value": "{palette.mazarine-blue.500}"
+      "500": {
+        "$value": "{palette.slate.500}"
       },
       "600": {
-        "$value": "{palette.mazarine-blue.600}"
+        "$value": "{palette.slate.600}"
       },
       "700": {
-        "$value": "{palette.mazarine-blue.700}"
+        "$value": "{palette.slate.700}"
       },
       "800": {
-        "$value": "{palette.mazarine-blue.800}"
+        "$value": "{palette.slate.800}"
+      },
+      "900": {
+        "$value": "{palette.slate.900}"
+      },
+      "950": {
+        "$value": "{palette.slate.950}"
       }
     },
     "error": {
+      "$description": "The error status ramp.",
+      "50": {
+        "$value": "{palette.red.50}"
+      },
       "100": {
-        "$value": "{palette.mandarin-red.100}"
+        "$value": "{palette.red.100}"
       },
       "200": {
-        "$value": "{palette.mandarin-red.200}"
+        "$value": "{palette.red.200}"
       },
       "300": {
-        "$value": "{palette.mandarin-red.300}"
+        "$value": "{palette.red.300}"
       },
       "400": {
-        "$value": "{palette.mandarin-red.400}"
+        "$value": "{palette.red.400}"
       },
-      "default": {
-        "$value": "{palette.mandarin-red.500}"
-      },
-      "600": {
-        "$value": "{palette.mandarin-red.600}"
-      },
-      "700": {
-        "$value": "{palette.mandarin-red.700}"
-      },
-      "800": {
-        "$value": "{palette.mandarin-red.800}"
-      }
-    },
-    "success": {
-      "100": {
-        "$value": "{palette.skirret-green.100}"
-      },
-      "200": {
-        "$value": "{palette.skirret-green.200}"
-      },
-      "300": {
-        "$value": "{palette.skirret-green.300}"
-      },
-      "400": {
-        "$value": "{palette.skirret-green.400}"
-      },
-      "default": {
-        "$value": "{palette.skirret-green.500}"
+      "500": {
+        "$value": "{palette.red.500}"
       },
       "600": {
-        "$value": "{palette.skirret-green.600}"
+        "$value": "{palette.red.600}"
       },
       "700": {
-        "$value": "{palette.skirret-green.700}"
+        "$value": "{palette.red.700}"
       },
       "800": {
-        "$value": "{palette.skirret-green.800}"
+        "$value": "{palette.red.800}"
+      },
+      "900": {
+        "$value": "{palette.red.900}"
+      },
+      "950": {
+        "$value": "{palette.red.950}"
       }
     },
     "warning": {
+      "$description": "The warning status ramp.",
+      "50": {
+        "$value": "{palette.amber.50}"
+      },
       "100": {
         "$value": "{palette.amber.100}"
       },
@@ -118,7 +130,7 @@
       "400": {
         "$value": "{palette.amber.400}"
       },
-      "default": {
+      "500": {
         "$value": "{palette.amber.500}"
       },
       "600": {
@@ -129,64 +141,84 @@
       },
       "800": {
         "$value": "{palette.amber.800}"
+      },
+      "900": {
+        "$value": "{palette.amber.900}"
+      },
+      "950": {
+        "$value": "{palette.amber.950}"
+      }
+    },
+    "success": {
+      "$description": "The success status ramp.",
+      "50": {
+        "$value": "{palette.green.50}"
+      },
+      "100": {
+        "$value": "{palette.green.100}"
+      },
+      "200": {
+        "$value": "{palette.green.200}"
+      },
+      "300": {
+        "$value": "{palette.green.300}"
+      },
+      "400": {
+        "$value": "{palette.green.400}"
+      },
+      "500": {
+        "$value": "{palette.green.500}"
+      },
+      "600": {
+        "$value": "{palette.green.600}"
+      },
+      "700": {
+        "$value": "{palette.green.700}"
+      },
+      "800": {
+        "$value": "{palette.green.800}"
+      },
+      "900": {
+        "$value": "{palette.green.900}"
+      },
+      "950": {
+        "$value": "{palette.green.950}"
       }
     },
     "info": {
+      "$description": "The info status ramp.",
+      "50": {
+        "$value": "{palette.cyan.50}"
+      },
       "100": {
-        "$value": "{palette.middle-blue.100}"
+        "$value": "{palette.cyan.100}"
       },
       "200": {
-        "$value": "{palette.middle-blue.200}"
+        "$value": "{palette.cyan.200}"
       },
       "300": {
-        "$value": "{palette.middle-blue.300}"
+        "$value": "{palette.cyan.300}"
       },
       "400": {
-        "$value": "{palette.middle-blue.400}"
+        "$value": "{palette.cyan.400}"
       },
-      "default": {
-        "$value": "{palette.middle-blue.500}"
-      },
-      "600": {
-        "$value": "{palette.middle-blue.600}"
-      },
-      "700": {
-        "$value": "{palette.middle-blue.700}"
-      },
-      "800": {
-        "$value": "{palette.middle-blue.800}"
-      }
-    },
-    "neutral": {
-      "100": {
-        "$value": "{palette.wizard-grey.100}"
-      },
-      "200": {
-        "$value": "{palette.wizard-grey.200}"
-      },
-      "300": {
-        "$value": "{palette.wizard-grey.300}"
-      },
-      "400": {
-        "$value": "{palette.wizard-grey.400}"
-      },
-      "default": {
-        "$value": "{palette.wizard-grey.500}"
+      "500": {
+        "$value": "{palette.cyan.500}"
       },
       "600": {
-        "$value": "{palette.wizard-grey.600}"
+        "$value": "{palette.cyan.600}"
       },
       "700": {
-        "$value": "{palette.wizard-grey.700}"
+        "$value": "{palette.cyan.700}"
       },
       "800": {
-        "$value": "{palette.wizard-grey.800}"
+        "$value": "{palette.cyan.800}"
       },
-      "black": {
-        "$value": "{palette.black}"
+      "900": {
+        "$value": "{palette.cyan.900}"
       },
-      "white": {
-        "$value": "{palette.white}"
+      "950": {
+        "$value": "{palette.cyan.950}"
       }
     }
   }

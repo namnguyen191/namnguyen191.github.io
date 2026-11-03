@@ -1,0 +1,14 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "allowImportingTsExtensions": true,
+    "types": ["node"]
+  },
+  "include": [
+    "vite.config.ts",
+    "vite.config.mts",
+    "style-dictionary.config.ts",
+    "src/**/*.d.ts",
+    "src/scripts/**/*.ts"
+  ]
+}

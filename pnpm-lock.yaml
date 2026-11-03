@@ -740,12 +740,18 @@ importers:
       eslint:
         specifier: catalog:eslint-latest
         version: 9.39.1(jiti@1.21.6)(supports-color@8.1.1)
+      prettier:
+        specifier: 'catalog:'
+        version: 3.6.2
       sass:
         specifier: 'catalog:'
         version: 1.93.3
       style-dictionary:
         specifier: 'catalog:'
         version: 5.7.1
+      type-fest:
+        specifier: 'catalog:'
+        version: 5.2.0
       typescript:
         specifier: catalog:typescript-latest
         version: 5.9.3
