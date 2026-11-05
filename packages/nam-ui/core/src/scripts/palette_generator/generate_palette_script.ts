@@ -3,17 +3,10 @@ import path from 'node:path';
 
 import { format, resolveConfig } from 'prettier';
 
-import { type Hex, hexToOklch, JUST_NOTICEABLE_DELTA_E_OK } from '../shared/color-helpers.ts';
+import { hexToOklch } from '../shared/color-helpers.ts';
 import { truncate } from '../shared/dtcg-color.ts';
-import {
-  COLORS,
-  generatedPalette,
-  getMinDeltaEOK,
-  type RampName,
-  sdData,
-  type Step,
-  STEPS,
-} from './palette.ts';
+import { generatedPalette, getMinDeltaEOK, type RampName, sdData, type Step } from './palette.ts';
+import { COLORS, LIGHTNESS_TOLERANCE, LILAC_HEX, MIN_NEIGHBOUR_DELTA_E_OK, STEPS } from './seed.ts';
 
 const writePaletteToSdFile = async (): Promise<void> => {
   const PALETTE_PATH = path.join(import.meta.dirname, '../../../tokens/primitive/palette.json');
@@ -25,7 +18,6 @@ const writePaletteToSdFile = async (): Promise<void> => {
   writeFileSync(PALETTE_PATH, formatted);
 };
 
-const LIGHTNESS_TOLERANCE = 0.002;
 // Verify that every generated hex doesn't differ too much from the original OKLCH in terms of lightness
 const verifyConsistentLightness = (failures: string[]): void => {
   for (const [color, steps] of Object.entries(generatedPalette)) {
@@ -46,7 +38,6 @@ const verifyConsistentLightness = (failures: string[]): void => {
   }
 };
 
-const LILAC_HEX = '#d9bcf7' as Hex;
 // Verify that the generated purple matches our brand lilac
 const verifyBrandColor = (failures: string[]): void => {
   const generatedPurple300Hex = generatedPalette.purple[300].$value.hex;
@@ -62,8 +53,6 @@ const verifyWhite = (failures: string[]): void => {
   }
 };
 
-// Step 9 policy: neighbouring steps fail below the just-noticeable difference.
-const MIN_NEIGHBOUR_DELTA_E_OK = JUST_NOTICEABLE_DELTA_E_OK;
 // For every ramp, verify that each adjacent pair of steps is noticeably different
 const verifyNeighbouringSteps = (failures: string[]): void => {
   let pairCount = 0;
