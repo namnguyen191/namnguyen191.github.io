@@ -17,6 +17,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
+    "check-types": "tsc -b --noEmit",
     "lint": "eslint . --max-warnings 0",
     "generate-palette": "node src/scripts/palette_generator/generate_palette_script.ts"
   },
@@ -26,6 +27,7 @@
     "@vitest/coverage-v8": "catalog:vite-latest",
     "sass": "catalog:",
     "style-dictionary": "catalog:",
+    "@typescript/native": "catalog:typescript-latest",
     "typescript": "catalog:typescript-latest",
     "vite": "catalog:vite-latest",
     "vite-plugin-dts": "catalog:vite-latest",

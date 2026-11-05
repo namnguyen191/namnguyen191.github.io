@@ -17,6 +17,7 @@
   },
   "devDependencies": {
     "@repo/shared-configs": "workspace:*",
+    "@typescript/native": "catalog:typescript-latest",
     "typescript": "catalog:typescript-latest",
     "vite": "catalog:vite-latest",
     "@vitejs/plugin-react-swc": "catalog:react-latest",

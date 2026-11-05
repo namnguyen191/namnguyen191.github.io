@@ -38,6 +38,7 @@
     "eslint-plugin-react-refresh": "catalog:eslint-latest",
     "globals": "catalog:",
     "sass": "catalog:",
+    "@typescript/native": "catalog:typescript-latest",
     "typescript": "catalog:typescript-latest",
     "typescript-eslint": "catalog:eslint-latest",
     "vite": "catalog:vite-latest"

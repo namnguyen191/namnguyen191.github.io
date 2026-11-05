@@ -17,6 +17,7 @@
   },
   "devDependencies": {
     "@repo/shared-configs": "workspace:*",
+    "@typescript/native": "catalog:typescript-latest",
     "typescript": "catalog:typescript-latest",
     "@eslint/js": "catalog:eslint-latest",
     "@types/node": "catalog:typescript-latest",

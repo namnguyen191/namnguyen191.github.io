@@ -11,6 +11,7 @@
     "build": "vite build",
     "preview": "vite preview",
     "test": "vitest run --coverage",
+    "check-types": "tsc -b --noEmit",
     "lint": "eslint . --max-warnings 0"
   },
   "peerDependencies": {
@@ -23,6 +24,7 @@
     "@types/node": "catalog:typescript-latest",
     "@types/lodash-es": "catalog:",
     "@vitest/coverage-v8": "catalog:vite-latest",
+    "@typescript/native": "catalog:typescript-latest",
     "typescript": "catalog:typescript-latest",
     "vite": "catalog:vite-latest",
     "vite-plugin-dts": "catalog:vite-latest",
