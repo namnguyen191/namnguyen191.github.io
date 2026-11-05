@@ -12,8 +12,8 @@
   "license": "ISC",
   "packageManager": "pnpm@10.20.0",
   "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.22.0",
-    "zod": "^3.25.76"
+    "@modelcontextprotocol/sdk": "catalog:",
+    "zod": "catalog:"
   },
   "devDependencies": {
     "@repo/shared-configs": "workspace:*",

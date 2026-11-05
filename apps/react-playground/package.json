@@ -24,6 +24,7 @@
     "@types/react": "catalog:react-latest",
     "@types/react-dom": "catalog:react-latest",
     "babel-plugin-react-compiler": "catalog:react-latest",
+    "oxc-transform-react": "catalog:react-latest",
     "globals": "catalog:",
     "sass": "catalog:",
     "@faker-js/faker": "catalog:",

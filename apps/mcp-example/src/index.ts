@@ -2,8 +2,8 @@ import { readFile } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
-import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
+import { McpServer } from '@modelcontextprotocol/sdk/server/mcp';
+import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio';
 import { z } from 'zod';
 
 const GH_API_URL = 'https://api.github.com';
@@ -121,7 +121,7 @@ server.registerPrompt(
 
 async function main(): Promise<void> {
   const transport = new StdioServerTransport();
-  server.connect(transport);
+  await server.connect(transport);
 }
 
 main().catch((err) => {

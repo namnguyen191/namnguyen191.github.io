@@ -3,7 +3,8 @@
   "compilerOptions": {
     "outDir": "./build",
     "rootDir": "./src",
-    "emitDeclarationOnly": false
+    "emitDeclarationOnly": false,
+    "types": ["node"]
   },
   "include": ["src/**/*"]
 }

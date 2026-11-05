@@ -1,17 +1,25 @@
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@carbon/react';
-import { type ColumnDef, flexRender, getCoreRowModel, useReactTable } from '@tanstack/react-table';
+import {
+  type ColumnDef,
+  columnResizingFeature,
+  columnSizingFeature,
+  tableFeatures,
+  useTable,
+} from '@tanstack/react-table';
 import { type ReactElement, useCallback, useMemo } from 'react';
 
 import type { ObjectValue } from '../../utils/types-helper';
 import type { CarbonTableProps, TableRowData } from './CarbonTable.interface';
 import styles from './CarbonTable.module.scss';
 
+const features = tableFeatures({ columnSizingFeature, columnResizingFeature });
+
 export const CarbonTable = <T extends TableRowData>(props: CarbonTableProps<T>): ReactElement => {
   const { tableModel, data } = props;
 
   const { columns } = tableModel;
 
-  const columnsDef: ColumnDef<T, ObjectValue<T>>[] = useMemo(() => {
+  const columnsDef: ColumnDef<typeof features, T, unknown>[] = useMemo(() => {
     return columns.map((col) => ({
       accessorKey: col.id,
       header: col.header,
@@ -38,11 +46,10 @@ export const CarbonTable = <T extends TableRowData>(props: CarbonTableProps<T>):
     }));
   }, [columns]);
 
-  // eslint-disable-next-line react-hooks/incompatible-library
-  const table = useReactTable({
+  const table = useTable({
+    features,
     data,
     columns: columnsDef,
-    getCoreRowModel: getCoreRowModel(),
     columnResizeMode: 'onChange',
   });
 
@@ -82,7 +89,7 @@ export const CarbonTable = <T extends TableRowData>(props: CarbonTableProps<T>):
                     ) : (
                       ''
                     )}
-                    {flexRender(header.column.columnDef.header, header.getContext())}
+                    <table.FlexRender header={header} />
                   </TableHeader>
                 );
               })}
@@ -93,9 +100,9 @@ export const CarbonTable = <T extends TableRowData>(props: CarbonTableProps<T>):
         <TableBody>
           {table.getRowModel().rows.map((row, rowIndex) => (
             <TableRow key={rowIndex.toString()}>
-              {row.getVisibleCells().map((cell) => (
+              {row.getAllCells().map((cell) => (
                 <TableCell key={cell.id}>
-                  {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                  <table.FlexRender cell={cell} />
                 </TableCell>
               ))}
             </TableRow>
