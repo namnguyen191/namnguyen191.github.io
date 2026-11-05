@@ -33,7 +33,7 @@ const viteConfig = defineViteConfig({
   ],
   build: {
     lib: {
-      entry: ['src/index.ts'],
+      entry: ['src/index.ts', 'src/raw.ts'],
       formats: ['es'],
     },
     rollupOptions: {

@@ -21,7 +21,7 @@ Design tokens for the nam-ui design system: colours and typography, defined once
 
 Colour ramps are designed in OKLCH and every pairing is checked with the WCAG 2.2 contrast ratio. The reasoning is recorded in [`palette-selection-process.md`](./palette-selection-process.md).
 
-> The current palette does **not** meet this standard yet. The failing pairings are listed in [`TODO.md`](./TODO.md) section 2.
+> Every pairing the semantic tokens declare passes in both themes; the token build checks them and fails if one doesn't. The build outputs the light theme only for now; the dark output comes with step 11 of the palette process.
 
 ## Install
 
@@ -43,14 +43,30 @@ Inside this monorepo, use the workspace version instead:
 @import '@nam-ui/core/css';
 
 .button {
-  color: var(--nam-text-on-action);
-  background: var(--nam-surface-action-default);
+  color: var(--nam-text-on-primary);
+  background: var(--nam-fill-primary);
 }
 ```
 
-Every token becomes a variable on `:root`, prefixed with `--nam-`.
+Every token becomes a variable on `:root`, prefixed with `--nam-`. Colours are written as `oklch()` (for example `--nam-palette-purple-300: oklch(0.8400 0.0856 306.90)`); semantic and role tokens point at them with `var()`.
 
-Per-file entry points exist too (`@nam-ui/core/css/semantic/text`, `@nam-ui/core/css/primitive/palette`, …). A single file only works when the files it references are also loaded: `semantic/text.css` contains `var(--nam-color-neutral-600)`, which is defined in `role/color.css`, which in turn points at `primitive/palette.css`. Import `@nam-ui/core/css` unless you know exactly which files you need.
+Per-file entry points exist too (`@nam-ui/core/css/semantic/text`, `@nam-ui/core/css/primitive/palette`, …). A single file only works when the files it references are also loaded: `semantic/text.css` contains `var(--nam-color-neutral-600)`, which is defined in `role/color.css`, which in turn points at `primitive/palette.css`. Import `@nam-ui/core/css` unless you know exactly which files you need; it also sets `color-scheme`, which the themes need (below).
+
+### Light and dark themes
+
+Every semantic colour carries both themes: `--nam-text-body: light-dark(var(--nam-color-neutral-800), var(--nam-color-neutral-200))`. The browser picks one by the [`color-scheme`](https://developer.mozilla.org/en-US/docs/Web/CSS/color-scheme) of the element using it.
+
+- **Default: follow the OS.** `@nam-ui/core/css` sets `:root { color-scheme: light dark; }`.
+- **Force a theme:** set `color-scheme: light` or `color-scheme: dark` on `<html>`.
+- **Theme part of a page:** set `color-scheme` on any element, for example a dark card inside a light page. Everything inside it follows.
+
+```css
+html[data-user-theme='dark'] {
+  color-scheme: dark; /* an app's own toggle; nam-ui only reads color-scheme */
+}
+```
+
+Choosing a theme (a toggle, remembering the choice, a provider) belongs to the component libraries or the app. `light-dark()` needs browsers from mid-2024 (Chrome 123, Firefox 120, Safari 17.5); older browsers drop the colours entirely.
 
 ### SCSS variables
 
@@ -58,25 +74,38 @@ Per-file entry points exist too (`@nam-ui/core/css/semantic/text`, `@nam-ui/core
 @use '@nam-ui/core/scss' as nam;
 
 .button {
-  color: nam.$text-on-action;
-  background: nam.$surface-action-default;
+  color: nam.$text-on-primary;
+  background: nam.$fill-primary;
   font-size: nam.$font-size-body-md;
 }
 ```
 
-SCSS variables hold resolved values at build time, so they don't follow runtime theming. Use the CSS custom properties where values need to change at runtime (for example, a future dark theme).
+Each SCSS variable is its CSS custom property: `nam.$text-body` compiles to `var(--nam-text-body)`. So SCSS styles follow the theme like CSS does, and the page must load `@nam-ui/core/css`. Sass colour functions (`darken()`, `mix()`, `rgba($color, 0.5)`) can't work on a `var()`; colours come from the tokens.
 
-Per-file partials are available as `@nam-ui/core/scss/<tier>/<file>` (for example `@use '@nam-ui/core/scss/semantic/text'`). Each partial `@use`s the files it depends on, so it compiles on its own.
+Per-file partials are available as `@nam-ui/core/scss/<tier>/<file>` (for example `@use '@nam-ui/core/scss/semantic/text'`). Each partial compiles on its own.
 
 ### JavaScript / TypeScript
 
 ```ts
-import { TextBody, SurfaceActionDefault } from '@nam-ui/core';
+import { TextBody, FillPrimary } from '@nam-ui/core';
 // or one file at a time:
 import { TextBody } from '@nam-ui/core/js/semantic/text';
 ```
 
-Tokens are exported as PascalCase constants holding resolved values (for example `TextBody` is a hex string).
+Each token is a PascalCase constant holding its CSS custom property: `TextBody` is `'var(--nam-text-body)'`. CSS-in-JS styles and inline styles follow the theme without re-rendering; the page must load `@nam-ui/core/css`.
+
+### Raw values (no CSS)
+
+For places that can't use CSS variables (canvas charts, React Native, HTML email, design tools), `@nam-ui/core/raw` exports resolved values, one object per theme. Colours are hex, since these consumers often can't read `oklch()`.
+
+```ts
+import { light, dark } from '@nam-ui/core/raw';
+
+const tokens = isDark ? dark : light;
+context.fillStyle = tokens.TextBody; // '#3b4655' in light, '#d9dee7' in dark
+```
+
+The app decides which object to use. On the web, to read the value the page is currently showing, use `getComputedStyle(element).getPropertyValue('--nam-text-body')` instead, and read it again when the theme changes.
 
 ## How the tokens are organised
 
@@ -84,7 +113,7 @@ Tokens are split into three tiers. Each tier points only at the tier below it.
 
 | Tier      | Source file(s)            | Example                                      | Purpose                                               |
 | --------- | ------------------------- | -------------------------------------------- | ----------------------------------------------------- |
-| Primitive | `tokens/primitive/*.json` | `palette.lilac.500`, `font-size.md`          | Raw values: every colour and size the system has      |
+| Primitive | `tokens/primitive/*.json` | `palette.purple.600`, `font-size.md`         | Raw values: every colour and size the system has      |
 | Role      | `tokens/role/color.json`  | `color.primary.600`, `color.error.100`       | Gives each palette a job (primary, neutral, error, …) |
 | Semantic  | `tokens/semantic/*.json`  | `text.body`, `surface.error`, `border.focus` | What components use: a value for a specific purpose   |
 
@@ -96,9 +125,59 @@ Names across outputs:
 | ----------------- | ----------------- | ------------ | ---------- |
 | `text.body`       | `--nam-text-body` | `$text-body` | `TextBody` |
 
+## Semantic token names
+
+Every semantic token is named `category.meaning.state`, and each output joins the parts: `fill.primary.hover` is `--nam-fill-primary-hover` in CSS. The resting state has no suffix (`fill.primary`). The full list, with light and dark values and where each token is used, is in [`palette-selection-process.md`](./palette-selection-process.md#semantic-tokens-step-10).
+
+**Categories: where the colour goes**
+
+| Category  | Used for                                                                         | Contrast                                                        |
+| --------- | -------------------------------------------------------------------------------- | --------------------------------------------------------------- |
+| `surface` | Passive backgrounds: the page, cards, rows, banners                              | None of its own; foregrounds are checked against it             |
+| `fill`    | A control's background: buttons, inputs                                          | None of its own; its `on-*` label is checked against it         |
+| `text`    | Text                                                                             | 4.5:1                                                           |
+| `icon`    | Icons                                                                            | 3:1                                                             |
+| `border`  | Edges and lines: control borders, dividers, the focus ring, selection indicators | 3:1 when it identifies a control or state; none when decorative |
+
+**Words that look similar but mean different things**
+
+| Word                                     | Means                                                                                                      | Contrast                       | Examples                                                       |
+| ---------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ------------------------------ | -------------------------------------------------------------- |
+| `primary` / `secondary` / `tertiary`     | Button emphasis only: filled lilac, brand outline, text-only. Never a text level or a second brand colour. | Per token                      | `fill.primary`, `text.on-secondary`, `border.secondary.subtle` |
+| `heading` / `body` / `muted`             | Text emphasis, strongest to weakest.                                                                       | All meet 4.5:1                 | `text.heading`, `text.body`, `text.muted`                      |
+| `muted`                                  | Lower emphasis but still read: helper text, captions, metadata, supporting icons.                          | Meets its category's threshold | `text.muted`, `icon.muted`                                     |
+| `subtle`                                 | Decorative: carries no information on its own (dividers, card and banner edges).                           | None                           | `border.subtle`, `border.error.subtle`                         |
+| `disabled`                               | Part of a disabled control. Always less prominent than the enabled version.                                | Exempt (WCAG)                  | `text.disabled`, `fill.disabled`, `border.disabled`            |
+| `on-*`                                   | Content placed on that fill, and only there.                                                               | Checked against that fill      | `text.on-primary` on `fill.primary`                            |
+| `error` / `warning` / `success` / `info` | A status. Always shown with an icon and a text label, never by colour alone.                               | Per token                      | `text.error`, `surface.error`, `fill.error`                    |
+| `hover` / `pressed` / `selected`         | Interaction states. The resting state has no suffix.                                                       | Per token                      | `fill.primary.hover`, `surface.card.row-selected`              |
+| `page` / `card`                          | The container a row sits in. Needed because the dark theme uses different steps in each.                   | n/a                            | `surface.page.row-hover`, `surface.card.row-hover`             |
+
+Rules that follow from these words:
+
+- **Pick a foreground by what it sits on.** Neutral surfaces and a status's own banner take `text.error`; the solid error button takes `text.on-error`.
+- **`subtle` and `disabled` are the only exemptions.** A text, icon or border token without either word in its name has a contrast requirement, and the token build fails if it doesn't declare one (or if a `subtle` or `disabled` token does).
+
+**Light and dark in one file.** `$value` holds the light theme. The dark value and the contrast pairings sit in the token's `$extensions`, under `nam-ui`:
+
+```json
+"body": {
+  "$value": "{color.neutral.800}",
+  "$description": "Body text, the default for content.",
+  "$extensions": {
+    "nam-ui": {
+      "dark": "{color.neutral.200}",
+      "contrast": { "min": 4.5, "on": ["surface.page", "surface.card"] }
+    }
+  }
+}
+```
+
+`contrast.on` lists every background the token can sit on, by token name; the token build checks each one in both themes. Semantic tokens reference only the role tier (`color.*`).
+
 ## Adding or changing a token
 
-1. Edit the JSON in `tokens/`. Files use the [Design Tokens (DTCG)](https://www.designtokens.org/) format: `$value` holds the value, `$type` the kind of token, and `{palette.lilac.500}` references another token.
+1. Edit the JSON in `tokens/`. Files use the [Design Tokens (DTCG)](https://www.designtokens.org/) format: `$value` holds the value, `$type` the kind of token, and `{color.neutral.800}` references another token.
 2. Rebuild the generated files:
 
    ```sh
@@ -107,7 +186,7 @@ Names across outputs:
 
    This runs [Style Dictionary](https://styledictionary.com/) (configured in `style-dictionary.config.ts`) and writes CSS, SCSS and JS into `src/generated/`. Never edit `src/generated/` by hand; it is overwritten on every build.
 
-3. For colour changes, check every affected pairing against the [accessibility standard](#accessibility-standard).
+3. The build in step 2 also checks the semantic colour tokens and fails on any problem. It checks each semantic token's shape (a dark value, role-tier references, the naming rule for `subtle` and `disabled`) and every contrast pairing it declares, in both themes. A new text, icon or border token lists the backgrounds it sits on in `$extensions` (see [Semantic token names](#semantic-token-names)).
 
 A new JSON file in `tokens/` automatically becomes its own output file in every format and is added to the index files.
 

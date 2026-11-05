@@ -1,18 +1,11 @@
 import {
   CHROMA_SEARCH_MAX,
-  contrastRatio,
-  deltaEOK,
-  type Hex,
-  hexToLinearSrgb,
-  linearSrgbToOklab,
   maxChroma,
-  type OKLab,
   oklabToLinearSrgb,
   oklchToOklab,
-  relativeLuminance,
-  type RGB,
   srgbToHex,
-} from './color-helpers.ts';
+} from '../shared/color-helpers.ts';
+import { type DtcgColor, minDeltaEOK } from '../shared/dtcg-color.ts';
 
 export const STEPS = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950] as const;
 export type Step = (typeof STEPS)[number];
@@ -41,7 +34,7 @@ type ChromaRule =
   | { kind: 'fixed'; values: Record<Step, number> };
 
 type Ramp = {
-  role: string; // documentation only; role tokens are mapped in step 10
+  role: string; // documentation only; tokens/role/color.json maps each role to its ramp
   hue: number;
   chroma: ChromaRule;
 };
@@ -72,14 +65,6 @@ export const COLORS = {
   cyan: { role: 'info', hue: 212, chroma: { kind: 'equal', share: STATUS_SHARE } },
 } as const satisfies Record<string, Ramp>;
 export type RampName = keyof typeof COLORS;
-
-export const STATUS_RAMPS = [
-  'red',
-  'amber',
-  'green',
-  'cyan',
-] as const satisfies readonly RampName[];
-export type StatusRamp = (typeof STATUS_RAMPS)[number];
 
 export const mapSteps = <T>(
   cb: (step: Step) => T
@@ -125,11 +110,6 @@ export const chromaFor = (rule: ChromaRule, hue: number, step: Step): number => 
   throw new Error(`Unhandled chroma rule: ${JSON.stringify(unhandled)}`);
 };
 
-type DtcgColor = {
-  colorSpace: 'oklch';
-  components: [L: number, C: number, H: number];
-  hex: Hex;
-};
 type SDJsonPalette = {
   [R in RampName]: {
     [S in Step]: {
@@ -180,59 +160,12 @@ export const sdData = {
   },
 };
 
-export type ColorRef = `${RampName}.${Step}` | 'white';
-type Spelling = { linear: RGB; oklab: OKLab };
-type Resolved = { oklch: Spelling; hex: Spelling };
-export const resolveColor = (colorRef: ColorRef): Resolved => {
-  let colorValue: DtcgColor;
-  if (colorRef === 'white') {
-    colorValue = WHITE;
-  } else {
-    // ColorRef only allows 'ramp.step', so the split always gives a ramp name and a step.
-    const [ramp, step] = colorRef.split('.') as [RampName, `${Step}`];
-    colorValue = generatedPalette[ramp][step].$value;
-  }
-  const {
-    components: [L, C, H],
-    hex,
-  } = colorValue;
-  const oklabFromOklch = oklchToOklab({ L, C, H });
-  const hexLinear = hexToLinearSrgb(hex);
-
-  return {
-    oklch: {
-      oklab: oklabFromOklch,
-      linear: oklabToLinearSrgb(oklabFromOklch),
-    },
-    hex: {
-      oklab: linearSrgbToOklab(hexLinear),
-      linear: hexLinear,
-    },
-  };
+type ColorRef = `${RampName}.${Step}`;
+const colorOf = (colorRef: ColorRef): DtcgColor => {
+  // ColorRef only allows 'ramp.step', so the split always gives a ramp name and a step.
+  const [ramp, step] = colorRef.split('.') as [RampName, `${Step}`];
+  return generatedPalette[ramp][step].$value;
 };
 
-export const getMinDeltaEOK = (colorRefA: ColorRef, colorRefB: ColorRef): number => {
-  const { hex: hexA, oklch: oklchA } = resolveColor(colorRefA);
-  const { hex: hexB, oklch: oklchB } = resolveColor(colorRefB);
-  const hexSpellingDelta = deltaEOK(hexA.oklab, hexB.oklab);
-  const oklchSpellingDelta = deltaEOK(oklchA.oklab, oklchB.oklab);
-  return Math.min(hexSpellingDelta, oklchSpellingDelta);
-};
-
-export const getMinContrastRatio = (colorRefA: ColorRef, colorRefB: ColorRef): number => {
-  const { hex: hexA, oklch: oklchA } = resolveColor(colorRefA);
-  const { hex: hexB, oklch: oklchB } = resolveColor(colorRefB);
-  const hexContrastRatio = contrastRatio(
-    relativeLuminance(hexA.linear),
-    relativeLuminance(hexB.linear)
-  );
-  const oklchContrastRatio = contrastRatio(
-    relativeLuminance(oklchA.linear),
-    relativeLuminance(oklchB.linear)
-  );
-
-  return Math.min(hexContrastRatio, oklchContrastRatio);
-};
-
-export const truncate = (x: number, decimals: number): number =>
-  Math.floor(x * 10 ** decimals) / 10 ** decimals;
+export const getMinDeltaEOK = (colorRefA: ColorRef, colorRefB: ColorRef): number =>
+  minDeltaEOK(colorOf(colorRefA), colorOf(colorRefB));

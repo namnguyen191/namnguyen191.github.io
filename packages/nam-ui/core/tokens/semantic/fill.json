@@ -1,0 +1,188 @@
+{
+  "fill": {
+    "$type": "color",
+    "primary": {
+      "$root": {
+        "$value": "{color.primary.300}",
+        "$description": "Primary button, the one main action in a view. Label: text.on-primary.",
+        "$extensions": {
+          "nam-ui": {
+            "dark": "{color.primary.300}"
+          }
+        }
+      },
+      "hover": {
+        "$value": "{color.primary.400}",
+        "$description": "Primary button on hover.",
+        "$extensions": {
+          "nam-ui": {
+            "dark": "{color.primary.200}"
+          }
+        }
+      },
+      "pressed": {
+        "$value": "{color.primary.500}",
+        "$description": "Primary button while pressed.",
+        "$extensions": {
+          "nam-ui": {
+            "dark": "{color.primary.100}"
+          }
+        }
+      }
+    },
+    "secondary": {
+      "hover": {
+        "$value": "{color.primary.100}",
+        "$description": "Outline (secondary) button background on hover; it has no fill at rest. Label: text.on-secondary.",
+        "$extensions": {
+          "nam-ui": {
+            "dark": "{color.primary.900}"
+          }
+        }
+      },
+      "pressed": {
+        "$value": "{color.primary.200}",
+        "$description": "Outline (secondary) button background while pressed. Label: text.on-secondary.",
+        "$extensions": {
+          "nam-ui": {
+            "dark": "{color.primary.800}"
+          }
+        }
+      }
+    },
+    "error": {
+      "$root": {
+        "$value": "{color.error.600}",
+        "$description": "Solid error controls: button, solid badge. Label: text.on-error.",
+        "$extensions": {
+          "nam-ui": {
+            "dark": "{color.error.300}"
+          }
+        }
+      },
+      "hover": {
+        "$value": "{color.error.700}",
+        "$description": "Solid error control on hover.",
+        "$extensions": {
+          "nam-ui": {
+            "dark": "{color.error.200}"
+          }
+        }
+      },
+      "pressed": {
+        "$value": "{color.error.800}",
+        "$description": "Solid error control while pressed.",
+        "$extensions": {
+          "nam-ui": {
+            "dark": "{color.error.100}"
+          }
+        }
+      }
+    },
+    "warning": {
+      "$root": {
+        "$value": "{color.warning.300}",
+        "$description": "Solid warning controls: button, solid badge. Label: text.on-warning. Light in both themes: yellow can't be vivid when dark, so warning uses a light fill with a dark label.",
+        "$extensions": {
+          "nam-ui": {
+            "dark": "{color.warning.300}"
+          }
+        }
+      },
+      "hover": {
+        "$value": "{color.warning.400}",
+        "$description": "Solid warning control on hover.",
+        "$extensions": {
+          "nam-ui": {
+            "dark": "{color.warning.200}"
+          }
+        }
+      },
+      "pressed": {
+        "$value": "{color.warning.500}",
+        "$description": "Solid warning control while pressed.",
+        "$extensions": {
+          "nam-ui": {
+            "dark": "{color.warning.100}"
+          }
+        }
+      }
+    },
+    "success": {
+      "$root": {
+        "$value": "{color.success.600}",
+        "$description": "Solid success controls: button, solid badge. Label: text.on-success.",
+        "$extensions": {
+          "nam-ui": {
+            "dark": "{color.success.300}"
+          }
+        }
+      },
+      "hover": {
+        "$value": "{color.success.700}",
+        "$description": "Solid success control on hover.",
+        "$extensions": {
+          "nam-ui": {
+            "dark": "{color.success.200}"
+          }
+        }
+      },
+      "pressed": {
+        "$value": "{color.success.800}",
+        "$description": "Solid success control while pressed.",
+        "$extensions": {
+          "nam-ui": {
+            "dark": "{color.success.100}"
+          }
+        }
+      }
+    },
+    "info": {
+      "$root": {
+        "$value": "{color.info.600}",
+        "$description": "Solid info controls: button, solid badge. Label: text.on-info.",
+        "$extensions": {
+          "nam-ui": {
+            "dark": "{color.info.300}"
+          }
+        }
+      },
+      "hover": {
+        "$value": "{color.info.700}",
+        "$description": "Solid info control on hover.",
+        "$extensions": {
+          "nam-ui": {
+            "dark": "{color.info.200}"
+          }
+        }
+      },
+      "pressed": {
+        "$value": "{color.info.800}",
+        "$description": "Solid info control while pressed.",
+        "$extensions": {
+          "nam-ui": {
+            "dark": "{color.info.100}"
+          }
+        }
+      }
+    },
+    "input": {
+      "$value": "{color.white}",
+      "$description": "Text field, select and other input backgrounds.",
+      "$extensions": {
+        "nam-ui": {
+          "dark": "{color.neutral.900}"
+        }
+      }
+    },
+    "disabled": {
+      "$value": "{color.neutral.100}",
+      "$description": "Any disabled filled control, whatever its role. Label: text.disabled.",
+      "$extensions": {
+        "nam-ui": {
+          "dark": "{color.neutral.800}"
+        }
+      }
+    }
+  }
+}

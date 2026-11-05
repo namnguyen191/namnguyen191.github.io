@@ -2,39 +2,304 @@
   "text": {
     "$type": "color",
     "heading": {
-      "$value": "{color.neutral.700}"
+      "$value": "{color.neutral.950}",
+      "$description": "Headings and highest-emphasis text.",
+      "$extensions": {
+        "nam-ui": {
+          "dark": "{color.neutral.50}",
+          "contrast": {
+            "min": 4.5,
+            "on": [
+              "surface.page",
+              "surface.page.row-hover",
+              "surface.page.row-pressed",
+              "surface.page.row-selected",
+              "surface.card",
+              "surface.card.row-hover",
+              "surface.card.row-pressed",
+              "surface.card.row-selected"
+            ]
+          }
+        }
+      }
     },
     "body": {
-      "$value": "{color.neutral.600}"
+      "$value": "{color.neutral.800}",
+      "$description": "Body text, the default for content.",
+      "$extensions": {
+        "nam-ui": {
+          "dark": "{color.neutral.200}",
+          "contrast": {
+            "min": 4.5,
+            "on": [
+              "surface.page",
+              "surface.page.row-hover",
+              "surface.page.row-pressed",
+              "surface.page.row-selected",
+              "surface.card",
+              "surface.card.row-hover",
+              "surface.card.row-pressed",
+              "surface.card.row-selected"
+            ]
+          }
+        }
+      }
     },
-    "action": {
-      "default": {
-        "$value": "{color.primary.default}"
-      },
-      "hover": {
-        "$value": "{color.primary.600}"
+    "muted": {
+      "$value": "{color.neutral.700}",
+      "$description": "Helper text, captions, metadata. Lower emphasis than body, still readable.",
+      "$extensions": {
+        "nam-ui": {
+          "dark": "{color.neutral.300}",
+          "contrast": {
+            "min": 4.5,
+            "on": [
+              "surface.page",
+              "surface.page.row-hover",
+              "surface.page.row-pressed",
+              "surface.page.row-selected",
+              "surface.card",
+              "surface.card.row-hover",
+              "surface.card.row-pressed",
+              "surface.card.row-selected"
+            ]
+          }
+        }
+      }
+    },
+    "placeholder": {
+      "$value": "{color.neutral.600}",
+      "$description": "Input placeholders only, never content.",
+      "$extensions": {
+        "nam-ui": {
+          "dark": "{color.neutral.400}",
+          "contrast": {
+            "min": 4.5,
+            "on": ["fill.input"]
+          }
+        }
       }
     },
     "disabled": {
-      "$value": "{color.neutral.400}"
+      "$value": "{color.neutral.400}",
+      "$description": "Disabled labels and values, including on fill.disabled. Exempt from contrast.",
+      "$extensions": {
+        "nam-ui": {
+          "dark": "{color.neutral.600}"
+        }
+      }
     },
-    "info": {
-      "$value": "{color.info.default}"
-    },
-    "success": {
-      "$value": "{color.success.default}"
-    },
-    "warning": {
-      "$value": "{color.warning.default}"
+    "link": {
+      "$root": {
+        "$value": "{color.primary.600}",
+        "$description": "Links. Underline them in body text.",
+        "$extensions": {
+          "nam-ui": {
+            "dark": "{color.primary.300}",
+            "contrast": {
+              "min": 4.5,
+              "on": [
+                "surface.page",
+                "surface.page.row-hover",
+                "surface.page.row-selected",
+                "surface.card",
+                "surface.card.row-hover",
+                "surface.card.row-selected"
+              ]
+            }
+          }
+        }
+      },
+      "hover": {
+        "$value": "{color.primary.700}",
+        "$description": "Link on hover.",
+        "$extensions": {
+          "nam-ui": {
+            "dark": "{color.primary.200}",
+            "contrast": {
+              "min": 4.5,
+              "on": [
+                "surface.page",
+                "surface.page.row-hover",
+                "surface.page.row-selected",
+                "surface.card",
+                "surface.card.row-hover",
+                "surface.card.row-selected"
+              ]
+            }
+          }
+        }
+      }
     },
     "error": {
-      "$value": "{color.error.default}"
+      "$value": "{color.error.700}",
+      "$description": "Error messages on the page, cards, rows and the error banner. Always with an icon and a label.",
+      "$extensions": {
+        "nam-ui": {
+          "dark": "{color.error.300}",
+          "contrast": {
+            "min": 4.5,
+            "on": [
+              "surface.page",
+              "surface.page.row-hover",
+              "surface.page.row-pressed",
+              "surface.page.row-selected",
+              "surface.card",
+              "surface.card.row-hover",
+              "surface.card.row-pressed",
+              "surface.card.row-selected",
+              "surface.error"
+            ]
+          }
+        }
+      }
     },
-    "on-action": {
-      "$value": "{color.neutral.white}"
+    "warning": {
+      "$value": "{color.warning.700}",
+      "$description": "Warning messages on the page, cards, rows and the warning banner. Always with an icon and a label.",
+      "$extensions": {
+        "nam-ui": {
+          "dark": "{color.warning.300}",
+          "contrast": {
+            "min": 4.5,
+            "on": [
+              "surface.page",
+              "surface.page.row-hover",
+              "surface.page.row-pressed",
+              "surface.page.row-selected",
+              "surface.card",
+              "surface.card.row-hover",
+              "surface.card.row-pressed",
+              "surface.card.row-selected",
+              "surface.warning"
+            ]
+          }
+        }
+      }
     },
-    "on-disabled": {
-      "$value": "{color.neutral.700}"
+    "success": {
+      "$value": "{color.success.700}",
+      "$description": "Success messages on the page, cards, rows and the success banner. Always with an icon and a label.",
+      "$extensions": {
+        "nam-ui": {
+          "dark": "{color.success.300}",
+          "contrast": {
+            "min": 4.5,
+            "on": [
+              "surface.page",
+              "surface.page.row-hover",
+              "surface.page.row-pressed",
+              "surface.page.row-selected",
+              "surface.card",
+              "surface.card.row-hover",
+              "surface.card.row-pressed",
+              "surface.card.row-selected",
+              "surface.success"
+            ]
+          }
+        }
+      }
+    },
+    "info": {
+      "$value": "{color.info.700}",
+      "$description": "Info messages on the page, cards, rows and the info banner. Always with an icon and a label.",
+      "$extensions": {
+        "nam-ui": {
+          "dark": "{color.info.300}",
+          "contrast": {
+            "min": 4.5,
+            "on": [
+              "surface.page",
+              "surface.page.row-hover",
+              "surface.page.row-pressed",
+              "surface.page.row-selected",
+              "surface.card",
+              "surface.card.row-hover",
+              "surface.card.row-pressed",
+              "surface.card.row-selected",
+              "surface.info"
+            ]
+          }
+        }
+      }
+    },
+    "on-primary": {
+      "$value": "{color.primary.950}",
+      "$description": "Label on fill.primary.",
+      "$extensions": {
+        "nam-ui": {
+          "dark": "{color.primary.950}",
+          "contrast": {
+            "min": 4.5,
+            "on": ["fill.primary", "fill.primary.hover", "fill.primary.pressed"]
+          }
+        }
+      }
+    },
+    "on-secondary": {
+      "$value": "{color.primary.700}",
+      "$description": "Outline (secondary) button label, in every state.",
+      "$extensions": {
+        "nam-ui": {
+          "dark": "{color.primary.300}",
+          "contrast": {
+            "min": 4.5,
+            "on": ["surface.page", "surface.card", "fill.secondary.hover", "fill.secondary.pressed"]
+          }
+        }
+      }
+    },
+    "on-error": {
+      "$value": "{color.white}",
+      "$description": "Label on fill.error.",
+      "$extensions": {
+        "nam-ui": {
+          "dark": "{color.error.950}",
+          "contrast": {
+            "min": 4.5,
+            "on": ["fill.error", "fill.error.hover", "fill.error.pressed"]
+          }
+        }
+      }
+    },
+    "on-warning": {
+      "$value": "{color.warning.950}",
+      "$description": "Label on fill.warning. Dark in both themes because the fill is light.",
+      "$extensions": {
+        "nam-ui": {
+          "dark": "{color.warning.950}",
+          "contrast": {
+            "min": 4.5,
+            "on": ["fill.warning", "fill.warning.hover", "fill.warning.pressed"]
+          }
+        }
+      }
+    },
+    "on-success": {
+      "$value": "{color.white}",
+      "$description": "Label on fill.success.",
+      "$extensions": {
+        "nam-ui": {
+          "dark": "{color.success.950}",
+          "contrast": {
+            "min": 4.5,
+            "on": ["fill.success", "fill.success.hover", "fill.success.pressed"]
+          }
+        }
+      }
+    },
+    "on-info": {
+      "$value": "{color.white}",
+      "$description": "Label on fill.info.",
+      "$extensions": {
+        "nam-ui": {
+          "dark": "{color.info.950}",
+          "contrast": {
+            "min": 4.5,
+            "on": ["fill.info", "fill.info.hover", "fill.info.pressed"]
+          }
+        }
+      }
     }
   }
 }

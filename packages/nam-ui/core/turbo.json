@@ -3,11 +3,20 @@
   "extends": ["//"],
   "tasks": {
     "tokens": {
-      "inputs": ["tokens/**", "style-dictionary.config.ts"],
+      "inputs": [
+        "tokens/**",
+        "style-dictionary.config.ts",
+        "src/scripts/token_verification/**",
+        "src/scripts/shared/**"
+      ],
       "outputs": ["src/generated/**"]
     },
     "generate-palette": {
-      "inputs": ["src/scripts/palette_generator/**", "$TURBO_ROOT$/prettier.config.js"],
+      "inputs": [
+        "src/scripts/palette_generator/**",
+        "src/scripts/shared/**",
+        "$TURBO_ROOT$/prettier.config.js"
+      ],
       "outputs": ["tokens/primitive/palette.json"]
     },
     "build": { "dependsOn": ["^build", "tokens"] },

@@ -3,8 +3,8 @@ import path from 'node:path';
 
 import { format, resolveConfig } from 'prettier';
 
-import { type Hex, hexToOklch, JUST_NOTICEABLE_DELTA_E_OK } from './color-helpers.ts';
-import { verifyContrastRules } from './contrast-verification.ts';
+import { type Hex, hexToOklch, JUST_NOTICEABLE_DELTA_E_OK } from '../shared/color-helpers.ts';
+import { truncate } from '../shared/dtcg-color.ts';
 import {
   COLORS,
   generatedPalette,
@@ -13,7 +13,6 @@ import {
   sdData,
   type Step,
   STEPS,
-  truncate,
 } from './palette.ts';
 
 const writePaletteToSdFile = async (): Promise<void> => {
@@ -97,7 +96,6 @@ const isGeneratedPaletteValid = (): boolean => {
   verifyBrandColor(failures);
   verifyWhite(failures);
   verifyNeighbouringSteps(failures);
-  verifyContrastRules(failures);
 
   if (failures.length > 0) {
     console.error(failures.join('\n'));

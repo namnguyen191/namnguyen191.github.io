@@ -41,6 +41,10 @@
       "types": "./dist/types/index.d.ts",
       "import": "./dist/index.js"
     },
+    "./raw": {
+      "types": "./dist/types/raw.d.ts",
+      "import": "./dist/raw.js"
+    },
     "./js/*": {
       "types": "./dist/types/generated/js/*.d.ts",
       "import": "./dist/generated/js/*.js"
