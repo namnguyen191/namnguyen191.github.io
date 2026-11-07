@@ -22,6 +22,7 @@
     "publish-angular-packages": "turbo run publish-angular-lib",
     "start-local-registry": "verdaccio",
     "clean": "rm -rf node_modules && rm -rf **/node_modules && pnpm store prune",
+    "clean:tsbuildinfo": "find . -name '*.tsbuildinfo' -type f -delete",
     "ci-checks": "pnpm format:check && turbo lint test check-types --affected",
     "full-check": "pnpm format:check && turbo check-types --force && turbo build --force && turbo lint test --force"
   },

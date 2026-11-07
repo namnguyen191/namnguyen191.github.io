@@ -54,7 +54,8 @@ server.registerTool(
       },
     });
 
-    const reposInfo: { name: string }[] = await userReposResponse.json();
+    // oxlint-disable-next-line typescript/no-unsafe-type-assertion
+    const reposInfo = (await userReposResponse.json()) as { name: string }[];
     const reposList = reposInfo.map((repo, i) => `${i}. ${repo.name}`).join('\n\n');
 
     const output = {

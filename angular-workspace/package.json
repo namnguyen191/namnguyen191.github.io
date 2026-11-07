@@ -7,6 +7,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "check-types": "tsc -b --noEmit",
     "publish-angular-lib": "pnpm publish dist/common-angular-helper",
     "lint": "oxlint --type-aware --max-warnings 0 && eslint . --max-warnings 0"
   },
@@ -29,11 +30,12 @@
     "@angular/compiler-cli": "catalog:angular-latest",
     "@repo/shared-configs": "workspace:*",
     "@types/node": "catalog:typescript-latest",
+    "@typescript/native": "catalog:typescript-latest",
     "eslint": "catalog:eslint-latest",
     "ng-packagr": "catalog:angular-latest",
     "oxlint": "catalog:oxlint-latest",
     "oxlint-tsgolint": "catalog:oxlint-latest",
     "type-fest": "catalog:",
-    "typescript": "catalog:angular-latest"
+    "typescript": "catalog:typescript-latest"
   }
 }

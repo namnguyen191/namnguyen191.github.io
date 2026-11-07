@@ -9,6 +9,7 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc && cp -r src/data dist",
+    "check-types": "tsc -b --noEmit",
     "lint": "oxlint --type-aware --max-warnings 0"
   },
   "dependencies": {

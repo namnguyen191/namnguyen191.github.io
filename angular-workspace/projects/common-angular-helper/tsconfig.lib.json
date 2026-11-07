@@ -1,5 +1,5 @@
 {
-  "extends": "../../tsconfig.json",
+  "extends": "@repo/shared-configs/typescript/angular_base",
   "compilerOptions": {
     "outDir": "../../out-tsc/lib"
   },

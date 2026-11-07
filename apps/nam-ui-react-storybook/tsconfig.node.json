@@ -1,0 +1,4 @@
+{
+  "extends": "@repo/shared-configs/typescript/node_base",
+  "include": ["vite.config.ts", ".storybook/main.ts"]
+}

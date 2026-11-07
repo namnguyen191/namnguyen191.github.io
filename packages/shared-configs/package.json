@@ -8,7 +8,9 @@
     "./oxlint/base": "./oxlint/oxlint.config.base.ts",
     "./oxlint/react": "./oxlint/oxlint.config.react.ts",
     "./typescript/base": "./typescript/tsconfig.base.json",
-    "./typescript/vitespec_base": "./typescript/tsconfig.vitespec.base.json",
+    "./typescript/browser_base": "./typescript/tsconfig.browser.base.json",
+    "./typescript/node_base": "./typescript/tsconfig.node.base.json",
+    "./typescript/vitest_base": "./typescript/tsconfig.vitest.base.json",
     "./typescript/angular_base": "./typescript/tsconfig.angular.base.json",
     "./typescript/react_base": "./typescript/tsconfig.react.base.json"
   },

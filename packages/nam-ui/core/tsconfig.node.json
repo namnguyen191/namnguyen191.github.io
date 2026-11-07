@@ -1,9 +1,5 @@
 {
-  "extends": "./tsconfig.json",
-  "compilerOptions": {
-    "allowImportingTsExtensions": true,
-    "types": ["node"]
-  },
+  "extends": "@repo/shared-configs/typescript/node_base",
   "include": [
     "vite.config.ts",
     "vite.config.mts",

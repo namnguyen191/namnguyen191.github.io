@@ -1,0 +1,35 @@
+{
+  "name": "nam-ui-react-storybook",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "lint": "oxlint --type-aware --max-warnings 0",
+    "check-types": "tsc -b --noEmit"
+  },
+  "dependencies": {
+    "react": "catalog:react-latest",
+    "react-dom": "catalog:react-latest"
+  },
+  "devDependencies": {
+    "@chromatic-com/storybook": "catalog:storybook-latest",
+    "@repo/shared-configs": "workspace:*",
+    "@storybook/addon-a11y": "catalog:storybook-latest",
+    "@storybook/addon-docs": "catalog:storybook-latest",
+    "@storybook/addon-vitest": "catalog:storybook-latest",
+    "@storybook/react-vite": "catalog:storybook-latest",
+    "@types/node": "catalog:typescript-latest",
+    "@types/react": "catalog:react-latest",
+    "@vitejs/plugin-react": "catalog:react-latest",
+    "@vitest/browser-playwright": "catalog:vite-latest",
+    "@vitest/coverage-v8": "catalog:vite-latest",
+    "oxlint": "catalog:oxlint-latest",
+    "playwright": "catalog:",
+    "storybook": "catalog:storybook-latest",
+    "typescript": "~7.0.2",
+    "vite": "catalog:vite-latest",
+    "vitest": "catalog:vite-latest"
+  }
+}

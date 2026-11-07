@@ -1,0 +1,7 @@
+{
+  "extends": "@repo/shared-configs/typescript/react_base",
+  "compilerOptions": {
+    "types": ["vite/client"]
+  },
+  "include": ["src", ".storybook/preview.tsx"]
+}
