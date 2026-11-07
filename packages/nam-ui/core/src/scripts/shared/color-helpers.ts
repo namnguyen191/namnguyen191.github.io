@@ -1,12 +1,21 @@
+// oxlint-disable no-magic-numbers
 import type { Tagged } from 'type-fest';
 
-export type OKLCH = {
+export interface OKLCH {
   L: number;
   C: number;
   H: number;
-};
-export type OKLab = { L: number; a: number; b: number };
-export type RGB = { r: number; g: number; b: number };
+}
+export interface OKLab {
+  L: number;
+  a: number;
+  b: number;
+}
+export interface RGB {
+  r: number;
+  g: number;
+  b: number;
+}
 export type Hex = Tagged<string, 'Hex'>;
 
 const WCAG = {
@@ -53,9 +62,7 @@ const SRGB_TRANSFER = {
   offset: 0.055, // shift that makes the curve end exactly at 1
 } as const;
 
-const degToRad = (deg: number): number => {
-  return (deg * Math.PI) / 180;
-};
+const degToRad = (deg: number): number => (deg * Math.PI) / 180;
 export const oklchToOklab = (oklch: OKLCH): OKLab => {
   const { L, C, H } = oklch;
   const hRad = degToRad(H);
@@ -138,6 +145,7 @@ export const srgbToHex = (linear: RGB): Hex => {
       .padStart(2, '0');
   }
 
+  // oxlint-disable-next-line typescript/no-unsafe-type-assertion
   return hex as Hex;
 };
 
@@ -166,9 +174,9 @@ export const maxChroma = (L: number, H: number): number => {
 };
 
 export const hexToSrgb = (hex: Hex): RGB => {
-  const r = parseInt(hex.slice(1, 3), 16) / CHANNEL_MAX;
-  const g = parseInt(hex.slice(3, 5), 16) / CHANNEL_MAX;
-  const b = parseInt(hex.slice(5, 7), 16) / CHANNEL_MAX;
+  const r = Number.parseInt(hex.slice(1, 3), 16) / CHANNEL_MAX;
+  const g = Number.parseInt(hex.slice(3, 5), 16) / CHANNEL_MAX;
+  const b = Number.parseInt(hex.slice(5, 7), 16) / CHANNEL_MAX;
   return {
     r,
     g,
@@ -197,9 +205,7 @@ export const srgbToLinear = (channel: number): number => {
   return ((channel + SRGB_TRANSFER.offset) / SRGB_SCALE) ** SRGB_TRANSFER.gamma;
 };
 
-const radToDeg = (rad: number): number => {
-  return (rad * 180) / Math.PI;
-};
+const radToDeg = (rad: number): number => (rad * 180) / Math.PI;
 export const oklabToOklch = (oklab: OKLab): OKLCH => {
   const { L, a, b } = oklab;
   const C = Math.hypot(a, b);
@@ -218,9 +224,8 @@ export const hexToLinearSrgb = (hex: Hex): RGB => {
   return { r: srgbToLinear(r), g: srgbToLinear(g), b: srgbToLinear(b) };
 };
 
-export const hexToOklch = (hex: Hex): OKLCH => {
-  return oklabToOklch(linearSrgbToOklab(hexToLinearSrgb(hex)));
-};
+export const hexToOklch = (hex: Hex): OKLCH =>
+  oklabToOklch(linearSrgbToOklab(hexToLinearSrgb(hex)));
 
 // Input must be linear RGB, not the encoded 0–1 values from hexToSrgb.
 export const relativeLuminance = (linear: RGB): number => {
@@ -239,8 +244,7 @@ export const contrastRatio = (y1: number, y2: number): number => {
 export const JUST_NOTICEABLE_DELTA_E_OK = 0.02;
 
 // Euclidean distance in OKLab (CSS Color 4's deltaEOK)
-export const deltaEOK = (lab1: OKLab, lab2: OKLab): number => {
-  return Math.hypot(lab1.L - lab2.L, lab1.a - lab2.a, lab1.b - lab2.b);
-};
+export const deltaEOK = (lab1: OKLab, lab2: OKLab): number =>
+  Math.hypot(lab1.L - lab2.L, lab1.a - lab2.a, lab1.b - lab2.b);
 
 export type WCAGThreshold = 3 | 4.5;

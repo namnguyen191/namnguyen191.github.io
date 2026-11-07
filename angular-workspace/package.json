@@ -1,15 +1,15 @@
 {
   "name": "angular-workspace",
   "version": "0.0.0",
+  "private": true,
+  "type": "module",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "publish-angular-lib": "pnpm publish dist/common-angular-helper",
-    "lint": "eslint . --max-warnings 0"
+    "lint": "oxlint --type-aware --max-warnings 0 && eslint . --max-warnings 0"
   },
-  "private": true,
-  "type": "module",
   "dependencies": {
     "@angular/animations": "catalog:angular-latest",
     "@angular/common": "catalog:angular-latest",
@@ -24,16 +24,16 @@
     "zone.js": "catalog:"
   },
   "devDependencies": {
-    "type-fest": "catalog:",
-    "@repo/shared-configs": "workspace:*",
     "@angular-devkit/build-angular": "catalog:angular-latest",
     "@angular/cli": "catalog:angular-latest",
     "@angular/compiler-cli": "catalog:angular-latest",
-    "ng-packagr": "catalog:angular-latest",
-    "typescript": "catalog:angular-latest",
-    "@eslint/js": "catalog:eslint-latest",
+    "@repo/shared-configs": "workspace:*",
     "@types/node": "catalog:typescript-latest",
     "eslint": "catalog:eslint-latest",
-    "typescript-eslint": "catalog:eslint-latest"
+    "ng-packagr": "catalog:angular-latest",
+    "oxlint": "catalog:oxlint-latest",
+    "oxlint-tsgolint": "catalog:oxlint-latest",
+    "type-fest": "catalog:",
+    "typescript": "catalog:angular-latest"
   }
 }

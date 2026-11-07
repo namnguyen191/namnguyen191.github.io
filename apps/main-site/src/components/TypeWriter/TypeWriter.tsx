@@ -1,12 +1,13 @@
-import { type ReactElement, useCallback, useEffect, useRef, useState } from 'react';
+// oxlint-disable no-magic-numbers
+import { useCallback, useEffect, useRef, useState, type ReactElement } from 'react';
 
 import styles from './TypeWriter.module.scss';
 
-export type TypeWriterProps = {
+export interface TypeWriterProps {
   writerTexts: string[];
   typeSpeed?: number;
   pauseTime?: number;
-};
+}
 
 export const TypeWriter = (props: TypeWriterProps): ReactElement => {
   const { writerTexts, typeSpeed = 180, pauseTime = 2000 } = props;
@@ -20,7 +21,8 @@ export const TypeWriter = (props: TypeWriterProps): ReactElement => {
     // Current Word Index
     const currentWordIndex = wordIndex.current % writerTexts.length;
 
-    // Full Text of the current word
+    // Full Text of the current word, index always exists due to it's calculation
+    // oxlint-disable-next-line typescript/no-non-null-assertion
     const fullText = writerTexts[currentWordIndex]!;
 
     // Check if in Deleting State

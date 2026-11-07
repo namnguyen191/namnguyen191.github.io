@@ -2,7 +2,7 @@
  * Public API Surface of common-angular-helper
  */
 
-export * from './lib/hooks/computed-from-observable';
-export * from './lib/hooks/fetch';
-export * from './lib/interceptors/global-delay.interceptor';
-export * from './lib/pipes/pluck.pipe';
+export { computedFromObservable } from './lib/hooks/computed-from-observable';
+export { type FetchWithStatus, fetchWithStatus } from './lib/hooks/fetch';
+export { globalDelayInterceptorFactory } from './lib/interceptors/global-delay.interceptor';
+export { PluckPipe } from './lib/pipes/pluck.pipe';

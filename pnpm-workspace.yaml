@@ -31,18 +31,16 @@ allowBuilds:
   esbuild: true
   lmdb: true
   msgpackr-extract: true
-  unrs-resolver: true
 
 catalog:
   '@changesets/cli': 3.0.3
   '@faker-js/faker': 10.6.0
   '@types/lodash-es': 4.17.12
   '@types/chrome': 0.3.7
-  globals: 17.14.0
   husky: 9.1.7
   lint-staged: 17.6.0
   lodash-es: 4.18.1
-  prettier: 3.9.10
+  oxfmt: 0.76.0
   rxjs: 7.8.2
   sass: 1.107.1
   style-dictionary: 5.8.0
@@ -57,6 +55,7 @@ catalog:
   axios: 1.21.0
   chroma-js: 3.2.0
   reset-css: 5.0.2
+  p-limit: 7.3.3
 
 catalogs:
   angular-latest:
@@ -75,20 +74,12 @@ catalogs:
     ng-packagr: 22.2.6
     typescript: npm:@typescript/typescript6@6.0.2
   eslint-latest:
-    '@eslint/js': 10.0.1
-    '@typescript-eslint/eslint-plugin': 8.72.1
-    '@typescript-eslint/parser': 8.72.1
+    '@typescript-eslint/utils': 8.72.1
     eslint: 10.14.0
-    eslint-config-prettier: 10.1.8
-    eslint-import-resolver-typescript: 4.4.5
-    eslint-plugin-import-x: 4.17.1
-    eslint-plugin-only-warn: 1.2.1
-    eslint-plugin-prettier: 5.5.7
-    eslint-plugin-react-hooks: 7.1.1
-    eslint-plugin-react-refresh: 0.5.7
-    eslint-plugin-simple-import-sort: 14.0.0
-    eslint-plugin-turbo: 2.11.10
     typescript-eslint: 8.72.1
+  oxlint-latest:
+    oxlint: 1.90.0
+    oxlint-tsgolint: 7.0.2006
   react-latest:
     '@emotion/react': 11.14.0
     '@emotion/styled': 11.14.1
@@ -118,6 +109,12 @@ catalogs:
     vite-plugin-dts: 5.1.2
     vitest: 5.1.0
 
+overrides:
+  # angular-eslint depends on `@typescript-eslint/utils@^8.0.0`, which pnpm resolved to 8.46.3. That
+  # version crashes under ESLint 10 ("Class extends value undefined"). Keep it in step with
+  # typescript-eslint.
+  '@typescript-eslint/utils': 'catalog:eslint-latest'
+
 minimumReleaseAgeExclude:
   - '@angular-devkit/architect@0.2202.6'
   - '@angular-devkit/build-angular@22.2.6'
@@ -129,3 +126,10 @@ minimumReleaseAgeExclude:
   - '@ngtools/webpack@22.2.6'
   - '@schematics/angular@22.2.6'
   - vite@8.3.6
+  - '@oxlint-tsgolint/darwin-arm64@7.0.2006'
+  - '@oxlint-tsgolint/darwin-x64@7.0.2006'
+  - '@oxlint-tsgolint/linux-arm64@7.0.2006'
+  - '@oxlint-tsgolint/linux-x64@7.0.2006'
+  - '@oxlint-tsgolint/win32-arm64@7.0.2006'
+  - '@oxlint-tsgolint/win32-x64@7.0.2006'
+  - oxlint-tsgolint@7.0.2006

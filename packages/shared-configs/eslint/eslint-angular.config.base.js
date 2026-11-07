@@ -1,9 +1,17 @@
 import angular from 'angular-eslint';
-import tseslint from 'typescript-eslint';
+import { defineConfig } from 'eslint/config';
 
-import { config as baseConfig } from './eslint.config.base.js';
-
-const angularConfigs = tseslint.config(
+/**
+ * ESLint configuration for Angular projects. Oxlint lints the TypeScript with the shared base, so
+ * ESLint only runs what oxlint cannot: the `angular-eslint` rules and the Angular template (and
+ * inline template) rules. None of these rules exist in oxlint, so no rule is reported twice.
+ *
+ * @type {import("eslint").Linter.Config[]}
+ */
+export const angularBaseConfig = defineConfig(
+  {
+    ignores: ['dist/**', '**/node_modules'],
+  },
   {
     files: ['**/*.ts'],
     extends: [...angular.configs.tsRecommended],
@@ -22,5 +30,3 @@ const angularConfigs = tseslint.config(
     },
   }
 );
-
-export const angularBaseConfig = [...baseConfig, ...angularConfigs];

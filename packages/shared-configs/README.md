@@ -1,3 +1,3 @@
-# `@turbo/eslint-config`
+# `@repo/shared-configs`
 
-Collection of internal eslint configurations.
+Shared configuration for the repository: oxlint configs (`oxlint/`), the ESLint config for Angular only (`eslint/`), and the TypeScript base configs (`typescript/`).

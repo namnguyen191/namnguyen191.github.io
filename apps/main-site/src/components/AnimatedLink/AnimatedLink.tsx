@@ -2,10 +2,10 @@ import type { ReactElement } from 'react';
 
 import styles from './AnimatedLink.module.scss';
 
-export type AnimatedLinkProps = {
+export interface AnimatedLinkProps {
   linkName: string;
   url: string;
-};
+}
 
 const AnimatedLink = (props: AnimatedLinkProps): ReactElement => {
   const { linkName, url } = props;

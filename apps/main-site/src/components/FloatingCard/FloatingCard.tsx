@@ -2,11 +2,11 @@ import type { ReactElement } from 'react';
 
 import styles from './FloatingCard.module.scss';
 
-export type FloatingCardProps = {
+export interface FloatingCardProps {
   title: string;
   items: [string, string, string, string];
   imgSrc: string;
-};
+}
 
 export const FloatingCard = (props: FloatingCardProps): ReactElement => {
   const { title, items, imgSrc } = props;

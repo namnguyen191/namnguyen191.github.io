@@ -1,5 +1,6 @@
+// oxlint-disable import/no-relative-parent-imports react/no-unstable-nested-components typescript/no-unnecessary-type-assertion typescript/no-unsafe-type-assertion
 import { TextInput } from '@carbon/react/lib/components/TextInput';
-import { type ReactElement, useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useMemo, useState, type ReactElement } from 'react';
 
 import { CarbonTable } from '../../shared/components/carbon-table/CarbonTable';
 import {
@@ -10,8 +11,10 @@ import {
   generateMockUserCreditCardData,
   type MockUserCreditCardData,
 } from '../../shared/utils/mock-data';
+
 import styles from './UserCreditTable.module.scss';
 
+// oxlint-disable-next-line no-magic-numbers
 const mockUserCreditCardData = generateMockUserCreditCardData(10);
 
 const dateFormatter = new Intl.DateTimeFormat('en-CA', {
@@ -21,10 +24,15 @@ const dateFormatter = new Intl.DateTimeFormat('en-CA', {
 });
 const formatISODate = (isoString: string): string => dateFormatter.format(new Date(isoString));
 
-type EditableCellProps<T extends number | string> = {
+// Focuses the input as soon as it appears, which is when the user chose to edit the cell.
+const focusOnMount = (input: HTMLInputElement | null): void => {
+  input?.focus();
+};
+
+interface EditableCellProps<T extends number | string> {
   onFinishedEdit?: (val: T) => void;
   initialVal: T;
-};
+}
 const EditableCell = <T extends number | string>(props: EditableCellProps<T>): ReactElement => {
   const { onFinishedEdit, initialVal } = props;
 
@@ -32,14 +40,14 @@ const EditableCell = <T extends number | string>(props: EditableCellProps<T>): R
   const [val, setVal] = useState<T>(initialVal);
   const setNewVal = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>): void => {
-      const val = e.target.value;
+      const newVal = e.target.value;
 
       if (typeof initialVal === 'number') {
-        setVal(parseFloat(val) as T);
+        setVal(Number.parseFloat(newVal) as T);
         return;
       }
 
-      setVal(val as T);
+      setVal(newVal as T);
     },
     [initialVal]
   );
@@ -54,7 +62,7 @@ const EditableCell = <T extends number | string>(props: EditableCellProps<T>): R
               onFinishedEdit(val);
             }
           }}
-          autoFocus
+          ref={focusOnMount}
           defaultValue={val}
           id=""
           labelText=""
@@ -62,10 +70,14 @@ const EditableCell = <T extends number | string>(props: EditableCellProps<T>): R
         />
       ) : (
         <>
-          <span onClick={() => setIsEditMode(true)} className={styles['back-drop']}></span>
-          <span onClick={() => setIsEditMode(true)} className={styles['read-mode']}>
+          <span
+            aria-hidden="true"
+            onClick={() => setIsEditMode(true)}
+            className={styles['back-drop']}
+          />
+          <button type="button" onClick={() => setIsEditMode(true)} className={styles['read-mode']}>
             {val}
-          </span>
+          </button>
         </>
       )}
     </div>
@@ -74,10 +86,6 @@ const EditableCell = <T extends number | string>(props: EditableCellProps<T>): R
 
 export const UserCreditTable = (): ReactElement => {
   const [tableData, setTableData] = useState<MockUserCreditCardData[]>(mockUserCreditCardData);
-
-  useEffect(() => {
-    console.log(`Nam data is: table data changed`);
-  }, [tableData]);
 
   const updateDataCell = useCallback(
     <T extends keyof MockUserCreditCardData>(
@@ -127,7 +135,8 @@ export const UserCreditTable = (): ReactElement => {
           customCell: (val, rowIndex) =>
             EditableCell({
               initialVal: val,
-              onFinishedEdit: (val) => updateDataCell(val, rowIndex, 'outstandingAmount'),
+              onFinishedEdit: (editedVal) =>
+                updateDataCell(editedVal, rowIndex, 'outstandingAmount'),
             }),
         },
         {

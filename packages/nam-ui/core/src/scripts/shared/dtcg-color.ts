@@ -1,3 +1,4 @@
+// oxlint-disable no-magic-numbers
 import {
   contrastRatio,
   deltaEOK,
@@ -13,11 +14,11 @@ import {
 
 // A colour as published in tokens/primitive/palette.json (DTCG 2025.10 colour object):
 // the oklch() components are the source, the hex is the nearest 8-bit fallback.
-export type DtcgColor = {
+export interface DtcgColor {
   colorSpace: 'oklch';
   components: [L: number, C: number, H: number];
   hex: Hex;
-};
+}
 
 export const isDtcgColor = (value: unknown): value is DtcgColor =>
   typeof value === 'object' &&
@@ -32,7 +33,10 @@ export const isDtcgColor = (value: unknown): value is DtcgColor =>
   typeof value.hex === 'string' &&
   /^#[0-9a-f]{6}$/i.test(value.hex);
 
-type Spelling = { linear: RGB; oklab: OKLab };
+interface Spelling {
+  linear: RGB;
+  oklab: OKLab;
+}
 
 // Both ways a colour can reach a user: oklch() in browsers, hex in native apps, email and design tools.
 const spellingsOf = (color: DtcgColor): [oklch: Spelling, hex: Spelling] => {

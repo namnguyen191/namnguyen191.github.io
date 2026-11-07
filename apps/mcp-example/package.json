@@ -2,26 +2,26 @@
   "name": "mcp-example",
   "version": "1.0.0",
   "description": "",
+  "keywords": [],
+  "license": "ISC",
+  "author": "",
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "build": "tsc && cp -r src/data build"
+    "build": "tsc && cp -r src/data dist",
+    "lint": "oxlint --type-aware --max-warnings 0"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "packageManager": "pnpm@10.20.0",
   "dependencies": {
     "@modelcontextprotocol/sdk": "catalog:",
     "zod": "catalog:"
   },
   "devDependencies": {
     "@repo/shared-configs": "workspace:*",
-    "@typescript/native": "catalog:typescript-latest",
-    "typescript": "catalog:typescript-latest",
-    "@eslint/js": "catalog:eslint-latest",
     "@types/node": "catalog:typescript-latest",
-    "eslint": "catalog:eslint-latest",
-    "typescript-eslint": "catalog:eslint-latest"
-  }
+    "@typescript/native": "catalog:typescript-latest",
+    "oxlint": "catalog:oxlint-latest",
+    "oxlint-tsgolint": "catalog:oxlint-latest",
+    "typescript": "catalog:typescript-latest"
+  },
+  "packageManager": "pnpm@10.20.0"
 }

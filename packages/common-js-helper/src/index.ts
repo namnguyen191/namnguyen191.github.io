@@ -1,3 +1,3 @@
-export * from './dom-utils.js';
-export * from './object-manipulation.js';
-export * from './time.js';
+export { parentContains } from './dom-utils.js';
+export { removeEmptyKeys } from './object-manipulation.js';
+export { delay } from './time.js';

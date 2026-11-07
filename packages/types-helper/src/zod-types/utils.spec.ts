@@ -1,4 +1,4 @@
-import * as z from 'zod';
+import { string } from 'zod';
 
 import { parseZodWithDefault } from './utils.js';
 
@@ -6,7 +6,7 @@ describe('utils', () => {
   describe('parseZodWithDefault', () => {
     it('should return value if it pass parser', () => {
       const testVal = 'test string';
-      const parsedVal = parseZodWithDefault(z.string(), testVal, 'default');
+      const parsedVal = parseZodWithDefault(string(), testVal, 'default');
       expect(parsedVal).toEqual(testVal);
     });
 
@@ -14,7 +14,7 @@ describe('utils', () => {
       const testVal = 1;
       const testDefault = 'default string';
       const consoleWarnSpy = vi.spyOn(console, 'warn');
-      const parsedVal = parseZodWithDefault(z.string(), testVal, testDefault);
+      const parsedVal = parseZodWithDefault(string(), testVal, testDefault);
       expect(parsedVal).toEqual(testDefault);
       expect(consoleWarnSpy).toHaveBeenCalled();
     });

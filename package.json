@@ -15,26 +15,30 @@
     "check-types:affected": "turbo check-types --affected",
     "test:all": "turbo test",
     "test:affected": "turbo test --affected",
-    "format:all": "prettier --write \"**/*.{ts,tsx,md,json,html,js,jsx,css,scss}\"",
-    "format:check": "prettier --check \"**/*.{ts,tsx,md,json,html,js,jsx,css,scss}\"",
-    "format": "prettier --write",
+    "format:all": "oxfmt",
+    "format:check": "oxfmt --check",
+    "format": "oxfmt --no-error-on-unmatched-pattern",
     "publish-packages": "turbo run build lint test && changeset version && changeset publish",
     "publish-angular-packages": "turbo run publish-angular-lib",
     "start-local-registry": "verdaccio",
-    "clean": "rm -rf node_modules && rm -rf **/node_modules && pnpm store prune"
+    "clean": "rm -rf node_modules && rm -rf **/node_modules && pnpm store prune",
+    "ci-checks": "pnpm format:check && turbo lint test check-types --affected",
+    "full-check": "pnpm format:check && turbo check-types --force && turbo build --force && turbo lint test --force"
   },
   "devDependencies": {
     "@angular/cli": "catalog:angular-latest",
     "@changesets/cli": "catalog:",
     "husky": "catalog:",
     "lint-staged": "catalog:",
-    "prettier": "catalog:",
+    "oxfmt": "catalog:",
+    "oxlint": "catalog:oxlint-latest",
+    "oxlint-tsgolint": "catalog:oxlint-latest",
     "turbo": "catalog:turbo-latest",
     "typescript": "catalog:typescript-latest",
     "verdaccio": "catalog:"
   },
-  "packageManager": "pnpm@12.15.0+sha512.b3951d6d6ff4a9f13dc7cf56cd28d2b8eb37dbcc9c68e52e1e1191873ea9f82a017287ab50baadc5ccc494f036c67c0e47eb13608c2fa36f47711b61ea128e61",
   "engines": {
     "node": ">=24"
-  }
+  },
+  "packageManager": "pnpm@12.15.0+sha512.b3951d6d6ff4a9f13dc7cf56cd28d2b8eb37dbcc9c68e52e1e1191873ea9f82a017287ab50baadc5ccc494f036c67c0e47eb13608c2fa36f47711b61ea128e61"
 }

@@ -1,6 +1,8 @@
-import * as esbuild from 'esbuild';
-import { readFileSync, writeFileSync } from 'fs';
-import { cp, mkdir, rm } from 'fs/promises';
+// oxlint-disable no-console
+import { readFileSync, writeFileSync } from 'node:fs';
+import { cp, mkdir, rm } from 'node:fs/promises';
+
+import { context, build } from 'esbuild';
 
 import packageJson from './package.json' with { type: 'json' };
 
@@ -19,8 +21,8 @@ function updateManifestDescription() {
     const manifest = JSON.parse(rawManifest);
     manifest['description'] = packageJson.description;
     writeFileSync(manifestPath, JSON.stringify(manifest));
-  } catch (err) {
-    console.error('Something went wrong trying to update the manifest description: ', err);
+  } catch (error) {
+    console.error('Something went wrong trying to update the manifest description:', error);
   }
 }
 
@@ -36,10 +38,10 @@ await copyStaticFiles();
 updateManifestDescription();
 
 if (isWatch) {
-  const ctx = await esbuild.context(options);
+  const ctx = await context(options);
   await ctx.watch();
   console.log('Watching for changes...');
 } else {
-  await esbuild.build(options);
+  await build(options);
   console.log('Build complete.');
 }

@@ -1,10 +1,10 @@
 import { signal, type WritableSignal } from '@angular/core';
 
-export type FetchWithStatus<T> = {
+export interface FetchWithStatus<T> {
   isLoading: boolean;
   isError: boolean;
   data: T | null;
-};
+}
 
 export const fetchWithStatus = <TReturn, TArgs extends unknown[]>(params: {
   fetcher: (...args: TArgs) => Promise<TReturn>;
@@ -27,6 +27,7 @@ export const fetchWithStatus = <TReturn, TArgs extends unknown[]>(params: {
       const responseData = await fetcher(...args);
       fetchWithStatusSignal.set({ data: responseData, isError: false, isLoading: false });
     } catch (error) {
+      // oxlint-disable-next-line no-console
       console.warn(error);
       fetchWithStatusSignal.set({ data: null, isError: true, isLoading: false });
     }

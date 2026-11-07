@@ -22,7 +22,7 @@ const toModule = (file: string): string =>
 const modules = readdirSync('tokens', { recursive: true, encoding: 'utf8' })
   .filter((file) => file.endsWith('.json'))
   .map(toModule)
-  .sort();
+  .toSorted();
 
 const moduleOf = (token: TransformedToken): string =>
   toModule(path.relative('tokens', token.filePath));

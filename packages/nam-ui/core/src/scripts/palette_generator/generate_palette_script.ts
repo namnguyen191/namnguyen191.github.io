@@ -1,21 +1,19 @@
+// oxlint-disable no-console import/no-relative-parent-imports no-magic-numbers
+import { execFileSync } from 'node:child_process';
 import { writeFileSync } from 'node:fs';
 import path from 'node:path';
-
-import { format, resolveConfig } from 'prettier';
 
 import { hexToOklch } from '../shared/color-helpers.ts';
 import { truncate } from '../shared/dtcg-color.ts';
 import { generatedPalette, getMinDeltaEOK, type RampName, sdData, type Step } from './palette.ts';
 import { COLORS, LIGHTNESS_TOLERANCE, LILAC_HEX, MIN_NEIGHBOUR_DELTA_E_OK, STEPS } from './seed.ts';
 
-const writePaletteToSdFile = async (): Promise<void> => {
+const writePaletteToSdFile = (): void => {
   const PALETTE_PATH = path.join(import.meta.dirname, '../../../tokens/primitive/palette.json');
-  const options = await resolveConfig(PALETTE_PATH);
-  const formatted = await format(JSON.stringify(sdData, null, 2), {
-    ...options,
-    filepath: PALETTE_PATH,
-  });
-  writeFileSync(PALETTE_PATH, formatted);
+  writeFileSync(PALETTE_PATH, JSON.stringify(sdData, null, 2));
+  // Format with oxfmt, which picks up the repo's .oxfmtrc.jsonc. The script runs through pnpm, so
+  // oxfmt (a devDependency of this package) is on the PATH.
+  execFileSync('oxfmt', [PALETTE_PATH], { stdio: 'inherit' });
 };
 
 // Verify that every generated hex doesn't differ too much from the original OKLCH in terms of lightness
@@ -57,6 +55,7 @@ const verifyWhite = (failures: string[]): void => {
 const verifyNeighbouringSteps = (failures: string[]): void => {
   let pairCount = 0;
   let failureCount = 0;
+  // oxlint-disable-next-line typescript/no-unsafe-type-assertion
   for (const ramp of Object.keys(COLORS) as RampName[]) {
     let previous: Step | undefined;
     for (const step of STEPS) {
@@ -97,5 +96,5 @@ const isGeneratedPaletteValid = (): boolean => {
 if (!isGeneratedPaletteValid()) {
   process.exitCode = 1;
 } else {
-  await writePaletteToSdFile();
+  writePaletteToSdFile();
 }

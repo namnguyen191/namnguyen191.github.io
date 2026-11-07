@@ -1,3 +1,4 @@
+// oxlint-disable no-console import/no-relative-parent-imports no-magic-numbers
 import path from 'node:path';
 
 import type { Action, Dictionary, TransformedToken } from 'style-dictionary/types';
@@ -35,7 +36,10 @@ const isThreshold = (value: unknown): value is WCAGThreshold =>
 const isStringArray = (value: unknown): value is string[] =>
   Array.isArray(value) && value.every((item) => typeof item === 'string');
 
-type Contrast = { min: WCAGThreshold; on: string[] };
+interface Contrast {
+  min: WCAGThreshold;
+  on: string[];
+}
 const parseContrast = (value: unknown): Contrast | undefined => {
   if (!isObject(value) || Object.keys(value).some((key) => key !== 'min' && key !== 'on')) {
     return undefined;
@@ -44,13 +48,13 @@ const parseContrast = (value: unknown): Contrast | undefined => {
   return isThreshold(min) && isStringArray(on) && on.length > 0 ? { min, on } : undefined;
 };
 
-type SemanticToken = {
+interface SemanticToken {
   name: string; // as in CSS and contrast.on: a group's $root token takes the group's name
   file: string;
   references: Record<Theme, unknown>; // as written, e.g. '{color.neutral.800}'
   colors: Record<Theme, unknown>; // as resolved by Style Dictionary
   contrast: Contrast | undefined;
-};
+}
 
 const categoryOf = (name: string): string => name.split('.')[0] ?? '';
 const namUiOf = (extensions: unknown): JsonObject | undefined =>
@@ -189,6 +193,7 @@ const verifyTokens = (dictionary: Dictionary): void => {
   console.log(
     `Contrast: ${total - failed}/${total} pairs pass (light ${passed('light')}, dark ${passed('dark')})`
   );
+  // oxlint-disable-next-line no-magic-numbers
   if (failures.length > 0) {
     throw new Error(
       `Token verification found ${failures.length} problem(s):\n${failures.join('\n')}`

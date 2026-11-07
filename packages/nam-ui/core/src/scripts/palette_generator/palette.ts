@@ -1,3 +1,4 @@
+// oxlint-disable import/no-relative-parent-imports no-magic-numbers
 import {
   CHROMA_SEARCH_MAX,
   maxChroma,
@@ -18,11 +19,11 @@ export type ChromaRule =
   // hand-picked chroma for each step
   | { kind: 'fixed'; values: Record<Step, number> };
 
-export type Ramp = {
+export interface Ramp {
   role: string; // documentation only; tokens/role/color.json maps each role to its ramp
   hue: number;
   chroma: ChromaRule;
-};
+}
 
 export type RampName = keyof typeof COLORS;
 
@@ -30,11 +31,11 @@ export const mapSteps = <T>(
   cb: (step: Step) => T
 ): {
   [K in Step]: T;
-} => {
-  return Object.fromEntries(STEPS.map((step) => [step, cb(step)])) as {
+} =>
+  // oxlint-disable-next-line typescript/no-unsafe-type-assertion
+  Object.fromEntries(STEPS.map((step) => [step, cb(step)])) as {
     [K in Step]: T;
   };
-};
 
 const equalChromaColors = Object.values(COLORS).filter(({ chroma }) => chroma.kind === 'equal');
 // For each step, the lowest maximum chroma among the 'equal'-rule ramps (the statuses).
@@ -79,6 +80,7 @@ type SDJsonPalette = {
 };
 
 const CHROMA_DECIMALS = 4;
+// oxlint-disable-next-line typescript/no-unsafe-type-assertion
 export const generatedPalette = Object.fromEntries(
   Object.entries(COLORS).map(([name, ramp]) => [
     name,
@@ -87,7 +89,7 @@ export const generatedPalette = Object.fromEntries(
     }>((step) => {
       const oklch = {
         L: LIGHTNESS_SCALE[step],
-        C: parseFloat(chromaFor(ramp.chroma, ramp.hue, step).toFixed(CHROMA_DECIMALS)),
+        C: Number.parseFloat(chromaFor(ramp.chroma, ramp.hue, step).toFixed(CHROMA_DECIMALS)),
         H: ramp.hue,
       };
       const { L, C, H } = oklch;
@@ -123,6 +125,7 @@ export const sdData = {
 type ColorRef = `${RampName}.${Step}`;
 const colorOf = (colorRef: ColorRef): DtcgColor => {
   // ColorRef only allows 'ramp.step', so the split always gives a ramp name and a step.
+  // oxlint-disable-next-line typescript/no-unsafe-type-assertion
   const [ramp, step] = colorRef.split('.') as [RampName, `${Step}`];
   return generatedPalette[ramp][step].$value;
 };

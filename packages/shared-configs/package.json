@@ -1,12 +1,12 @@
 {
   "name": "@repo/shared-configs",
   "version": "0.0.0",
-  "type": "module",
   "private": true,
+  "type": "module",
   "exports": {
-    "./eslint/base": "./eslint/eslint.config.base.js",
     "./eslint/angular_base": "./eslint/eslint-angular.config.base.js",
-    "./eslint/react_base": "./eslint/eslint-react.config.base.js",
+    "./oxlint/base": "./oxlint/oxlint.config.base.ts",
+    "./oxlint/react": "./oxlint/oxlint.config.react.ts",
     "./typescript/base": "./typescript/tsconfig.base.json",
     "./typescript/vitespec_base": "./typescript/tsconfig.vitespec.base.json",
     "./typescript/angular_base": "./typescript/tsconfig.angular.base.json",
@@ -14,21 +14,9 @@
   },
   "devDependencies": {
     "angular-eslint": "catalog:angular-latest",
-    "@typescript-eslint/eslint-plugin": "catalog:eslint-latest",
-    "@typescript-eslint/parser": "catalog:eslint-latest",
     "eslint": "catalog:eslint-latest",
-    "eslint-config-prettier": "catalog:eslint-latest",
-    "eslint-plugin-only-warn": "catalog:eslint-latest",
-    "eslint-plugin-prettier": "catalog:eslint-latest",
-    "eslint-plugin-simple-import-sort": "catalog:eslint-latest",
-    "eslint-plugin-turbo": "catalog:eslint-latest",
-    "eslint-import-resolver-typescript": "catalog:eslint-latest",
-    "eslint-plugin-import-x": "catalog:eslint-latest",
+    "oxlint": "catalog:oxlint-latest",
     "typescript": "catalog:typescript-latest",
-    "globals": "catalog:",
-    "@eslint/js": "catalog:eslint-latest",
-    "eslint-plugin-react-hooks": "catalog:eslint-latest",
-    "eslint-plugin-react-refresh": "catalog:eslint-latest",
     "typescript-eslint": "catalog:eslint-latest"
   }
 }

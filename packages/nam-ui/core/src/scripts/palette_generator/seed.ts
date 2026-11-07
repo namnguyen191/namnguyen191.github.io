@@ -1,3 +1,4 @@
+// oxlint-disable import/no-relative-parent-imports no-magic-numbers
 import { type Hex, JUST_NOTICEABLE_DELTA_E_OK } from '../shared/color-helpers.ts';
 import type { Ramp, Step } from './palette.ts';
 
@@ -62,6 +63,7 @@ export const LIGHTNESS_TOLERANCE = 0.002;
 
 // The brand colour: the generated purple 300 must come out as exactly this hex.
 // Changing anything that moves purple 300 means updating this too.
+// oxlint-disable-next-line typescript/no-unsafe-type-assertion
 export const LILAC_HEX = '#d9bcf7' as Hex;
 
 // Step 9 policy: neighbouring steps fail below the just-noticeable difference.

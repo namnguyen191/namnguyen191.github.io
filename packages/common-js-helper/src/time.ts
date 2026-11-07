@@ -1,5 +1,5 @@
-export const delay = (millisec: number, fn?: () => void): Promise<void> => {
-  return new Promise((resolve) => {
+export const delay = (millisec: number, fn?: () => void): Promise<void> =>
+  new Promise((resolve) => {
     setTimeout(() => {
       if (fn) {
         fn();
@@ -7,4 +7,3 @@ export const delay = (millisec: number, fn?: () => void): Promise<void> => {
       resolve();
     }, millisec);
   });
-};

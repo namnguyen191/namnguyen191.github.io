@@ -124,7 +124,9 @@ async function main(): Promise<void> {
   await server.connect(transport);
 }
 
-main().catch((err) => {
-  console.error('Error in main: ', err);
+main().catch((error: unknown) => {
+  // oxlint-disable-next-line no-console
+  console.error('Error in main:', error);
+  // oxlint-disable-next-line unicorn/no-process-exit no-magic-numbers
   process.exit(1);
 });

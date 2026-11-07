@@ -1,7 +1,7 @@
 {
   "extends": "@repo/shared-configs/typescript/base",
   "compilerOptions": {
-    "outDir": "./build",
+    "outDir": "./dist",
     "rootDir": "./src",
     "emitDeclarationOnly": false,
     "types": ["node"]
