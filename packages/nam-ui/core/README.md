@@ -87,7 +87,7 @@ Per-file partials are available as `@nam-ui/core/scss/<tier>/<file>` (for exampl
 ### JavaScript / TypeScript
 
 ```ts
-import { TextBody, FillPrimary } from '@nam-ui/core';
+import { TextBody, FillPrimary } from '@nam-ui/core/js/index';
 // or one file at a time:
 import { TextBody } from '@nam-ui/core/js/semantic/text';
 ```
@@ -96,16 +96,30 @@ Each token is a PascalCase constant holding its CSS custom property: `TextBody` 
 
 ### Raw values (no CSS)
 
-For places that can't use CSS variables (canvas charts, React Native, HTML email, design tools), `@nam-ui/core/raw` exports resolved values, one object per theme. Colours are hex, since these consumers often can't read `oklch()`.
+For places that can't use CSS variables (canvas charts, React Native, HTML email, design tools), `@nam-ui/core/js/raw` exports resolved values, one object per theme. Colours are hex, since these consumers often can't read `oklch()`.
 
 ```ts
-import { light, dark } from '@nam-ui/core/raw';
+import { light, dark } from '@nam-ui/core/js/raw';
 
 const tokens = isDark ? dark : light;
 context.fillStyle = tokens.TextBody; // '#3b4655' in light, '#d9dee7' in dark
 ```
 
 The app decides which object to use. On the web, to read the value the page is currently showing, use `getComputedStyle(element).getPropertyValue('--nam-text-body')` instead, and read it again when the theme changes.
+
+### Fonts (opt-in)
+
+nam-ui is designed around [Quicksand](https://fonts.google.com/specimen/Quicksand), a variable font (weights 300–700). Core ships the font, but loading it is up to the app:
+
+```css
+@import '@nam-ui/core/fonts';
+```
+
+This declares `@font-face` for the family `Quicksand` with `font-display: swap`. It is not part of `@nam-ui/core/css`, so apps that host fonts their own way (their own CDN, their own `font-display`) skip it and declare the family themselves.
+
+To preload the file, reference it through the package: `@nam-ui/core/fonts/quicksand/Quicksand-VariableFont_wght.woff2` (how that becomes a URL depends on your bundler).
+
+The file is the original font in a WOFF2 container: same glyphs and metadata, not subset. Its license (SIL OFL 1.1) sits next to it, at `@nam-ui/core/fonts/quicksand/OFL.txt`.
 
 ## How the tokens are organised
 

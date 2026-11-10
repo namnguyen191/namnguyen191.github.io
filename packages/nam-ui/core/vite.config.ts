@@ -1,4 +1,4 @@
-import { cpSync, statSync } from 'node:fs';
+import { cpSync, globSync, statSync } from 'node:fs';
 
 import { defineConfig as defineViteConfig, mergeConfig, type Plugin } from 'vite';
 import dts from 'vite-plugin-dts';
@@ -13,6 +13,9 @@ const copyStyles = (): Plugin => ({
       filter: (source) =>
         statSync(source).isDirectory() || source.endsWith('.scss') || source.endsWith('.css'),
     });
+    // The opt-in fonts entry (`@nam-ui/core/fonts`) is published as it is: the stylesheet, the font
+    // files and their license. The filter above only lets stylesheets through.
+    cpSync('src/fonts', 'dist/fonts', { recursive: true });
   },
 });
 
@@ -33,7 +36,9 @@ const viteConfig = defineViteConfig({
   ],
   build: {
     lib: {
-      entry: ['src/index.ts', 'src/raw.ts'],
+      // Everything under generated/js is public through the `./js/*` export, so each file is an
+      // entry. Otherwise only the files that index.ts happens to import get built.
+      entry: ['src/index.ts', ...globSync('src/generated/js/**/*.js')],
       formats: ['es'],
     },
     rollupOptions: {

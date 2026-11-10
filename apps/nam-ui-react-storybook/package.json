@@ -4,12 +4,13 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build",
+    "dev": "storybook dev -p 6006",
+    "build": "storybook build",
     "lint": "oxlint --type-aware --max-warnings 0",
     "check-types": "tsc -b --noEmit"
   },
   "dependencies": {
+    "@nam-ui/core": "workspace:*",
     "react": "catalog:react-latest",
     "react-dom": "catalog:react-latest"
   },

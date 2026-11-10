@@ -610,6 +610,9 @@ importers:
 
   apps/nam-ui-react-storybook:
     dependencies:
+      '@nam-ui/core':
+        specifier: workspace:*
+        version: link:../../packages/nam-ui/core
       react:
         specifier: catalog:react-latest
         version: 19.3.1

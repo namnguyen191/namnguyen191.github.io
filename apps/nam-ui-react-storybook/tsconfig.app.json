@@ -3,5 +3,5 @@
   "compilerOptions": {
     "types": ["vite/client"]
   },
-  "include": ["src", ".storybook/preview.tsx"]
+  "include": ["src", ".storybook/*.tsx", ".storybook/*.ts"]
 }

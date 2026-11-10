@@ -132,7 +132,7 @@ const jsModuleDeclarations: FormatFn = async ({ dictionary, file, options }) => 
   return `${await fileHeader({ file, options })}${lines.join('\n')}\n`;
 };
 
-// @nam-ui/core/raw: resolved values for places without CSS (canvas, React Native, email, design
+// @nam-ui/core/js/raw: resolved values for places without CSS (canvas, React Native, email, design
 // tools), one object per theme for the app to pick at runtime. Colours are the palette's hex, the
 // fallback for consumers that can't read oklch() (step 2).
 const THEMES = ['light', 'dark'] as const;

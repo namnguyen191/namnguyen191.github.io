@@ -13,16 +13,23 @@
       "types": "./dist/types/index.d.ts",
       "import": "./dist/index.js"
     },
-    "./raw": {
-      "types": "./dist/types/raw.d.ts",
-      "import": "./dist/raw.js"
-    },
     "./js/*": {
       "types": "./dist/types/generated/js/*.d.ts",
       "import": "./dist/generated/js/*.js"
     },
-    "./css": "./dist/generated/css/index.css",
-    "./css/*": "./dist/generated/css/*.css",
+    "./css": {
+      "types": "./dist/types/css.d.ts",
+      "default": "./dist/generated/css/index.css"
+    },
+    "./css/*": {
+      "types": "./dist/types/css.d.ts",
+      "default": "./dist/generated/css/*.css"
+    },
+    "./fonts": {
+      "types": "./dist/types/css.d.ts",
+      "default": "./dist/fonts/fonts.css"
+    },
+    "./fonts/*": "./dist/fonts/*",
     "./scss": {
       "sass": "./dist/scss/_index.scss",
       "default": "./dist/scss/_index.scss"
@@ -42,6 +49,7 @@
     "build": "vite build",
     "preview": "vite preview",
     "check-types": "tsc -b --noEmit",
+    "test": "vitest run --coverage",
     "lint": "oxlint --type-aware --max-warnings 0",
     "generate-palette": "node src/scripts/palette_generator/generate_palette_script.ts"
   },

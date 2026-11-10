@@ -71,6 +71,7 @@ export const config = defineConfig({
     'oxc/no-optional-chaining': 'off',
     'oxc/no-rest-spread-properties': 'off',
     'unicorn/import-style': 'off',
+    'unicorn/no-array-reduce': 'off',
     // Already included in explicit-function-return-type
     'typescript/explicit-module-boundary-types': 'off',
     'unicorn/require-module-specifiers': 'off',
