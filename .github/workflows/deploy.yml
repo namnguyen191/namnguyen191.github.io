@@ -11,7 +11,10 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    # A fixed version, not ubuntu-latest: the visual tests' reference pictures for CI are drawn on
+    # this one (SCREENSHOT_ENV below). Moving to another is a new environment: rename
+    # SCREENSHOT_ENV, and commit the pictures its first run uploads.
+    runs-on: ubuntu-24.04
 
     strategy:
       matrix:
@@ -41,8 +44,21 @@ jobs:
 
       - name: Check formatting, linting, types and tests
         run: pnpm ci-checks
+        env:
+          SCREENSHOT_ENV: gh-action-ubuntu-24.04
 
-      # What CI drew for a picture that didn't match, with the difference, to compare with the reference.
+      # CI's reference pictures, with any it drew because they were missing. How to copy them back:
+      # `gh-action-ubuntu-24.04` in nam-ui-react-storybook's README.
+      - name: Upload CI's reference pictures
+        if: failure()
+        uses: actions/upload-artifact@v6
+        with:
+          name: ci-reference-pictures
+          path: apps/nam-ui-react-storybook/__screenshots__/gh-action-ubuntu-24.04
+          if-no-files-found: ignore
+          retention-days: 7
+
+      # For each picture that didn't match its reference: what CI drew, and the difference.
       - name: Upload the pictures of failed visual tests
         if: failure()
         uses: actions/upload-artifact@v6

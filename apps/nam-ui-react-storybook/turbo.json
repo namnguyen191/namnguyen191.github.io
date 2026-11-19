@@ -9,7 +9,7 @@
       "outputs": ["storybook-static/**"]
     },
     "test": {
-      "env": ["CI"]
+      "env": ["SCREENSHOT_ENV"]
     },
     "check-types": {
       // TypeScript reads @nam-ui/react's and @nam-ui/core's types from their built `dist`.

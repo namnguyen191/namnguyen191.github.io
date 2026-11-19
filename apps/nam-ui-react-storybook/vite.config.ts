@@ -14,10 +14,11 @@ const currentDir = import.meta.dirname;
 const dirname =
   typeof currentDir !== 'undefined' ? currentDir : path.dirname(fileURLToPath(import.meta.url));
 
-// How many pixels a picture may differ from its reference in CI, which draws on Linux. Linux draws
-// text edges slightly differently: up to 82 pixels a picture against the macOS references (measured
-// 2026-11-18). A real change can be smaller (a 1px smaller radius changed 37), so only CI allows it.
-const CI_ALLOWED_MISMATCHED_PIXELS = 100;
+// The environment a picture is drawn in decides its pixels, so each environment has its own set of
+// reference pictures. CI names its own (SCREENSHOT_ENV in .github/workflows/deploy.yml); anywhere
+// else it is the operating system. `darwin` is the set a person reviews; CI's set is only ever
+// redrawn to match it.
+const SCREENSHOT_ENV = process.env.SCREENSHOT_ENV ?? process.platform;
 
 // Stories run as tests in two projects. `storybook` is the full run: every story and every test
 // attached to one, in the light theme. `storybook-dark` renders each story once more in the dark
@@ -51,28 +52,23 @@ const storybookProject = (
       instances: [{ browser: 'chromium' }],
       expect: {
         toMatchScreenshot: {
-          // One set of reference pictures, drawn on macOS and used on Linux in CI too, so their
-          // names leave out the operating system that Vitest adds by default.
+          // __screenshots__/<environment>/<stories file's path>/<picture>-<browser>.png
           resolveScreenshotPath: ({
             arg,
+            browserName,
             ext,
             root,
-            screenshotDirectory,
             testFileDirectory,
             testFileName,
-            browserName,
           }) =>
-            path.resolve(
+            path.join(
               root,
+              '__screenshots__',
+              SCREENSHOT_ENV,
               testFileDirectory,
-              screenshotDirectory,
               testFileName,
               `${arg}-${browserName}${ext}`
             ),
-          // On a Mac the comparison is exact.
-          ...(process.env.CI
-            ? { comparatorOptions: { allowedMismatchedPixels: CI_ALLOWED_MISMATCHED_PIXELS } }
-            : {}),
         },
       },
     },
@@ -82,6 +78,10 @@ const storybookProject = (
 export default defineConfig({
   plugins: [react()],
   test: {
+    // Draw a picture that has no reference as its reference, in CI too, where Vitest otherwise
+    // doesn't (CI uploads them). The test still fails, so a new picture is always looked at. A
+    // picture that doesn't match is never replaced: only `pnpm test:update` (`--update`) does that.
+    update: 'new',
     coverage: {
       provider: 'v8',
       // The components live in @nam-ui/react, outside this app.
