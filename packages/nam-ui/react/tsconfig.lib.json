@@ -1,0 +1,14 @@
+{
+  "extends": "@repo/shared-configs/typescript/react_base",
+  "compilerOptions": {
+    "rootDir": "./src",
+    "outDir": "./dist/types",
+    "tsBuildInfoFile": "${configDir}/node_modules/.tmp/tsconfig.lib.tsbuildinfo",
+    "composite": true,
+    "noEmit": false,
+    "emitDeclarationOnly": true,
+    "types": ["vite/client"]
+  },
+  "include": ["./src/**/*.ts", "./src/**/*.tsx"],
+  "exclude": ["src/**/*.test.ts", "src/**/*.test.tsx", "src/**/*.test-d.ts", "src/**/*.test-d.tsx"]
+}

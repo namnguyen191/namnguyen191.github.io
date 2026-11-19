@@ -51,8 +51,9 @@ const swapTransform = (group: string, from: string, to: string | undefined): str
 // CSS writes colours as oklch() (the published format, step 2) with the built-in color/oklch, instead
 // of as hex with color/css.
 const cssTransforms = swapTransform('css', 'color/css', 'color/oklch');
-// The raw export keeps colours as the palette's colour objects, so it can publish their own hex.
-const rawTransforms = swapTransform('js', 'color/hex', undefined);
+// The raw export keeps colours as the palette's colour objects, so it can publish their own hex,
+// and writes font stacks as CSS font-family strings (the js group leaves them as arrays).
+const rawTransforms = [...swapTransform('js', 'color/hex', undefined), 'fontFamily/css'];
 
 // A token's dark value from $extensions["nam-ui"].dark: as written on token.original, resolved on the
 // token itself.

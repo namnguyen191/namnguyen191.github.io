@@ -28,14 +28,18 @@ export const Palette = (): ReactElement => {
   }
 
   return (
-    <ColorPalette>
-      {HUES.map(([hue, usage]) => {
-        const color = palette[hue];
-        if (color === undefined) {
-          throw new Error(`Palette has no colour "${hue}", but HUES lists it`);
-        }
-        return <ColorItem key={hue} title={hue} subtitle={usage} colors={toSwatches(hue, color)} />;
-      })}
-    </ColorPalette>
+    <div className="with-theme">
+      <ColorPalette>
+        {HUES.map(([hue, usage]) => {
+          const color = palette[hue];
+          if (color === undefined) {
+            throw new Error(`Palette has no colour "${hue}", but HUES lists it`);
+          }
+          return (
+            <ColorItem key={hue} title={hue} subtitle={usage} colors={toSwatches(hue, color)} />
+          );
+        })}
+      </ColorPalette>
+    </div>
   );
 };

@@ -57,6 +57,8 @@ catalog:
   reset-css: 5.0.2
   p-limit: 7.3.3
   playwright: 1.65.0
+  publint: 0.3.25
+  '@arethetypeswrong/cli': 0.18.5
 
 catalogs:
   angular-latest:
@@ -111,12 +113,13 @@ catalogs:
     vitest: 5.1.0
   storybook-latest:
     '@chromatic-com/storybook': 5.6.0
-    '@storybook/addon-a11y': 10.6.6
-    '@storybook/addon-docs': 10.6.6
-    '@storybook/addon-onboarding': 10.6.6
-    '@storybook/addon-vitest': 10.6.6
-    '@storybook/react-vite': 10.6.6
-    storybook: 10.6.6
+    '@storybook/addon-a11y': 10.6.7
+    '@storybook/addon-docs': 10.6.7
+    '@storybook/addon-onboarding': 10.6.7
+    '@storybook/addon-vitest': 10.6.7
+    '@storybook/react-vite': 10.6.7
+    storybook: 10.6.7
+    storybook-addon-pseudo-states: 10.6.7
 
 overrides:
   # angular-eslint depends on `@typescript-eslint/utils@^8.0.0`, which pnpm resolved to 8.46.3. That

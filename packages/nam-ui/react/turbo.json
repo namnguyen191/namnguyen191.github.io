@@ -1,0 +1,14 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "extends": ["//"],
+  "tasks": {
+    "test": {
+      // The tests for this package are run by the Storybook app
+      "dependsOn": ["nam-ui-react-storybook#test"]
+    },
+    "lint": {
+      // The package checks read the built package.
+      "dependsOn": ["build"]
+    }
+  }
+}

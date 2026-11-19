@@ -1,4 +1,10 @@
 {
+  "font-family": {
+    "$type": "fontFamily",
+    "sans": {
+      "$value": "{font-family.quicksand}"
+    }
+  },
   "font-size": {
     "$type": "dimension",
     "body": {

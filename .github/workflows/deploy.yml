@@ -35,8 +35,22 @@ jobs:
       - name: Install
         run: pnpm i --frozen-lockfile
 
+      # The Storybook tests run in Playwright's Chromium, which `pnpm i` doesn't download.
+      - name: Install Playwright's Chromium
+        run: pnpm --filter nam-ui-react-storybook exec playwright install --with-deps --only-shell chromium
+
       - name: Check formatting, linting, types and tests
         run: pnpm ci-checks
+
+      # What CI drew for a picture that didn't match, with the difference, to compare with the reference.
+      - name: Upload the pictures of failed visual tests
+        if: failure()
+        uses: actions/upload-artifact@v6
+        with:
+          name: failed-visual-tests
+          path: apps/nam-ui-react-storybook/.vitest/attachments
+          if-no-files-found: ignore
+          retention-days: 7
 
       - name: Build
         run: pnpm turbo build --filter=main-site

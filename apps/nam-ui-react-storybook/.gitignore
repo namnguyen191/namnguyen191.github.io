@@ -1,2 +1,5 @@
 # Storybook build output
 storybook-static
+
+# Pictures from the last failed visual comparison (what was rendered, and the difference)
+.vitest

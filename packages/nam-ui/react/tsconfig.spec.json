@@ -1,0 +1,11 @@
+{
+  "extends": "@repo/shared-configs/typescript/react_base",
+  "compilerOptions": {
+    "tsBuildInfoFile": "${configDir}/node_modules/.tmp/tsconfig.spec.tsbuildinfo",
+    "composite": false,
+    "types": ["vite/client", "vitest/globals"]
+  },
+  // The whole of src, not only the test files: `tsc -b` re-checks a project when one of the files it
+  // lists changes, and the tests have to be re-checked when a component changes.
+  "include": ["src/**/*.ts", "src/**/*.tsx"]
+}

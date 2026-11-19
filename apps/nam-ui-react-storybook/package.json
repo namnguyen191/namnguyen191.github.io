@@ -4,13 +4,16 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "storybook dev -p 6006",
-    "build": "storybook build",
+    "dev": "storybook dev -p 6006 -c ./src",
+    "build": "storybook build -c ./src",
     "lint": "oxlint --type-aware --max-warnings 0",
-    "check-types": "tsc -b --noEmit"
+    "check-types": "tsc -b --noEmit",
+    "test": "vitest run --coverage",
+    "test:update": "vitest run --update"
   },
   "dependencies": {
     "@nam-ui/core": "workspace:*",
+    "@nam-ui/react": "workspace:*",
     "react": "catalog:react-latest",
     "react-dom": "catalog:react-latest"
   },
@@ -28,7 +31,9 @@
     "@vitest/coverage-v8": "catalog:vite-latest",
     "oxlint": "catalog:oxlint-latest",
     "playwright": "catalog:",
+    "sass": "catalog:",
     "storybook": "catalog:storybook-latest",
+    "storybook-addon-pseudo-states": "catalog:storybook-latest",
     "typescript": "~7.0.2",
     "vite": "catalog:vite-latest",
     "vitest": "catalog:vite-latest"

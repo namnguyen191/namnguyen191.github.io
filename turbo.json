@@ -18,7 +18,9 @@
       "cache": false,
       "persistent": true
     },
-    "test": {},
+    "test": {
+      "dependsOn": ["^build"]
+    },
     "publish-angular-lib": {
       "dependsOn": ["^build"]
     }
