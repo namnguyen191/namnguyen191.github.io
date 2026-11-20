@@ -1,0 +1,11 @@
+# Storybook build output
+storybook-static
+
+# Pictures from the last failed visual comparison (what was rendered, and the difference)
+.vitest
+
+# Reference pictures are committed only for `darwin` and CI (gh-action-*). Other environments draw
+# their own on first run, which are not shared (see SCREENSHOT_ENV in vite.config.ts).
+__screenshots__/*
+!__screenshots__/darwin/
+!__screenshots__/gh-action-*/

@@ -1,7 +1,9 @@
-import { ZodError, ZodType } from 'zod';
+// oxlint-disable no-console
+import { ZodError, type ZodType } from 'zod';
 
 export const parseZodWithDefault = <T>(zodType: ZodType, val: unknown, defaultVal: T): T => {
   try {
+    // oxlint-disable-next-line typescript/no-unsafe-type-assertion
     const result = zodType.parse(val) as T;
     return result;
   } catch (error) {

@@ -1,0 +1,9 @@
+{
+  "extends": "@repo/shared-configs/typescript/react_base",
+  "compilerOptions": {
+    "types": ["vite/client"]
+  },
+  "include": ["src/**/*.ts", "src/**/*.tsx"],
+  // main.ts runs in Node; tsconfig.node.json checks it.
+  "exclude": ["src/main.ts"]
+}

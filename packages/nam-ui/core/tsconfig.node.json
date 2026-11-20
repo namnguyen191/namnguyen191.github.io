@@ -1,0 +1,10 @@
+{
+  "extends": "@repo/shared-configs/typescript/node_base",
+  "include": [
+    "vite.config.ts",
+    "vite.config.mts",
+    "style-dictionary.config.ts",
+    "src/**/*.d.ts",
+    "src/scripts/**/*.ts"
+  ]
+}

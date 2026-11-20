@@ -1,12 +1,14 @@
+// oxlint-disable import/no-relative-parent-imports no-magic-numbers
 import chroma from 'chroma-js';
 import type { ReactElement } from 'react';
 
 import { RotatingCard } from '../RotatingCard/RotatingCard';
 import { ToolTip } from '../ToolTip/ToolTip';
 import GithubIconUrl from './images/github-square-brands.svg';
+
 import styles from './ProjectCard.module.scss';
 
-export type ProjectCardProps = {
+export interface ProjectCardProps {
   title: string;
   stacks: [string, string, string, string, string?];
   description: string;
@@ -14,11 +16,12 @@ export type ProjectCardProps = {
   githubUrl?: string;
   primaryColor?: string;
   imgUrl: string;
-};
+}
 
 export const ProjectCard = (props: ProjectCardProps): ReactElement => {
   const { title, stacks, description, siteUrl, githubUrl, imgUrl, primaryColor = '#fff' } = props;
 
+  // oxlint-disable-next-line typescript/no-unsafe-type-assertion
   const cssVariables = {
     '--non-hover-bg': `linear-gradient(
       152deg,
@@ -73,13 +76,13 @@ export const ProjectCard = (props: ProjectCardProps): ReactElement => {
           {description && <span className={styles['description']}>{description}</span>}
           {siteUrl && (
             <a href={siteUrl} className={styles['siteUrl']} target="_blank" rel="noreferrer">
-              View Site
+              {'View Site'}
             </a>
           )}
           {githubUrl && (
             <ToolTip text="Github Source">
               <a href={githubUrl} target="_blank" rel="noreferrer">
-                <img src={GithubIconUrl} className={styles['githubUrl']} />
+                <img src={GithubIconUrl} alt="Github Source" className={styles['githubUrl']} />
               </a>
             </ToolTip>
           )}

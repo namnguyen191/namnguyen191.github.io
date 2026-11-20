@@ -1,0 +1,13 @@
+body {
+  background: var(--nam-surface-page);
+  color: var(--nam-text-body);
+}
+
+/* Docs pages sit on Storybook's own background; use the page surface like the stories do. */
+.sbdocs.sbdocs-wrapper:has(.with-theme) {
+  background: var(--nam-surface-page) !important;
+  & * {
+    font-family: var(--nam-font-family-sans) !important;
+    color: var(--nam-text-body) !important;
+  }
+}

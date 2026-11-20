@@ -1,5 +1,5 @@
 import { effect, type Signal, signal } from '@angular/core';
-import { Observable } from 'rxjs';
+import type { Observable } from 'rxjs';
 
 export const computedFromObservable = <T>(getObs: () => Observable<T>): Signal<T | undefined> => {
   const sigToReturn = signal<T | undefined>(undefined);

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "extends": ["//"],
+  "tasks": {
+    "dev": {
+      "dependsOn": ["^build"]
+    },
+    "build": {
+      "outputs": ["storybook-static/**"]
+    },
+    "test": {
+      "env": ["SCREENSHOT_ENV"]
+    },
+    "check-types": {
+      // TypeScript reads @nam-ui/react's and @nam-ui/core's types from their built `dist`.
+      "dependsOn": ["^build"]
+    }
+  }
+}

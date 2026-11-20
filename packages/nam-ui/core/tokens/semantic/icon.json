@@ -1,0 +1,151 @@
+{
+  "icon": {
+    "$type": "color",
+    "default": {
+      "$value": "{color.neutral.700}",
+      "$description": "Icons beside body text, toolbar and navigation icons.",
+      "$extensions": {
+        "nam-ui": {
+          "dark": "{color.neutral.300}",
+          "contrast": {
+            "min": 3,
+            "on": [
+              "surface.page",
+              "surface.page.row-hover",
+              "surface.page.row-pressed",
+              "surface.page.row-selected",
+              "surface.card",
+              "surface.card.row-hover",
+              "surface.card.row-pressed",
+              "surface.card.row-selected"
+            ]
+          }
+        }
+      }
+    },
+    "muted": {
+      "$value": "{color.neutral.600}",
+      "$description": "Supporting icons: the search glass or chevron in an input, metadata icons.",
+      "$extensions": {
+        "nam-ui": {
+          "dark": "{color.neutral.400}",
+          "contrast": {
+            "min": 3,
+            "on": [
+              "surface.page",
+              "surface.page.row-hover",
+              "surface.page.row-pressed",
+              "surface.page.row-selected",
+              "surface.card",
+              "surface.card.row-hover",
+              "surface.card.row-pressed",
+              "surface.card.row-selected",
+              "fill.input"
+            ]
+          }
+        }
+      }
+    },
+    "disabled": {
+      "$value": "{color.neutral.400}",
+      "$description": "Icons in disabled controls. Exempt from contrast.",
+      "$extensions": {
+        "nam-ui": {
+          "dark": "{color.neutral.600}"
+        }
+      }
+    },
+    "error": {
+      "$value": "{color.error.600}",
+      "$description": "Error icon beside error text. Always paired with a label.",
+      "$extensions": {
+        "nam-ui": {
+          "dark": "{color.error.400}",
+          "contrast": {
+            "min": 3,
+            "on": [
+              "surface.page",
+              "surface.page.row-hover",
+              "surface.page.row-pressed",
+              "surface.page.row-selected",
+              "surface.card",
+              "surface.card.row-hover",
+              "surface.card.row-pressed",
+              "surface.card.row-selected",
+              "surface.error"
+            ]
+          }
+        }
+      }
+    },
+    "warning": {
+      "$value": "{color.warning.600}",
+      "$description": "Warning icon beside warning text. Always paired with a label.",
+      "$extensions": {
+        "nam-ui": {
+          "dark": "{color.warning.400}",
+          "contrast": {
+            "min": 3,
+            "on": [
+              "surface.page",
+              "surface.page.row-hover",
+              "surface.page.row-pressed",
+              "surface.page.row-selected",
+              "surface.card",
+              "surface.card.row-hover",
+              "surface.card.row-pressed",
+              "surface.card.row-selected",
+              "surface.warning"
+            ]
+          }
+        }
+      }
+    },
+    "success": {
+      "$value": "{color.success.600}",
+      "$description": "Success icon beside success text. Always paired with a label.",
+      "$extensions": {
+        "nam-ui": {
+          "dark": "{color.success.400}",
+          "contrast": {
+            "min": 3,
+            "on": [
+              "surface.page",
+              "surface.page.row-hover",
+              "surface.page.row-pressed",
+              "surface.page.row-selected",
+              "surface.card",
+              "surface.card.row-hover",
+              "surface.card.row-pressed",
+              "surface.card.row-selected",
+              "surface.success"
+            ]
+          }
+        }
+      }
+    },
+    "info": {
+      "$value": "{color.info.600}",
+      "$description": "Info icon beside info text. Always paired with a label.",
+      "$extensions": {
+        "nam-ui": {
+          "dark": "{color.info.400}",
+          "contrast": {
+            "min": 3,
+            "on": [
+              "surface.page",
+              "surface.page.row-hover",
+              "surface.page.row-pressed",
+              "surface.page.row-selected",
+              "surface.card",
+              "surface.card.row-hover",
+              "surface.card.row-pressed",
+              "surface.card.row-selected",
+              "surface.info"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

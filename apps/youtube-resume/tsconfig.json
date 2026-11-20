@@ -1,8 +1,10 @@
 {
-  "extends": "@repo/shared-configs/typescript/base",
+  "extends": "@repo/shared-configs/typescript/browser_base",
   "compilerOptions": {
     "noEmit": true,
+    "tsBuildInfoFile": "${configDir}/node_modules/.tmp/tsconfig.tsbuildinfo",
     "rootDir": "./src",
     "types": ["chrome"]
-  }
+  },
+  "include": ["src"]
 }

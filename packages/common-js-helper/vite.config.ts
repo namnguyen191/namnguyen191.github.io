@@ -7,10 +7,10 @@ const viteConfig = defineViteConfig({
     dts({
       entryRoot: 'src',
       tsconfigPath: 'tsconfig.lib.json',
-      outDir: 'dist/types',
+      outDirs: 'dist/types',
       afterDiagnostic: (diagnostics) => {
         if (diagnostics.length) {
-          throw new Error('Type error in build. Please run typecheck for more info');
+          throw new Error('Type error in build. Please run check-types for more info');
         }
       },
     }),

@@ -19,6 +19,15 @@ $read-mode-z-index: $back-drop-z-index + 1;
   .read-mode {
     position: relative;
     z-index: $read-mode-z-index;
+
+    // A button, so keyboard users can reach it, made to look like the plain text it replaced.
+    padding: 0;
+    border: 0;
+    background: none;
+    color: inherit;
+    font: inherit;
+    text-align: inherit;
+    cursor: inherit;
   }
 }
 

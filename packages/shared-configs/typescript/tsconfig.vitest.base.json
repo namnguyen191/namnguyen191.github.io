@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "extends": "./tsconfig.node.base.json",
+  "compilerOptions": {
+    "tsBuildInfoFile": "${configDir}/node_modules/.tmp/tsconfig.spec.tsbuildinfo",
+    "composite": false,
+    "types": ["vitest/globals", "vitest/importMeta", "vite/client", "node", "vitest"]
+  },
+  "include": [
+    "${configDir}/vite.config.ts",
+    "${configDir}/vite.config.mts",
+    "${configDir}/vitest.config.ts",
+    "${configDir}/vitest.config.mts",
+    "${configDir}/src/**/*.test.ts",
+    "${configDir}/src/**/*.spec.ts",
+    "${configDir}/src/**/*.test.tsx",
+    "${configDir}/src/**/*.spec.tsx",
+    "${configDir}/src/**/*.test.js",
+    "${configDir}/src/**/*.spec.js",
+    "${configDir}/src/**/*.test.jsx",
+    "${configDir}/src/**/*.spec.jsx",
+    "${configDir}/src/**/*.d.ts"
+  ]
+}

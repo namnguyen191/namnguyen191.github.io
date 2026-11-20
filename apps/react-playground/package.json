@@ -1,37 +1,36 @@
 {
   "name": "react-playground",
-  "private": true,
   "version": "0.0.0",
+  "private": true,
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "lint": "eslint .",
+    "check-types": "tsc -b --noEmit",
+    "lint": "oxlint --type-aware --max-warnings 0",
     "preview": "vite preview"
   },
   "dependencies": {
-    "react": "catalog:react-latest",
-    "react-dom": "catalog:react-latest",
+    "@carbon/react": "catalog:carbon-latest",
     "@tanstack/react-table": "catalog:react-latest",
-    "@carbon/react": "catalog:carbon-latest"
+    "react": "catalog:react-latest",
+    "react-dom": "catalog:react-latest"
   },
   "devDependencies": {
+    "@faker-js/faker": "catalog:",
     "@repo/shared-configs": "workspace:*",
-    "typescript": "catalog:typescript-latest",
-    "vite": "catalog:vite-latest",
-    "@vitejs/plugin-react-swc": "catalog:react-latest",
-    "@vitejs/plugin-react": "catalog:react-latest",
+    "@types/node": "catalog:typescript-latest",
     "@types/react": "catalog:react-latest",
     "@types/react-dom": "catalog:react-latest",
+    "@typescript/native": "catalog:typescript-latest",
+    "@vitejs/plugin-react": "catalog:react-latest",
+    "@vitejs/plugin-react-swc": "catalog:react-latest",
     "babel-plugin-react-compiler": "catalog:react-latest",
-    "globals": "catalog:",
+    "oxc-transform-react": "catalog:react-latest",
+    "oxlint": "catalog:oxlint-latest",
+    "oxlint-tsgolint": "catalog:oxlint-latest",
     "sass": "catalog:",
-    "@faker-js/faker": "catalog:",
-    "@eslint/js": "catalog:eslint-latest",
-    "@types/node": "catalog:typescript-latest",
-    "eslint": "catalog:eslint-latest",
-    "eslint-plugin-react-hooks": "catalog:eslint-latest",
-    "eslint-plugin-react-refresh": "catalog:eslint-latest",
-    "typescript-eslint": "catalog:eslint-latest"
+    "typescript": "catalog:typescript-latest",
+    "vite": "catalog:vite-latest"
   }
 }

@@ -1,0 +1,178 @@
+{
+  "border": {
+    "$type": "color",
+    "subtle": {
+      "$value": "{color.neutral.200}",
+      "$description": "Card borders and dividers. Decorative.",
+      "$extensions": {
+        "nam-ui": {
+          "dark": "{color.neutral.800}"
+        }
+      }
+    },
+    "control": {
+      "$value": "{color.neutral.500}",
+      "$description": "Edges of inputs and other controls that need a visible boundary.",
+      "$extensions": {
+        "nam-ui": {
+          "dark": "{color.neutral.500}",
+          "contrast": {
+            "min": 3,
+            "on": ["surface.page", "surface.card", "fill.input"]
+          }
+        }
+      }
+    },
+    "disabled": {
+      "$value": "{color.neutral.200}",
+      "$description": "Edge of a disabled control.",
+      "$extensions": {
+        "nam-ui": {
+          "dark": "{color.neutral.700}"
+        }
+      }
+    },
+    "focus": {
+      "$value": "{color.primary.600}",
+      "$description": "Focus ring, drawn outside the control with a gap.",
+      "$extensions": {
+        "nam-ui": {
+          "dark": "{color.primary.400}",
+          "contrast": {
+            "min": 3,
+            "on": [
+              "surface.page",
+              "surface.page.row-hover",
+              "surface.page.row-pressed",
+              "surface.page.row-selected",
+              "surface.card",
+              "surface.card.row-hover",
+              "surface.card.row-pressed",
+              "surface.card.row-selected"
+            ]
+          }
+        }
+      }
+    },
+    "selected": {
+      "$value": "{color.neutral.600}",
+      "$description": "Selection bar or checkmark on a selected row. The tint alone never shows selection.",
+      "$extensions": {
+        "nam-ui": {
+          "dark": "{color.neutral.400}",
+          "contrast": {
+            "min": 3,
+            "on": ["surface.page.row-selected", "surface.card.row-selected"]
+          }
+        }
+      }
+    },
+    "secondary": {
+      "subtle": {
+        "$value": "{color.primary.300}",
+        "$description": "Outline (secondary) button edge. Decorative: the label identifies the button.",
+        "$extensions": {
+          "nam-ui": {
+            "dark": "{color.primary.700}"
+          }
+        }
+      }
+    },
+    "error": {
+      "$root": {
+        "$value": "{color.error.500}",
+        "$description": "Edge of a control in the error state, such as an input with an error.",
+        "$extensions": {
+          "nam-ui": {
+            "dark": "{color.error.500}",
+            "contrast": {
+              "min": 3,
+              "on": ["surface.page", "surface.card", "fill.input"]
+            }
+          }
+        }
+      },
+      "subtle": {
+        "$value": "{color.error.200}",
+        "$description": "Error banner border. Decorative.",
+        "$extensions": {
+          "nam-ui": {
+            "dark": "{color.error.800}"
+          }
+        }
+      }
+    },
+    "warning": {
+      "$root": {
+        "$value": "{color.warning.500}",
+        "$description": "Edge of a control in the warning state.",
+        "$extensions": {
+          "nam-ui": {
+            "dark": "{color.warning.500}",
+            "contrast": {
+              "min": 3,
+              "on": ["surface.page", "surface.card", "fill.input"]
+            }
+          }
+        }
+      },
+      "subtle": {
+        "$value": "{color.warning.200}",
+        "$description": "Warning banner border. Decorative.",
+        "$extensions": {
+          "nam-ui": {
+            "dark": "{color.warning.800}"
+          }
+        }
+      }
+    },
+    "success": {
+      "$root": {
+        "$value": "{color.success.500}",
+        "$description": "Edge of a control in the success state.",
+        "$extensions": {
+          "nam-ui": {
+            "dark": "{color.success.500}",
+            "contrast": {
+              "min": 3,
+              "on": ["surface.page", "surface.card", "fill.input"]
+            }
+          }
+        }
+      },
+      "subtle": {
+        "$value": "{color.success.200}",
+        "$description": "Success banner border. Decorative.",
+        "$extensions": {
+          "nam-ui": {
+            "dark": "{color.success.800}"
+          }
+        }
+      }
+    },
+    "info": {
+      "$root": {
+        "$value": "{color.info.500}",
+        "$description": "Edge of a control in the info state.",
+        "$extensions": {
+          "nam-ui": {
+            "dark": "{color.info.500}",
+            "contrast": {
+              "min": 3,
+              "on": ["surface.page", "surface.card", "fill.input"]
+            }
+          }
+        }
+      },
+      "subtle": {
+        "$value": "{color.info.200}",
+        "$description": "Info banner border. Decorative.",
+        "$extensions": {
+          "nam-ui": {
+            "dark": "{color.info.800}"
+          }
+        }
+      }
+    }
+  }
+}

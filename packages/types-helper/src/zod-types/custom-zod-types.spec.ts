@@ -1,9 +1,10 @@
+// oxlint-disable no-magic-numbers
 import { ZodNonEmptyPrimitive, ZodObjectType } from './custom-zod-types.js';
 
 describe('Custom zod types', () => {
   describe('ZodNonEmptyPrimitive', () => {
     it('should parse js primitive value', () => {
-      const primitives: unknown[] = ['test', 1, true, Symbol('test'), BigInt(9007199254740991)];
+      const primitives: unknown[] = ['test', 1, true, Symbol('test'), 9_007_199_254_740_991n];
 
       primitives.forEach((pri) => ZodNonEmptyPrimitive.parse(pri));
     });
@@ -34,8 +35,8 @@ describe('Custom zod types', () => {
         1,
         true,
         Symbol('test'),
-        BigInt(9007199254740991),
-        new Array(1),
+        9_007_199_254_740_991n,
+        Array.from({ length: 1 }),
       ];
 
       for (const nonOb of nonObjects) {

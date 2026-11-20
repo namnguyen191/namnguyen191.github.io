@@ -1,0 +1,22 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "trailingComma": "es5",
+  "tabWidth": 2,
+  "singleQuote": true,
+  "printWidth": 100,
+  "sortPackageJson": true,
+  // Replaces eslint-plugin-simple-import-sort with oxfmt's default import order. Unlike that plugin,
+  // it does not sort `export ... from` statements.
+  "sortImports": true,
+  "associations": [
+    {
+      "files": ["*.html"],
+      "language": "html",
+    },
+    {
+      "files": ["*.component.html"],
+      "language": "angular-html",
+    },
+  ],
+  "ignorePatterns": ["/dist", "/coverage", ".angular", "generated"],
+}

@@ -1,0 +1,29 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "extends": ["//"],
+  "tasks": {
+    "tokens": {
+      "inputs": [
+        "tokens/**",
+        "style-dictionary.config.ts",
+        "src/scripts/token_verification/**",
+        "src/scripts/shared/**"
+      ],
+      "outputs": ["src/generated/**"]
+    },
+    "generate-palette": {
+      "inputs": [
+        "src/scripts/palette_generator/**",
+        "src/scripts/shared/**",
+        "$TURBO_ROOT$/.oxfmtrc.jsonc"
+      ],
+      "outputs": ["tokens/primitive/palette.json"]
+    },
+    "build": { "dependsOn": ["^build", "tokens"] },
+    "test": { "dependsOn": ["tokens"] },
+    "lint": { "dependsOn": ["^lint", "tokens"] },
+    "check-types": {
+      "dependsOn": ["build"]
+    }
+  }
+}

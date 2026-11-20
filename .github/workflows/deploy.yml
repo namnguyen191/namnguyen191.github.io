@@ -11,29 +11,61 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [24.x]
+    # A fixed version, not ubuntu-latest: the visual tests' reference pictures for CI are drawn on
+    # this one (SCREENSHOT_ENV below). Moving to another is a new environment: rename
+    # SCREENSHOT_ENV, and commit the pictures its first run uploads.
+    runs-on: ubuntu-24.04
 
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v6
+        with:
+          fetch-depth: 20
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
 
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Use Node.js 24.x
         uses: actions/setup-node@v6
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: 24.x
           cache: 'pnpm'
 
-      - name: Install and Build
-        run: |
-          pnpm i --frozen-lockfile
-          pnpm turbo build --filter=main-site
+      - name: Install
+        run: pnpm i --frozen-lockfile
+
+      # The Storybook tests run in Playwright's Chromium, which `pnpm i` doesn't download.
+      - name: Install Playwright's Chromium
+        run: pnpm --filter nam-ui-react-storybook exec playwright install --with-deps --only-shell chromium
+
+      - name: Check formatting, linting, types and tests
+        run: pnpm ci-checks
+        env:
+          SCREENSHOT_ENV: gh-action-ubuntu-24.04
+
+      # CI's reference pictures, with any it drew because they were missing. How to copy them back:
+      # `gh-action-ubuntu-24.04` in nam-ui-react-storybook's README.
+      - name: Upload CI's reference pictures
+        if: failure()
+        uses: actions/upload-artifact@v6
+        with:
+          name: ci-reference-pictures
+          path: apps/nam-ui-react-storybook/__screenshots__/gh-action-ubuntu-24.04
+          if-no-files-found: ignore
+          retention-days: 7
+
+      # For each picture that didn't match its reference: what CI drew, and the difference.
+      - name: Upload the pictures of failed visual tests
+        if: failure()
+        uses: actions/upload-artifact@v6
+        with:
+          name: failed-visual-tests
+          path: apps/nam-ui-react-storybook/.vitest/attachments
+          if-no-files-found: ignore
+          retention-days: 7
+
+      - name: Build
+        run: pnpm turbo build --filter=main-site
 
       - name: Upload build artifacts
         uses: actions/upload-artifact@v6

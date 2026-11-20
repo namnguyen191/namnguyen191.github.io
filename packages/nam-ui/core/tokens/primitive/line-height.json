@@ -1,0 +1,20 @@
+{
+  "line-height": {
+    "$type": "number",
+    "tight": {
+      "$value": 1.15
+    },
+    "snug": {
+      "$value": 1.25
+    },
+    "normal": {
+      "$value": 1.4
+    },
+    "relaxed": {
+      "$value": 1.5
+    },
+    "loose": {
+      "$value": 1.7
+    }
+  }
+}

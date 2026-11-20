@@ -1,0 +1,117 @@
+{
+  "surface": {
+    "$type": "color",
+    "page": {
+      "$root": {
+        "$value": "{color.neutral.50}",
+        "$description": "Page background, behind everything.",
+        "$extensions": {
+          "nam-ui": {
+            "dark": "{color.neutral.950}"
+          }
+        }
+      },
+      "row-hover": {
+        "$value": "{color.neutral.100}",
+        "$description": "Hovered list or table row sitting directly on the page.",
+        "$extensions": {
+          "nam-ui": {
+            "dark": "{color.neutral.900}"
+          }
+        }
+      },
+      "row-pressed": {
+        "$value": "{color.neutral.200}",
+        "$description": "Pressed row on the page. Pressable rows contain no links.",
+        "$extensions": {
+          "nam-ui": {
+            "dark": "{color.neutral.800}"
+          }
+        }
+      },
+      "row-selected": {
+        "$value": "{color.primary.100}",
+        "$description": "Selected row on the page, with border.selected. Same on hover and press.",
+        "$extensions": {
+          "nam-ui": {
+            "dark": "{color.primary.900}"
+          }
+        }
+      }
+    },
+    "card": {
+      "$root": {
+        "$value": "{color.white}",
+        "$description": "Cards, panels and other raised surfaces.",
+        "$extensions": {
+          "nam-ui": {
+            "dark": "{color.neutral.900}"
+          }
+        }
+      },
+      "row-hover": {
+        "$value": "{color.neutral.100}",
+        "$description": "Hovered row inside a card.",
+        "$extensions": {
+          "nam-ui": {
+            "dark": "{color.neutral.800}"
+          }
+        }
+      },
+      "row-pressed": {
+        "$value": "{color.neutral.200}",
+        "$description": "Pressed row inside a card. Dark is the same as hover; the press effect is designed with the row component.",
+        "$extensions": {
+          "nam-ui": {
+            "dark": "{color.neutral.800}"
+          }
+        }
+      },
+      "row-selected": {
+        "$value": "{color.primary.100}",
+        "$description": "Selected row inside a card, with border.selected. Same on hover and press.",
+        "$extensions": {
+          "nam-ui": {
+            "dark": "{color.primary.800}"
+          }
+        }
+      }
+    },
+    "error": {
+      "$value": "{color.error.100}",
+      "$description": "Banner and inline-message background for error, with text.error, icon.error and border.error.subtle.",
+      "$extensions": {
+        "nam-ui": {
+          "dark": "{color.error.900}"
+        }
+      }
+    },
+    "warning": {
+      "$value": "{color.warning.100}",
+      "$description": "Banner and inline-message background for warning, with text.warning, icon.warning and border.warning.subtle.",
+      "$extensions": {
+        "nam-ui": {
+          "dark": "{color.warning.900}"
+        }
+      }
+    },
+    "success": {
+      "$value": "{color.success.100}",
+      "$description": "Banner and inline-message background for success, with text.success, icon.success and border.success.subtle.",
+      "$extensions": {
+        "nam-ui": {
+          "dark": "{color.success.900}"
+        }
+      }
+    },
+    "info": {
+      "$value": "{color.info.100}",
+      "$description": "Banner and inline-message background for info, with text.info, icon.info and border.info.subtle.",
+      "$extensions": {
+        "nam-ui": {
+          "dark": "{color.info.900}"
+        }
+      }
+    }
+  }
+}

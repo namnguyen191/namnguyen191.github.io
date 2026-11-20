@@ -1,0 +1,16 @@
+/*
+ * @nam-ui/core/fonts: opt-in. Import this file to load Quicksand, the typeface nam-ui is designed
+ * around; apps that host fonts their own way skip it and declare their own @font-face.
+ *
+ * quicksand/Quicksand-VariableFont_wght.woff2 is the original variable font from Google Fonts in a
+ * WOFF2 container: same glyphs, same tables, same copyright and license metadata, no subsetting.
+ * Keep it that way. The OFL treats a subset as a modified version, and Quicksand declares a
+ * Reserved Font Name. The license text sits next to the font (quicksand/OFL.txt).
+ */
+@font-face {
+  font-family: 'Quicksand';
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url('./quicksand/Quicksand-VariableFont_wght.woff2') format('woff2');
+}

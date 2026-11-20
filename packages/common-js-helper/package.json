@@ -1,36 +1,8 @@
 {
   "name": "@namnguyen191/common-js-helper",
-  "publishConfig": {
-    "access": "public"
-  },
   "version": "1.1.3",
   "type": "module",
   "sideEffects": false,
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview",
-    "test": "vitest run --coverage",
-    "lint": "eslint . --max-warnings 0"
-  },
-  "peerDependencies": {
-    "zod": "catalog:",
-    "lodash-es": "catalog:",
-    "type-fest": "catalog:"
-  },
-  "devDependencies": {
-    "@repo/shared-configs": "workspace:*",
-    "@types/node": "catalog:typescript-latest",
-    "@types/lodash-es": "catalog:",
-    "@vitest/coverage-v8": "catalog:vite-latest",
-    "typescript": "catalog:typescript-latest",
-    "vite": "catalog:vite-latest",
-    "vite-plugin-dts": "catalog:vite-latest",
-    "vitest": "catalog:vite-latest",
-    "@eslint/js": "catalog:eslint-latest",
-    "eslint": "catalog:eslint-latest",
-    "typescript-eslint": "catalog:eslint-latest"
-  },
   "exports": {
     ".": {
       "import": "./dist/index.js",
@@ -48,5 +20,34 @@
       "import": "./dist/time.js",
       "types": "./dist/types/time.d.ts"
     }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest run --coverage",
+    "check-types": "tsc -b --noEmit",
+    "lint": "oxlint --type-aware --max-warnings 0"
+  },
+  "devDependencies": {
+    "@repo/shared-configs": "workspace:*",
+    "@types/lodash-es": "catalog:",
+    "@types/node": "catalog:typescript-latest",
+    "@typescript/native": "catalog:typescript-latest",
+    "@vitest/coverage-v8": "catalog:vite-latest",
+    "oxlint": "catalog:oxlint-latest",
+    "oxlint-tsgolint": "catalog:oxlint-latest",
+    "typescript": "catalog:typescript-latest",
+    "vite": "catalog:vite-latest",
+    "vite-plugin-dts": "catalog:vite-latest",
+    "vitest": "catalog:vite-latest"
+  },
+  "peerDependencies": {
+    "lodash-es": "catalog:",
+    "type-fest": "catalog:",
+    "zod": "catalog:"
   }
 }

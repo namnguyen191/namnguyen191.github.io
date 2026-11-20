@@ -1,0 +1,65 @@
+@use '@nam-ui/core/scss/semantic/typography';
+@use '@nam-ui/core/scss/semantic/fill';
+@use '@nam-ui/core/scss/semantic/text';
+@use '@nam-ui/core/scss/semantic/border';
+
+.nam-button {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  box-sizing: border-box;
+  max-inline-size: 100%;
+  // A transparent border keeps the button visible when forced-colors mode (Windows High Contrast)
+  // removes backgrounds, and keeps the size equal if a variant later gets a visible edge.
+  border: 1px solid transparent; // no token yet
+  cursor: pointer;
+
+  // <button> does not inherit the page's font, so it has to be set here.
+  font-family: typography.$font-family-sans;
+  font-weight: 600; // no token yet
+  line-height: typography.$line-height-body;
+  border-radius: 0.5rem; // no token yet
+
+  &--sm {
+    min-height: 2rem; // no token yet
+    padding: 0.25rem 0.75rem; // no token yet
+    font-size: 0.875rem; // no token yet
+  }
+
+  &--md {
+    min-height: 2.5rem; // no token yet
+    padding: 0.5rem 1rem; // no token yet
+    font-size: 1rem; // no token yet
+  }
+
+  &--lg {
+    min-height: 3rem; // no token yet
+    padding: 0.75rem 1.5rem; // no token yet
+    font-size: 1.1rem; // no token yet
+  }
+
+  &--primary {
+    background-color: fill.$fill-primary;
+    color: text.$text-on-primary;
+
+    &:hover:not(:active, :disabled) {
+      background-color: fill.$fill-primary-hover;
+    }
+
+    &:active:not(:disabled) {
+      background-color: fill.$fill-primary-pressed;
+    }
+  }
+
+  &:focus-visible {
+    outline: 2px solid border.$border-focus; // width: no token yet
+    outline-offset: 2px; // no token yet
+  }
+
+  &:disabled {
+    background-color: fill.$fill-disabled;
+    color: text.$text-disabled;
+    cursor: not-allowed;
+  }
+}

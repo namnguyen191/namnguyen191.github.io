@@ -1,8 +1,10 @@
-import { type PropsWithChildren, type ReactElement } from 'react';
+import type { PropsWithChildren, ReactElement } from 'react';
 
 import styles from './ToolTip.module.scss';
 
-export type ToolTipProps = { text: string };
+export interface ToolTipProps {
+  text: string;
+}
 
 export const ToolTip = (props: PropsWithChildren<ToolTipProps>): ReactElement => {
   const { text, children } = props;

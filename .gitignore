@@ -11,6 +11,7 @@ node_modules
 .env.development.local
 .env.test.local
 .env.production.local
+*.local
 
 # Testing
 coverage
@@ -26,12 +27,25 @@ coverage
 out/
 build
 dist
-tsconfig.tsbuildinfo
+dist-ssr
+*.tsbuildinfo
 
-# Debug
+# Logs & debug
+logs
+*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Editor directories and files
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
 
 # Misc
 .DS_Store

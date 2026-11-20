@@ -1,0 +1,9 @@
+{
+  "font-family": {
+    "$type": "fontFamily",
+    "quicksand": {
+      "$value": ["Quicksand", "system-ui"],
+      "$description": "Quicksand, then the OS UI font while it loads or if it fails. The typeface itself ships through @nam-ui/core/fonts."
+    }
+  }
+}

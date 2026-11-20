@@ -17,7 +17,7 @@ describe('removeEmptyKeys', () => {
       },
     };
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    // oxlint-disable-next-line typescript/no-unsafe-type-assertion typescript/no-explicit-any
     testObj = removeEmptyKeys(testObj) as any;
 
     expect(testObj).toEqual(expectedObj);

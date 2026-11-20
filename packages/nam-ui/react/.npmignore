@@ -1,0 +1,4 @@
+coverage
+tsconfig*
+vite.config*
+oxlint.config*

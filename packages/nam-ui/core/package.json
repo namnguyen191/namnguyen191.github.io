@@ -1,0 +1,73 @@
+{
+  "name": "@nam-ui/core",
+  "version": "0.0.0",
+  "files": [
+    "dist"
+  ],
+  "type": "module",
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./js/*": {
+      "types": "./dist/types/generated/js/*.d.ts",
+      "import": "./dist/generated/js/*.js"
+    },
+    "./css": {
+      "types": "./dist/types/css.d.ts",
+      "default": "./dist/generated/css/index.css"
+    },
+    "./css/*": {
+      "types": "./dist/types/css.d.ts",
+      "default": "./dist/generated/css/*.css"
+    },
+    "./fonts": {
+      "types": "./dist/types/css.d.ts",
+      "default": "./dist/fonts/fonts.css"
+    },
+    "./fonts/*": "./dist/fonts/*",
+    "./scss": {
+      "sass": "./dist/scss/_index.scss",
+      "default": "./dist/scss/_index.scss"
+    },
+    "./scss/*": {
+      "sass": "./dist/generated/scss/*",
+      "default": "./dist/generated/scss/*"
+    },
+    "./package.json": "./package.json"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "tokens": "style-dictionary build --config style-dictionary.config.ts",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "check-types": "tsc -b --noEmit",
+    "test": "vitest run --coverage",
+    "lint": "oxlint --type-aware --max-warnings 0",
+    "generate-palette": "node src/scripts/palette_generator/generate_palette_script.ts"
+  },
+  "devDependencies": {
+    "@repo/shared-configs": "workspace:*",
+    "@types/node": "catalog:typescript-latest",
+    "@typescript/native": "catalog:typescript-latest",
+    "@vitest/coverage-v8": "catalog:vite-latest",
+    "oxfmt": "catalog:",
+    "oxlint": "catalog:oxlint-latest",
+    "oxlint-tsgolint": "catalog:oxlint-latest",
+    "sass": "catalog:",
+    "style-dictionary": "catalog:",
+    "type-fest": "catalog:",
+    "typescript": "catalog:typescript-latest",
+    "vite": "catalog:vite-latest",
+    "vite-plugin-dts": "catalog:vite-latest",
+    "vitest": "catalog:vite-latest"
+  },
+  "sass": "./dist/scss/_index.scss"
+}

@@ -1,33 +1,8 @@
 {
   "name": "@namnguyen191/types-helper",
-  "publishConfig": {
-    "access": "public"
-  },
   "version": "1.1.1",
   "type": "module",
   "sideEffects": false,
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview",
-    "test": "vitest run --coverage",
-    "lint": "eslint . --max-warnings 0"
-  },
-  "peerDependencies": {
-    "zod": "catalog:"
-  },
-  "devDependencies": {
-    "@repo/shared-configs": "workspace:*",
-    "@types/node": "catalog:typescript-latest",
-    "@vitest/coverage-v8": "catalog:vite-latest",
-    "typescript": "catalog:typescript-latest",
-    "vite": "catalog:vite-latest",
-    "vite-plugin-dts": "catalog:vite-latest",
-    "vitest": "catalog:vite-latest",
-    "@eslint/js": "catalog:eslint-latest",
-    "eslint": "catalog:eslint-latest",
-    "typescript-eslint": "catalog:eslint-latest"
-  },
   "exports": {
     ".": {
       "types": "./dist/types/index.d.ts",
@@ -41,5 +16,31 @@
       "types": "./dist/types/zod-types/utils.d.ts",
       "import": "./dist/utils.js"
     }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest run --coverage",
+    "check-types": "tsc -b --noEmit",
+    "lint": "oxlint --type-aware --max-warnings 0"
+  },
+  "devDependencies": {
+    "@repo/shared-configs": "workspace:*",
+    "@types/node": "catalog:typescript-latest",
+    "@typescript/native": "catalog:typescript-latest",
+    "@vitest/coverage-v8": "catalog:vite-latest",
+    "oxlint": "catalog:oxlint-latest",
+    "oxlint-tsgolint": "catalog:oxlint-latest",
+    "typescript": "catalog:typescript-latest",
+    "vite": "catalog:vite-latest",
+    "vite-plugin-dts": "catalog:vite-latest",
+    "vitest": "catalog:vite-latest"
+  },
+  "peerDependencies": {
+    "zod": "catalog:"
   }
 }

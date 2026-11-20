@@ -1,0 +1,2 @@
+# The tests of every package the branch changed, and of the packages that depend on them.
+pnpm test:affected

@@ -1,13 +1,14 @@
+// oxlint-disable max-params no-magic-numbers
 import axios from 'axios';
 
 const GITHUB_RAW_FILE_BASE_URL = 'https://raw.githubusercontent.com';
 
 let GITHUB_API_BASE_URL = 'https://github-api-server.vercel.app/api/repos';
-if (import.meta.env.MODE === 'DEV') {
+if (import.meta.env.DEV) {
   GITHUB_API_BASE_URL = 'http://localhost:8000';
 }
 
-export type Repo = {
+export interface Repo {
   id: number;
   name: string;
   full_name: string;
@@ -17,7 +18,7 @@ export type Repo = {
   html_url: string;
   topics: string[];
   homepage: string | null;
-};
+}
 
 export const getFile = async (
   user: string,
@@ -31,7 +32,7 @@ export const getFile = async (
     );
 
     return res.data;
-  } catch (_error) {
+  } catch {
     return null;
   }
 };
@@ -52,6 +53,7 @@ export const getUserRepos = async (params: {
   } = params;
 
   if (pageLength > 100) {
+    // oxlint-disable-next-line no-console
     console.error('pageLength cannot exceed 100');
     return null;
   }
@@ -62,7 +64,7 @@ export const getUserRepos = async (params: {
     );
 
     return res.data;
-  } catch (_error) {
+  } catch {
     return null;
   }
 };

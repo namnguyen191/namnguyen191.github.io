@@ -2,8 +2,8 @@ import { readFile } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
-import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
+import { McpServer } from '@modelcontextprotocol/sdk/server/mcp';
+import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio';
 import { z } from 'zod';
 
 const GH_API_URL = 'https://api.github.com';
@@ -54,7 +54,8 @@ server.registerTool(
       },
     });
 
-    const reposInfo: { name: string }[] = await userReposResponse.json();
+    // oxlint-disable-next-line typescript/no-unsafe-type-assertion
+    const reposInfo = (await userReposResponse.json()) as { name: string }[];
     const reposList = reposInfo.map((repo, i) => `${i}. ${repo.name}`).join('\n\n');
 
     const output = {
@@ -121,10 +122,12 @@ server.registerPrompt(
 
 async function main(): Promise<void> {
   const transport = new StdioServerTransport();
-  server.connect(transport);
+  await server.connect(transport);
 }
 
-main().catch((err) => {
-  console.error('Error in main: ', err);
+main().catch((error: unknown) => {
+  // oxlint-disable-next-line no-console
+  console.error('Error in main:', error);
+  // oxlint-disable-next-line unicorn/no-process-exit no-magic-numbers
   process.exit(1);
 });
